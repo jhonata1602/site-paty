@@ -105,7 +105,7 @@
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
   --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
@@ -182,10 +182,10 @@
   }
 }
 
-/* Logo exata aprovada pelo cliente: topo e rodapé. */
+/* Logo exata aprovada: topo e rodapé. */
 header a[aria-label="Fast Drywall início"],
 footer a[aria-label="Voltar ao início"] {
-  background-image: url('/fast-logo-exata.svg?v=20260828-1');
+  background-image: url('/fast-logo-approved.svg?v=20260828-2');
   background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
