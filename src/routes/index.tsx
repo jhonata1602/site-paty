@@ -298,7 +298,13 @@ function Index() {
                 excelente acabamento.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <WhatsButton label="Falar com a equipe" size="lg" />
+                <a
+                  href="#formulario"
+                  className="group inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-8 text-base font-black text-white shadow-lg shadow-red-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-500"
+                >
+                  Solicitar orçamento
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
                 <a
                   href="#servicos"
                   className="group inline-flex h-14 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 text-base font-black text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500 hover:bg-emerald-500"
