@@ -341,7 +341,7 @@ function Index() {
                 />
                 <button
                   disabled={!ready}
-                  className={`inline-flex h-13 w-full items-center justify-center gap-2 rounded-full py-4 text-sm font-black transition-all duration-300 ${
+                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full py-4 text-sm font-black transition-all duration-300 ${
                     ready
                       ? "bg-red-600 text-white shadow-lg shadow-red-600/25 hover:-translate-y-0.5 hover:bg-emerald-500 active:bg-emerald-600"
                       : "cursor-not-allowed bg-white/10 text-zinc-500"
