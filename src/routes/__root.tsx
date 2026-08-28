@@ -83,5 +83,21 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  return <QueryClientProvider client={queryClient}><Outlet /></QueryClientProvider>;
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Outlet />
+      <div className="border-t border-zinc-200 bg-white px-5 py-4 text-center text-xs text-zinc-500">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-2">
+          <a href="/politica-de-privacidade.html" className="font-semibold transition hover:text-red-600 hover:underline">
+            Política de Privacidade
+          </a>
+          <span className="text-zinc-300" aria-hidden="true">|</span>
+          <a href="/termos-de-uso.html" className="font-semibold transition hover:text-red-600 hover:underline">
+            Termos de Uso
+          </a>
+        </div>
+      </div>
+    </QueryClientProvider>
+  );
 }
