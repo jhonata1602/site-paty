@@ -119,6 +119,11 @@ function RootComponent() {
       const fourthCard = grid?.children.item(3) as HTMLElement | null;
       if (!fourthCard) return false;
 
+      const reviewText = fourthCard.querySelector("p.mt-5") as HTMLParagraphElement | null;
+      if (reviewText) {
+        reviewText.textContent = "“Tive um problema na minha obra e a equipe da Fast Drywall me atendeu muito bem. Resolveram tudo com atenção, rapidez e um atendimento especial.”";
+      }
+
       const footer = fourthCard.querySelector(".mt-auto.flex.items-center.gap-4.pt-7") as HTMLElement | null;
       if (!footer) return false;
 
