@@ -108,9 +108,9 @@ function Brand({ footer = false }: { footer?: boolean }) {
 
 function WhatsAppMark({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-white shadow-lg shadow-red-950/20">
+    <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-emerald-950/20">
       <Phone className={`${className} -rotate-12`} strokeWidth={2.5} />
-      <span className="absolute -bottom-1 left-1 h-3 w-3 rotate-45 bg-red-500" />
+      <span className="absolute -bottom-1 left-1 h-3 w-3 rotate-45 bg-[#25D366]" />
     </span>
   );
 }
@@ -243,14 +243,8 @@ function Index() {
 
         <section id="sobre" className="py-20 lg:py-24">
           <div className="mx-auto grid max-w-7xl items-stretch gap-12 px-5 lg:grid-cols-2 lg:px-8">
-            <div className="relative min-h-[560px] overflow-hidden rounded-3xl shadow-2xl">
-              <img src={storeImg} alt="Fachada da Fast Drywall" className="absolute inset-0 h-full w-full object-cover object-[center_42%]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-black/80 p-5 text-white backdrop-blur">
-                <p className="text-xs font-black uppercase tracking-[.25em] text-red-400">Loja física</p>
-                <h3 className="mt-2 text-2xl font-black">Fast Drywall &amp; Steel Frame VCA</h3>
-                <p className="mt-2 text-sm text-zinc-300">Vitória da Conquista - BA · (77) 98856-0246</p>
-              </div>
+            <div className="min-h-[560px] overflow-hidden rounded-3xl bg-zinc-100 shadow-2xl">
+              <img src={storeImg} alt="Fachada da Fast Drywall" className="h-full min-h-[560px] w-full object-cover object-[center_42%]" />
             </div>
             <div className="flex h-full flex-col justify-center">
               <p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Quem somos</p>
@@ -312,8 +306,8 @@ function Index() {
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img src={p.image} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                    <div className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-red-600 shadow-lg transition group-hover:translate-x-1">
-                      <ArrowRight className="h-4 w-4" />
+                    <div className="absolute right-4 top-4 grid h-12 w-12 place-items-center rounded-full bg-white/95 text-red-600 shadow-lg transition duration-300 group-hover:translate-x-1 group-hover:scale-105">
+                      <ArrowRight className="h-5 w-5" />
                     </div>
                   </div>
                   <div className="p-6"><h3 className="text-lg font-black">{p.title}</h3></div>
