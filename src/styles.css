@@ -142,3 +142,35 @@
     color: var(--color-foreground);
   }
 }
+
+/* Fachada "Quem somos": preservar a foto inteira em todas as telas. */
+#sobre > div > div:first-child {
+  min-height: 0 !important;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+#sobre > div > div:first-child > img {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+/* No desktop o bloco da foto acompanha exatamente a altura do conteúdo e dos cards ao lado. */
+@media (min-width: 1024px) {
+  #sobre > div > div:first-child {
+    height: 100% !important;
+    min-height: 560px !important;
+  }
+
+  #sobre > div > div:first-child > img {
+    height: 100% !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+  }
+}
