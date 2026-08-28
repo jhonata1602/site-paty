@@ -51,6 +51,8 @@ const phone = "5577988560246";
 const heroImage = "https://www.westhollywooddrywallservices.com/weho-drywall-hero.png";
 const maps =
   "https://www.google.com/maps/search/?api=1&query=Fast+Drywall+Steel+Frame+Vit%C3%B3ria+da+Conquista";
+const instagram = "https://www.instagram.com/fastdrywall.vitoriaconquista/";
+const facebook = "https://www.facebook.com/fastdrywall.vitconquista.ba";
 const wa = (text: string) =>
   `https://wa.me/${phone}?text=${encodeURIComponent(`Olá, Fast Drywall! ${text}`)}`;
 
@@ -82,10 +84,10 @@ const solutions = [
 ];
 
 const products = [
-  { title: "Placas de Drywall", image: prodPlacas },
-  { title: "Perfis Steel Frame", image: prodPerfisSf },
-  { title: "Forros e Gesso", image: prodGesso },
-  { title: "Perfis e Acessórios", image: prodAcessorios },
+  { title: "Placas de Drywall", image: prodPlacas, interest: "Drywall" },
+  { title: "Steel Frame", image: prodPerfisSf, interest: "Steel Frame" },
+  { title: "Forros e Gesso", image: prodGesso, interest: "Gesso e forros" },
+  { title: "Perfis e Acessórios", image: prodAcessorios, interest: "Perfis e acessórios" },
 ];
 
 const reviews = [
@@ -94,13 +96,22 @@ const reviews = [
   { name: "Diego S.", image: av3, text: "Empresa boa, ótima qualidade nos materiais e equipe exemplar." },
 ];
 
-function Brand() {
+function Brand({ footer = false }: { footer?: boolean }) {
   return (
     <img
       src={fastLogo}
       alt="Fast Drywall & Steel Frame"
-      className="h-12 w-auto rounded-md bg-white object-contain px-2 py-1"
+      className={`${footer ? "h-14 sm:h-16" : "h-12 sm:h-14"} w-auto object-contain`}
     />
+  );
+}
+
+function WhatsAppMark({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-white shadow-lg shadow-red-950/20">
+      <Phone className={`${className} -rotate-12`} strokeWidth={2.5} />
+      <span className="absolute -bottom-1 left-1 h-3 w-3 rotate-45 bg-red-500" />
+    </span>
   );
 }
 
@@ -134,6 +145,10 @@ function Index() {
     if (ready) window.open(leadUrl, "_blank", "noopener,noreferrer");
   };
 
+  const selectProduct = (interest: string) => {
+    set("interest", interest);
+  };
+
   const field =
     "h-11 w-full rounded-lg border border-white/10 bg-white/[.07] px-4 text-sm text-white placeholder:text-zinc-400 outline-none transition focus:border-red-500 focus:bg-white/[.1]";
 
@@ -149,17 +164,19 @@ function Index() {
         <MessageCircle className="h-6 w-6" />
       </a>
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-[76px] max-w-[1380px] items-center justify-between px-5 lg:px-8">
-          <a href="#inicio"><Brand /></a>
-          <nav className="hidden items-center gap-10 text-[13px] font-bold text-zinc-300 lg:flex">
-            <a href="#sobre" className="hover:text-white">Sobre</a>
-            <a href="#servicos" className="hover:text-white">Soluções</a>
-            <a href="#produtos" className="hover:text-white">Produtos</a>
-            <a href="#avaliacoes" className="hover:text-white">Avaliações</a>
-            <a href="#localizacao" className="hover:text-white">Localização</a>
+      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 shadow-sm backdrop-blur-xl">
+        <div className="mx-auto flex h-[84px] max-w-[1380px] items-center justify-between px-5 lg:px-8">
+          <a href="#inicio" aria-label="Fast Drywall início" className="shrink-0">
+            <Brand />
+          </a>
+          <nav className="hidden items-center gap-10 text-[13px] font-bold text-zinc-600 lg:flex">
+            <a href="#sobre" className="transition hover:text-red-600">Sobre</a>
+            <a href="#servicos" className="transition hover:text-red-600">Soluções</a>
+            <a href="#produtos" className="transition hover:text-red-600">Produtos</a>
+            <a href="#avaliacoes" className="transition hover:text-red-600">Avaliações</a>
+            <a href="#localizacao" className="transition hover:text-red-600">Localização</a>
           </nav>
-          <div className="w-12" />
+          <div className="w-10 lg:w-[250px]" aria-hidden="true" />
         </div>
       </header>
 
@@ -192,7 +209,7 @@ function Index() {
             </div>
 
             <div id="formulario" className="relative ml-auto w-full max-w-[470px] scroll-mt-28 rounded-[24px] border border-white/10 bg-zinc-950/90 p-6 shadow-[0_25px_80px_rgba(0,0,0,.55)] backdrop-blur-xl lg:p-7">
-              <MessageCircle className="absolute right-6 top-6 h-8 w-8 text-red-500" />
+              <div className="absolute right-6 top-6"><WhatsAppMark /></div>
               <p className="text-[11px] font-black uppercase tracking-[.28em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
               <h2 className="mt-3 max-w-[340px] text-[1.72rem] font-black leading-[1.02] tracking-[-.035em]">Preencha os dados e siga para o WhatsApp.</h2>
               <p className="mt-2 text-[12px] text-zinc-400">Fale com nossa equipe e receba seu orçamento.</p>
@@ -225,9 +242,9 @@ function Index() {
         </section>
 
         <section id="sobre" className="py-20 lg:py-24">
-          <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-              <img src={storeImg} alt="Fachada da Fast Drywall" className="h-[500px] w-full object-cover" />
+          <div className="mx-auto grid max-w-7xl items-stretch gap-12 px-5 lg:grid-cols-2 lg:px-8">
+            <div className="relative min-h-[560px] overflow-hidden rounded-3xl shadow-2xl">
+              <img src={storeImg} alt="Fachada da Fast Drywall" className="absolute inset-0 h-full w-full object-cover object-[center_42%]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-black/80 p-5 text-white backdrop-blur">
                 <p className="text-xs font-black uppercase tracking-[.25em] text-red-400">Loja física</p>
@@ -235,7 +252,7 @@ function Index() {
                 <p className="mt-2 text-sm text-zinc-300">Vitória da Conquista - BA · (77) 98856-0246</p>
               </div>
             </div>
-            <div>
+            <div className="flex h-full flex-col justify-center">
               <p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Quem somos</p>
               <h2 className="mt-3 text-4xl font-black sm:text-5xl">Sua obra começa com a escolha certa.</h2>
               <p className="mt-6 text-base leading-8 text-zinc-600">A Fast Drywall &amp; Steel Frame VCA é referência em soluções para construção a seco em Vitória da Conquista. Trabalhamos com drywall, steel frame, placas, gesso, forros e acessórios, com atendimento especializado, variedade de produtos e suporte para sua obra.</p>
@@ -279,18 +296,28 @@ function Index() {
           </div>
         </section>
 
-        <section id="produtos" className="bg-zinc-950 py-20 text-white">
+        <section id="produtos" className="bg-[linear-gradient(135deg,#9f1018_0%,#d71920_55%,#f02a32_100%)] py-20 text-white">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="text-center">
-              <p className="text-xs font-black uppercase tracking-[.25em] text-red-400">Linha de produtos</p>
+              <p className="text-xs font-black uppercase tracking-[.25em] text-red-100">Linha de produtos</p>
               <h2 className="mt-3 text-4xl font-black">Materiais de qualidade, pronta entrega.</h2>
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               {products.map((p) => (
-                <article key={p.title} className="overflow-hidden rounded-3xl border border-white/10 bg-white/[.04]">
-                  <img src={p.image} alt={p.title} className="h-48 w-full object-cover" />
+                <a
+                  key={p.title}
+                  href="#formulario"
+                  onClick={() => selectProduct(p.interest)}
+                  className="group overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/90 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:shadow-2xl"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={p.image} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-red-600 shadow-lg transition group-hover:translate-x-1">
+                      <ArrowRight className="h-4 w-4" />
+                    </div>
+                  </div>
                   <div className="p-6"><h3 className="text-lg font-black">{p.title}</h3></div>
-                </article>
+                </a>
               ))}
             </div>
           </div>
@@ -339,35 +366,46 @@ function Index() {
         </section>
       </main>
 
-      <footer className="border-t border-white/10 bg-black py-9 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <Brand />
+      <footer className="border-t border-zinc-200 bg-white py-10 text-zinc-900">
+        <div className="mx-auto flex max-w-7xl flex-col gap-7 px-5 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <a href="#inicio" aria-label="Voltar ao início" className="shrink-0">
+            <Brand footer />
+          </a>
           <p className="text-sm text-zinc-500">© 2026 Fast Drywall &amp; Steel Frame VCA</p>
           <div className="flex items-center gap-3">
             <a
-              href="https://www.instagram.com/fastdrywall.vitoriaconquista/"
+              href={instagram}
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-violet-600 via-pink-500 to-orange-400 text-white shadow-lg transition hover:-translate-y-1"
+              className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-violet-600 via-pink-500 to-orange-400 text-white shadow-lg transition hover:-translate-y-1"
             >
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href="https://www.facebook.com/fastdrywall.vitconquista.ba"
+              href={facebook}
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
-              className="grid h-11 w-11 place-items-center rounded-full bg-[#1877F2] text-white shadow-lg transition hover:-translate-y-1"
+              className="grid h-12 w-12 place-items-center rounded-full bg-[#1877F2] text-white shadow-lg transition hover:-translate-y-1"
             >
               <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href={wa("Quero falar com a equipe.")}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp"
+              className="grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:-translate-y-1"
+            >
+              <Phone className="h-5 w-5 -rotate-12" strokeWidth={2.4} />
             </a>
             <a
               href={maps}
               target="_blank"
               rel="noreferrer"
               aria-label="Google Maps"
-              className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-white shadow-lg transition hover:-translate-y-1"
+              className="relative grid h-12 w-12 place-items-center overflow-hidden rounded-full bg-white shadow-lg ring-1 ring-zinc-200 transition hover:-translate-y-1"
             >
               <span className="absolute left-0 top-0 h-1/2 w-1/2 bg-[#34A853]" />
               <span className="absolute right-0 top-0 h-1/2 w-1/2 bg-[#4285F4]" />
