@@ -388,13 +388,12 @@ function Index() {
                 aria-label="Ver mais avaliações no Google"
               >
                 <div className="flex gap-1 text-amber-500">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div>
-                <p className="mt-5 text-[17px] font-bold leading-8">Veja mais avaliações e experiências de clientes no Google.</p>
+                <p className="mt-5 text-[17px] font-bold leading-8">“Veja mais avaliações e experiências de clientes no Google.”</p>
                 <div className="mt-auto flex items-center gap-4 pt-7">
-                  <span className="grid h-12 w-12 place-items-center rounded-full bg-red-600 text-white"><MapPin className="h-5 w-5" /></span>
-                  <div>
-                    <p className="font-black">Avaliações no Google</p>
-                    <p className="mt-1 text-xs font-semibold text-red-600">Abrir avaliações</p>
-                  </div>
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-zinc-200 text-zinc-700 ring-2 ring-white shadow-sm">
+                    <User className="h-6 w-6" strokeWidth={2.2} />
+                  </span>
+                  <p className="font-black">Clientes Fast</p>
                 </div>
               </a>
             </div>
@@ -457,7 +456,8 @@ function Index() {
             </a>
             <a
               href={wa("Quero falar com a equipe.")}
-              onClick={(event) => handleExternal(event, wa("Quero falar com a equipe."))}
+              onClick={(event) => handleExternal(event, wa("Quero falar com a equipe."))
+              }
               aria-label="WhatsApp"
               className="grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:-translate-y-1"
             >
