@@ -467,9 +467,6 @@ function Index() {
                         </div>
                       ))}
                     </div>
-                    <div className="mt-auto pt-6">
-                      <WhatsButton label="Chamar no WhatsApp" size="sm" full message={`Quero orçamento de ${title}.`} />
-                    </div>
                   </div>
                 </article>
               ))}
