@@ -672,7 +672,7 @@ function Index() {
                   href={maps}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 text-sm font-black text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500 hover:bg-emerald-500"
+                  className="inline-flex h-12 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 text-sm font-black text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500 hover:bg-red-500"
                 >
                   <MapPin className="h-4 w-4" /> Abrir no Google Maps
                 </a>
