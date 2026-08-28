@@ -181,3 +181,39 @@
     object-fit: contain !important;
   }
 }
+
+/* Logo exata aprovada pelo cliente: topo e rodapé. */
+header a[aria-label="Fast Drywall início"],
+footer a[aria-label="Voltar ao início"] {
+  background-image: url('/fast-logo-exata.svg?v=20260828-1');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+}
+
+header a[aria-label="Fast Drywall início"] {
+  width: 210px;
+  height: 64px;
+}
+
+footer a[aria-label="Voltar ao início"] {
+  width: 250px;
+  height: 82px;
+}
+
+header a[aria-label="Fast Drywall início"] > svg,
+footer a[aria-label="Voltar ao início"] > svg {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  header a[aria-label="Fast Drywall início"] {
+    width: 170px;
+    height: 54px;
+  }
+
+  footer a[aria-label="Voltar ao início"] {
+    width: 220px;
+    height: 72px;
+  }
+}
