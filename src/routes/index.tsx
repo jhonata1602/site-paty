@@ -147,10 +147,16 @@ function Index() {
   };
 
   const scrollToForm = () => {
-    document.getElementById("formulario")?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
+    const target = document.getElementById("formulario");
+    if (!target) return;
+
+    const headerOffset = 96;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+
+    window.setTimeout(() => {
+      document.getElementById("lead-name")?.focus({ preventScroll: true });
+    }, 650);
   };
 
   const set = (key: keyof typeof form, value: string) =>
@@ -217,9 +223,16 @@ function Index() {
                 Soluções em drywall, steel frame, gesso, forro e acessórios para uma obra mais rápida, limpa, organizada e com excelente acabamento.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <button type="button" onClick={scrollToForm} className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500">
+                <a
+                  href="#formulario"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToForm();
+                  }}
+                  className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500"
+                >
                   Falar com a equipe <ArrowRight className="h-4 w-4" />
-                </button>
+                </a>
                 <a href="#servicos" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-7 py-3.5 text-sm font-black text-white backdrop-blur transition hover:bg-white/10">
                   Ver soluções <ArrowRight className="h-4 w-4" />
                 </a>
@@ -233,7 +246,7 @@ function Index() {
                 <h2 className="mt-3 max-w-[340px] text-[1.72rem] font-black leading-[1.02] tracking-[-.035em]">Preencha os dados e siga para o WhatsApp.</h2>
                 <p className="mt-2 text-[12px] text-zinc-400">Fale com nossa equipe e receba seu orçamento.</p>
                 <form onSubmit={submit} className="mt-5 space-y-3">
-                  <div className="relative"><User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} /></div>
+                  <div className="relative"><User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input id="lead-name" value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} /></div>
                   <div className="relative"><Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu Gmail / e-mail" className={`${field} pl-11`} /></div>
                   <div className="relative"><Phone className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="Seu WhatsApp" className={`${field} pl-11`} /></div>
                   <select value={form.interest} onChange={(e) => set("interest", e.target.value)} className={field}>
