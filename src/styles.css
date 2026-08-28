@@ -143,29 +143,36 @@
   }
 }
 
-/* Fachada "Quem somos": preservar a foto inteira em todas as telas. */
+/* Fachada "Quem somos": foto inteira, borda branca fina e proporção equilibrada. */
 #sobre > div > div:first-child {
   min-height: 0 !important;
   height: auto;
+  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 12px;
+  border: 1px solid var(--color-border);
   background: white;
+  box-sizing: border-box;
 }
 
 #sobre > div > div:first-child > img {
+  display: block;
   width: 100% !important;
   height: auto !important;
   min-height: 0 !important;
+  border-radius: 18px;
   object-fit: contain !important;
   object-position: center center !important;
 }
 
-/* No desktop o bloco da foto acompanha exatamente a altura do conteúdo e dos cards ao lado. */
+/* Desktop: card da fachada nivelado visualmente com o bloco de conteúdo e ícones. */
 @media (min-width: 1024px) {
   #sobre > div > div:first-child {
-    height: 100% !important;
-    min-height: 560px !important;
+    height: 520px !important;
+    min-height: 520px !important;
+    align-self: center;
   }
 
   #sobre > div > div:first-child > img {
