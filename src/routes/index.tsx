@@ -146,6 +146,13 @@ function Index() {
     openExternal(url);
   };
 
+  const scrollToForm = () => {
+    document.getElementById("formulario")?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
   const set = (key: keyof typeof form, value: string) =>
     setForm((prev) => ({ ...prev, [key]: value }));
 
@@ -163,14 +170,15 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-white text-zinc-950 antialiased">
-      <a
-        href={wa("Quero solicitar um orçamento.")}
-        onClick={(event) => handleExternal(event, wa("Quero solicitar um orçamento."))}
-        aria-label="WhatsApp"
-        className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-2xl transition hover:scale-110 hover:bg-emerald-400"
+      <button
+        type="button"
+        onClick={scrollToForm}
+        aria-label="Preencher formulário de orçamento"
+        title="Preencher formulário"
+        className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-2xl transition hover:scale-110 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/40"
       >
         <MessageCircle className="h-6 w-6" />
-      </a>
+      </button>
 
       <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 shadow-sm backdrop-blur-xl">
         <div className="mx-auto flex h-[84px] max-w-[1380px] items-center justify-between px-5 lg:px-8">
@@ -189,13 +197,15 @@ function Index() {
       </header>
 
       <main>
-        <section id="inicio" className="relative min-h-[650px] overflow-hidden bg-black text-white">
-          <img src={heroImage} alt="Profissionais instalando placas de drywall" className="absolute inset-0 h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.97)_0%,rgba(0,0,0,.88)_36%,rgba(0,0,0,.32)_68%,rgba(72,6,6,.72)_100%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/25" />
+        <section id="inicio" className="relative min-h-[760px] overflow-visible bg-black text-white">
+          <div className="absolute inset-0 overflow-hidden">
+            <img src={heroImage} alt="Profissionais instalando placas de drywall" className="absolute inset-0 h-full w-full object-cover object-center" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.97)_0%,rgba(0,0,0,.88)_36%,rgba(0,0,0,.32)_68%,rgba(72,6,6,.72)_100%)]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/25" />
+          </div>
 
-          <div className="relative mx-auto grid min-h-[650px] max-w-[1380px] items-center gap-12 px-5 py-12 lg:grid-cols-[1fr_.82fr] lg:px-8">
-            <div className="max-w-[590px]">
+          <div className="relative mx-auto grid min-h-[760px] max-w-[1380px] items-start gap-12 px-5 py-12 lg:grid-cols-[1fr_.82fr] lg:px-8 lg:py-16">
+            <div className="max-w-[590px] lg:pt-20">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-4 py-2 backdrop-blur-md">
                 <span className="text-red-400">✦</span>
                 <span className="text-[12px] font-bold text-zinc-200">Construção a seco em Vitória da Conquista</span>
@@ -207,44 +217,46 @@ function Index() {
                 Soluções em drywall, steel frame, gesso, forro e acessórios para uma obra mais rápida, limpa, organizada e com excelente acabamento.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a href="#formulario" className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500">
+                <button type="button" onClick={scrollToForm} className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500">
                   Falar com a equipe <ArrowRight className="h-4 w-4" />
-                </a>
+                </button>
                 <a href="#servicos" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-7 py-3.5 text-sm font-black text-white backdrop-blur transition hover:bg-white/10">
                   Ver soluções <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
 
-            <div id="formulario" className="relative ml-auto w-full max-w-[470px] scroll-mt-28 rounded-[24px] border border-white/10 bg-zinc-950/90 p-6 shadow-[0_25px_80px_rgba(0,0,0,.55)] backdrop-blur-xl lg:p-7">
-              <div className="absolute right-6 top-6"><WhatsAppMark /></div>
-              <p className="text-[11px] font-black uppercase tracking-[.28em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
-              <h2 className="mt-3 max-w-[340px] text-[1.72rem] font-black leading-[1.02] tracking-[-.035em]">Preencha os dados e siga para o WhatsApp.</h2>
-              <p className="mt-2 text-[12px] text-zinc-400">Fale com nossa equipe e receba seu orçamento.</p>
-              <form onSubmit={submit} className="mt-5 space-y-3">
-                <div className="relative"><User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} /></div>
-                <div className="relative"><Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu Gmail / e-mail" className={`${field} pl-11`} /></div>
-                <div className="relative"><Phone className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="Seu WhatsApp" className={`${field} pl-11`} /></div>
-                <select value={form.interest} onChange={(e) => set("interest", e.target.value)} className={field}>
-                  <option value="" className="text-zinc-900">Selecione seu interesse</option>
-                  <option className="text-zinc-900">Drywall</option>
-                  <option className="text-zinc-900">Steel Frame</option>
-                  <option className="text-zinc-900">Gesso e forros</option>
-                  <option className="text-zinc-900">Perfis e acessórios</option>
-                  <option className="text-zinc-900">Orçamento completo</option>
-                </select>
-                <textarea value={form.message} onChange={(e) => set("message", e.target.value)} placeholder="Descreva rapidamente o que você precisa (opcional)" className="min-h-[88px] w-full rounded-lg border border-white/10 bg-white/[.07] px-4 py-3 text-sm text-white placeholder:text-zinc-400 outline-none transition focus:border-red-500" />
-                {ready ? (
-                  <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 py-3.5 text-sm font-black text-white transition hover:bg-emerald-400">
-                    <MessageCircle className="h-4 w-4" /> Ir para o WhatsApp <ArrowRight className="h-4 w-4" />
-                  </button>
-                ) : (
-                  <div className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white/10 py-3.5 text-sm font-black text-zinc-500">
-                    <MessageCircle className="h-4 w-4" /> Preencha os campos obrigatórios
-                  </div>
-                )}
-                <p className="text-center text-[10px] text-zinc-500">O botão do WhatsApp aparecerá quando preencher todos os campos obrigatórios.</p>
-              </form>
+            <div className="w-full lg:sticky lg:top-[108px] lg:pt-4">
+              <div id="formulario" className="relative ml-auto w-full max-w-[470px] scroll-mt-28 rounded-[24px] border border-white/10 bg-zinc-950/95 p-6 shadow-[0_25px_80px_rgba(0,0,0,.55)] backdrop-blur-xl lg:p-7">
+                <div className="absolute right-6 top-6"><WhatsAppMark /></div>
+                <p className="text-[11px] font-black uppercase tracking-[.28em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
+                <h2 className="mt-3 max-w-[340px] text-[1.72rem] font-black leading-[1.02] tracking-[-.035em]">Preencha os dados e siga para o WhatsApp.</h2>
+                <p className="mt-2 text-[12px] text-zinc-400">Fale com nossa equipe e receba seu orçamento.</p>
+                <form onSubmit={submit} className="mt-5 space-y-3">
+                  <div className="relative"><User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} /></div>
+                  <div className="relative"><Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu Gmail / e-mail" className={`${field} pl-11`} /></div>
+                  <div className="relative"><Phone className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="Seu WhatsApp" className={`${field} pl-11`} /></div>
+                  <select value={form.interest} onChange={(e) => set("interest", e.target.value)} className={field}>
+                    <option value="" className="text-zinc-900">Selecione seu interesse</option>
+                    <option className="text-zinc-900">Drywall</option>
+                    <option className="text-zinc-900">Steel Frame</option>
+                    <option className="text-zinc-900">Gesso e forros</option>
+                    <option className="text-zinc-900">Perfis e acessórios</option>
+                    <option className="text-zinc-900">Orçamento completo</option>
+                  </select>
+                  <textarea value={form.message} onChange={(e) => set("message", e.target.value)} placeholder="Descreva rapidamente o que você precisa (opcional)" className="min-h-[88px] w-full rounded-lg border border-white/10 bg-white/[.07] px-4 py-3 text-sm text-white placeholder:text-zinc-400 outline-none transition focus:border-red-500" />
+                  {ready ? (
+                    <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 py-3.5 text-sm font-black text-white transition hover:bg-emerald-400">
+                      <MessageCircle className="h-4 w-4" /> Ir para o WhatsApp <ArrowRight className="h-4 w-4" />
+                    </button>
+                  ) : (
+                    <div className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white/10 py-3.5 text-sm font-black text-zinc-500">
+                      <MessageCircle className="h-4 w-4" /> Preencha os campos obrigatórios
+                    </div>
+                  )}
+                  <p className="text-center text-[10px] text-zinc-500">O botão do WhatsApp aparecerá quando preencher todos os campos obrigatórios.</p>
+                </form>
+              </div>
             </div>
           </div>
         </section>
@@ -346,7 +358,7 @@ function Index() {
         <section className="bg-red-600 py-14 text-white">
           <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
             <h2 className="text-3xl font-black">Peça seu orçamento sem compromisso.</h2>
-            <p className="mt-2 text-red-50">Preencha o formulário no início da página ou use o WhatsApp flutuante para falar com nossa equipe.</p>
+            <p className="mt-2 text-red-50">Preencha o formulário no início da página ou use o botão flutuante para voltar rapidamente até ele.</p>
           </div>
         </section>
 
