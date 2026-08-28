@@ -181,3 +181,8 @@
     object-fit: contain !important;
   }
 }
+
+/* Logo final da marca: força o arquivo novo no topo e no rodapé, evitando cache da versão anterior. */
+img[alt="Fast Drywall & Steel Frame"] {
+  content: url('/fast-logo-2026.svg');
+}
