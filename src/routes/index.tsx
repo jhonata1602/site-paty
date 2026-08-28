@@ -421,9 +421,6 @@ function Index() {
                   </div>
                 ))}
               </div>
-              <div className="mt-9">
-                <WhatsButton label="Falar com a Fast" message="Quero conhecer melhor a Fast Drywall e pedir orientação." />
-              </div>
             </div>
           </div>
         </section>
