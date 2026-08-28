@@ -84,6 +84,30 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    const handleFooterPhoneClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const phoneLink = target?.closest('footer a[aria-label="WhatsApp"]');
+      const form = document.getElementById("formulario");
+
+      if (!phoneLink || !form) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const headerOffset = 96;
+      const targetTop = form.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+
+      window.setTimeout(() => {
+        document.getElementById("lead-name")?.focus({ preventScroll: true });
+      }, 650);
+    };
+
+    document.addEventListener("click", handleFooterPhoneClick, true);
+    return () => document.removeEventListener("click", handleFooterPhoneClick, true);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
