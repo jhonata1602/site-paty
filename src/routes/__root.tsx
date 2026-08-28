@@ -112,7 +112,7 @@ function RootComponent() {
 
   useEffect(() => {
     let attempts = 0;
-    const applyFourthReviewAvatar = () => {
+    const applyFourthReview = () => {
       attempts += 1;
       const section = document.getElementById("avaliacoes");
       const grid = section?.querySelector(".mt-12.grid");
@@ -120,7 +120,7 @@ function RootComponent() {
       if (!fourthCard) return false;
 
       const reviewText = fourthCard.querySelector("p.mt-5") as HTMLParagraphElement | null;
-      if (reviewText) {
+      if (reviewText && !reviewText.textContent?.includes("Tive um problema na minha obra")) {
         reviewText.textContent = "“Tive um problema na minha obra e a equipe da Fast Drywall me atendeu muito bem. Resolveram tudo com atenção, rapidez e um atendimento especial.”";
       }
 
@@ -137,31 +137,23 @@ function RootComponent() {
           avatar.className = "h-12 w-12 shrink-0 rounded-full object-cover";
           placeholder.replaceWith(avatar);
         }
-      } else {
+      } else if (existingImg.src !== reviewAvatar4) {
         existingImg.src = reviewAvatar4;
         existingImg.alt = "Thiago T.";
         existingImg.className = "h-12 w-12 shrink-0 rounded-full object-cover";
       }
 
       const name = footer.querySelector("p");
-      if (name) name.textContent = "Thiago T.";
+      if (name && name.textContent !== "Thiago T.") name.textContent = "Thiago T.";
       return true;
     };
 
-    applyFourthReviewAvatar();
+    applyFourthReview();
     const timer = window.setInterval(() => {
-      if (applyFourthReviewAvatar() || attempts >= 20) window.clearInterval(timer);
+      if (applyFourthReview() || attempts >= 20) window.clearInterval(timer);
     }, 250);
 
-    const observer = new MutationObserver(() => {
-      applyFourthReviewAvatar();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    return () => {
-      window.clearInterval(timer);
-      observer.disconnect();
-    };
+    return () => window.clearInterval(timer);
   }, []);
 
   return (
