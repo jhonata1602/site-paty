@@ -150,7 +150,7 @@ function Index() {
     const target = document.getElementById("formulario");
     if (!target) return;
 
-    const headerOffset = 96;
+    const headerOffset = 150;
     const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
     window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
 
@@ -200,6 +200,18 @@ function Index() {
           </nav>
           <div className="w-10 lg:w-[250px]" aria-hidden="true" />
         </div>
+        <div className="border-t border-zinc-100 lg:hidden">
+          <nav
+            aria-label="Navegação principal"
+            className="mx-auto flex max-w-[1380px] items-center gap-6 overflow-x-auto px-5 py-3 text-[12px] font-black text-zinc-600 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            <a href="#sobre" className="shrink-0 transition hover:text-red-600">Sobre</a>
+            <a href="#servicos" className="shrink-0 transition hover:text-red-600">Soluções</a>
+            <a href="#produtos" className="shrink-0 transition hover:text-red-600">Produtos</a>
+            <a href="#avaliacoes" className="shrink-0 transition hover:text-red-600">Avaliações</a>
+            <a href="#localizacao" className="shrink-0 transition hover:text-red-600">Localização</a>
+          </nav>
+        </div>
       </header>
 
       <main>
@@ -240,7 +252,7 @@ function Index() {
             </div>
 
             <div className="w-full lg:sticky lg:top-[108px] lg:pt-4">
-              <div id="formulario" className="relative ml-auto w-full max-w-[470px] scroll-mt-28 rounded-[24px] border border-white/10 bg-zinc-950/95 p-6 shadow-[0_25px_80px_rgba(0,0,0,.55)] backdrop-blur-xl lg:p-7">
+              <div id="formulario" className="relative ml-auto w-full max-w-[470px] scroll-mt-40 rounded-[24px] border border-white/10 bg-zinc-950/95 p-6 shadow-[0_25px_80px_rgba(0,0,0,.55)] backdrop-blur-xl lg:scroll-mt-28 lg:p-7">
                 <div className="absolute right-6 top-6"><WhatsAppMark /></div>
                 <p className="text-[11px] font-black uppercase tracking-[.28em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
                 <h2 className="mt-3 max-w-[340px] text-[1.72rem] font-black leading-[1.02] tracking-[-.035em]">Preencha os dados e siga para o WhatsApp.</h2>
