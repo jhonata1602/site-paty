@@ -325,7 +325,7 @@ function Index() {
                 </a>
                 <a
                   href="#servicos"
-                  className="group inline-flex h-14 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 text-base font-black text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500 hover:bg-emerald-500"
+                  className="group inline-flex h-14 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 text-base font-black text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500 hover:bg-red-500"
                 >
                   Ver soluções
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
