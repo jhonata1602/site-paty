@@ -371,15 +371,32 @@ function Index() {
             <div className="text-center">
               <p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Reputação e confiança</p>
               <h2 className="mt-3 text-4xl font-black">Clientes satisfeitos e atendimento que gera confiança.</h2>
+              <div className="mx-auto mt-5 h-1 w-12 rounded-full bg-red-600" />
             </div>
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               {reviews.map((r) => (
-                <article key={r.name} className="rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm">
+                <article key={r.name} className="flex min-h-[250px] h-full flex-col rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                   <div className="flex gap-1 text-amber-500">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div>
-                  <p className="mt-5 text-lg font-bold leading-8">“{r.text}”</p>
-                  <div className="mt-6 flex items-center gap-4"><img src={r.image} alt={r.name} className="h-12 w-12 rounded-full object-cover" /><p className="font-black">{r.name}</p></div>
+                  <p className="mt-5 text-[17px] font-bold leading-8">“{r.text}”</p>
+                  <div className="mt-auto flex items-center gap-4 pt-7"><img src={r.image} alt={r.name} className="h-12 w-12 rounded-full object-cover" /><p className="font-black">{r.name}</p></div>
                 </article>
               ))}
+              <a
+                href={maps}
+                onClick={(event) => handleExternal(event, maps)}
+                className="flex min-h-[250px] h-full flex-col rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-red-200 hover:shadow-xl"
+                aria-label="Ver mais avaliações no Google"
+              >
+                <div className="flex gap-1 text-amber-500">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div>
+                <p className="mt-5 text-[17px] font-bold leading-8">Veja mais avaliações e experiências de clientes no Google.</p>
+                <div className="mt-auto flex items-center gap-4 pt-7">
+                  <span className="grid h-12 w-12 place-items-center rounded-full bg-red-600 text-white"><MapPin className="h-5 w-5" /></span>
+                  <div>
+                    <p className="font-black">Avaliações no Google</p>
+                    <p className="mt-1 text-xs font-semibold text-red-600">Abrir avaliações</p>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </section>
