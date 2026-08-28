@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="150" viewBox="0 0 520 150" role="img" aria-labelledby="title desc">
+  <title id="title">Fast Drywall &amp; Steel Frame</title>
+  <desc id="desc">Logo Fast em preto e vermelho</desc>
+  <rect width="520" height="150" fill="white"/>
+  <g transform="translate(28 26)">
+    <rect x="18" y="18" width="62" height="62" rx="2" transform="rotate(45 49 49)" fill="#b91c1c"/>
+    <rect x="24" y="24" width="50" height="50" transform="rotate(45 49 49)" fill="none" stroke="#ef4444" stroke-width="3"/>
+    <path d="M48 14v27L35 54l14 14v20" fill="none" stroke="white" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter"/>
+  </g>
+  <text x="112" y="101" font-family="Arial Black, Arial, sans-serif" font-size="76" font-weight="900" fill="#111827" letter-spacing="-5">FAST</text>
+  <text x="307" y="67" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#b91c1c">Drywall &amp;</text>
+  <text x="307" y="101" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#b91c1c">Steel Frame</text>
+</svg>
