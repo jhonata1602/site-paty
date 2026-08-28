@@ -531,9 +531,6 @@ function Index() {
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-lg font-black tracking-[-.03em]">{p.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-zinc-400">{p.text}</p>
-                    <div className="mt-auto pt-6">
-                      <WhatsButton label="Pedir orçamento" size="sm" full message={`Quero orçamento de ${p.title}.`} />
-                    </div>
                   </div>
                 </article>
               ))}
