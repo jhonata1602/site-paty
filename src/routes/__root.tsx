@@ -87,6 +87,25 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   useEffect(() => {
+    const applyBrandLogo = () => {
+      const logos = document.querySelectorAll<HTMLImageElement>('img[alt="Fast Drywall & Steel Frame"]');
+      logos.forEach((logo) => {
+        logo.src = "/fast-logo-2026.svg?v=20260828-2";
+      });
+      return logos.length >= 2;
+    };
+
+    applyBrandLogo();
+    let attempts = 0;
+    const timer = window.setInterval(() => {
+      attempts += 1;
+      if (applyBrandLogo() || attempts >= 20) window.clearInterval(timer);
+    }, 250);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
     const handleFooterPhoneClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       const phoneLink = target?.closest('footer a[aria-label="WhatsApp"]');
