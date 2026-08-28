@@ -303,15 +303,20 @@ function Index() {
           <img
             src={heroImage}
             alt="Profissionais instalando placas de drywall"
-            className="absolute inset-0 h-full w-full object-cover object-center opacity-40"
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-45"
             width={1600}
             height={900}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(9,9,11,.97)_0%,rgba(9,9,11,.9)_45%,rgba(60,4,4,.72)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(9,9,11,.96)_0%,rgba(9,9,11,.88)_45%,rgba(60,4,4,.68)_100%)]" />
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-[1.05fr_.85fr] lg:px-8 lg:py-28">
             <div className="max-w-xl">
-              <Tag light>Construção a seco em Vitória da Conquista</Tag>
-              <h1 className="mt-5 text-[2.75rem] font-black leading-[.95] tracking-[-.05em] sm:text-6xl lg:text-[4.25rem]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5">
+                <span className="h-2 w-2 rounded-full bg-red-500" />
+                <span className="text-[11px] font-black uppercase tracking-[.2em] text-zinc-200">
+                  Construção a seco em Vitória da Conquista
+                </span>
+              </div>
+              <h1 className="mt-6 text-[2.75rem] font-black leading-[.95] tracking-[-.05em] sm:text-6xl lg:text-[4.25rem]">
                 Construir com inteligência é construir com a{" "}
                 <span className="text-red-500">Fast Drywall.</span>
               </h1>
@@ -324,7 +329,7 @@ function Index() {
                   href="#formulario"
                   className="group inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-8 text-base font-black text-white shadow-lg shadow-red-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-500"
                 >
-                  Solicitar orçamento
+                  Falar com a equipe
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
                 <a
@@ -339,64 +344,80 @@ function Index() {
 
             <div
               id="formulario"
-              className="rounded-3xl border border-white/10 bg-zinc-900/70 p-7 shadow-2xl shadow-black/50 backdrop-blur-xl"
+              className="relative rounded-3xl border border-white/10 bg-zinc-900/80 p-7 shadow-2xl shadow-black/50 backdrop-blur-xl"
             >
-              <h2 className="text-2xl font-black leading-tight tracking-[-.03em]">
-                Peça seu orçamento agora.
+              <div className="absolute right-6 top-6 grid h-10 w-10 place-items-center rounded-full bg-emerald-500/10 text-emerald-500">
+                <MessageCircle className="h-5 w-5" />
+              </div>
+              <Tag light>SOLICITE SEU ORÇAMENTO</Tag>
+              <h2 className="mt-3 text-2xl font-black leading-tight tracking-[-.03em]">
+                Preencha os dados e siga para o WhatsApp.
               </h2>
-              <p className="mt-2 text-xs leading-5 text-zinc-400">
-                Preencha os dados e siga direto para o WhatsApp.
-              </p>
               <form onSubmit={submit} className="mt-6 space-y-3.5">
-                <input
-                  value={form.name}
-                  onChange={(e) => set("name", e.target.value)}
-                  placeholder="Seu nome"
-                  className={field}
-                />
-                <input
-                  type="email"
-                  value={form.email}
-                  onChange={(e) => set("email", e.target.value)}
-                  placeholder="Seu Gmail / e-mail"
-                  className={field}
-                />
-                <input
-                  value={form.phone}
-                  onChange={(e) => set("phone", e.target.value)}
-                  placeholder="Seu WhatsApp"
-                  className={field}
-                />
-                <select
-                  value={form.interest}
-                  onChange={(e) => set("interest", e.target.value)}
-                  className={field}
-                >
-                  <option value="" className="text-zinc-900">
-                    Selecione seu interesse
-                  </option>
-                  <option className="text-zinc-900">Drywall</option>
-                  <option className="text-zinc-900">Steel Frame</option>
-                  <option className="text-zinc-900">Gesso e forros</option>
-                  <option className="text-zinc-900">Perfis e acessórios</option>
-                  <option className="text-zinc-900">Orçamento completo</option>
-                </select>
+                <div className="relative">
+                  <User className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+                  <input
+                    value={form.name}
+                    onChange={(e) => set("name", e.target.value)}
+                    placeholder="Seu nome"
+                    className={`${field} pl-11`}
+                  />
+                </div>
+                <div className="relative">
+                  <Mail className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+                  <input
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => set("email", e.target.value)}
+                    placeholder="Seu Gmail / e-mail"
+                    className={`${field} pl-11`}
+                  />
+                </div>
+                <div className="relative">
+                  <Phone className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+                  <input
+                    value={form.phone}
+                    onChange={(e) => set("phone", e.target.value)}
+                    placeholder="Seu WhatsApp"
+                    className={`${field} pl-11`}
+                  />
+                </div>
+                <div className="relative">
+                  <MessageCircle className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+                  <select
+                    value={form.interest}
+                    onChange={(e) => set("interest", e.target.value)}
+                    className={`${field} pl-11`}
+                  >
+                    <option value="" className="text-zinc-900">
+                      Selecione seu interesse
+                    </option>
+                    <option className="text-zinc-900">Drywall</option>
+                    <option className="text-zinc-900">Steel Frame</option>
+                    <option className="text-zinc-900">Gesso e forros</option>
+                    <option className="text-zinc-900">Perfis e acessórios</option>
+                    <option className="text-zinc-900">Orçamento completo</option>
+                  </select>
+                </div>
                 <textarea
                   value={form.message}
                   onChange={(e) => set("message", e.target.value)}
-                  placeholder="Mensagem (opcional)"
+                  placeholder="Descreva rapidamente o que você precisa (opcional)"
                   className="min-h-[96px] w-full rounded-xl border border-white/10 bg-white/[.06] px-4 py-3 text-sm text-white placeholder:text-zinc-500 outline-none transition focus:border-red-500 focus:bg-white/[.09]"
                 />
                 <button
                   disabled={!ready}
                   className={`inline-flex w-full items-center justify-center gap-2 rounded-full py-4 text-sm font-black transition-all duration-300 ${
                     ready
-                      ? "bg-red-600 text-white shadow-lg shadow-red-600/25 hover:-translate-y-0.5 hover:bg-emerald-500 active:bg-emerald-600"
+                      ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5 hover:bg-emerald-400 active:bg-emerald-600"
                       : "cursor-not-allowed bg-white/10 text-zinc-500"
                   }`}
                 >
                   <MessageCircle className="h-4 w-4" /> Ir para o WhatsApp
                 </button>
+                <p className="text-center text-[11px] text-zinc-500">
+                  O botão será ativado após preencher todos os campos.
+                </p>
               </form>
             </div>
           </div>
