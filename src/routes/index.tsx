@@ -13,7 +13,6 @@ import {
   Layers3,
   Mail,
   MapPin,
-
   MessageCircle,
   Package,
   PackageCheck,
@@ -26,7 +25,6 @@ import {
   Thermometer,
   User,
   Users,
-
   Wallet,
   Wrench,
 } from "lucide-react";
