@@ -31,6 +31,7 @@ import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
+import fastLogo from "@/assets/fast-logo-original.svg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -95,17 +96,11 @@ const reviews = [
 
 function Brand() {
   return (
-    <div className="flex items-center gap-3">
-      <div className="grid h-10 w-10 rotate-45 place-items-center rounded-md border border-red-400/60 bg-gradient-to-br from-red-500 to-red-800 shadow-lg shadow-red-950/50">
-        <span className="-rotate-45 text-lg font-black text-white">F</span>
-      </div>
-      <div className="leading-none">
-        <div className="text-2xl font-black tracking-[-.05em] text-white">FAST</div>
-        <div className="mt-1 text-[9px] font-black uppercase tracking-[.16em] text-red-500">
-          Drywall &amp; Steel Frame VCA
-        </div>
-      </div>
-    </div>
+    <img
+      src={fastLogo}
+      alt="Fast Drywall & Steel Frame"
+      className="h-12 w-auto rounded-sm bg-white px-1.5 py-1 object-contain"
+    />
   );
 }
 
@@ -156,7 +151,7 @@ function Index() {
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur-xl">
         <div className="mx-auto flex h-[76px] max-w-[1380px] items-center justify-between px-5 lg:px-8">
-          <a href="#inicio"><Brand /></a>
+          <a href="#inicio" aria-label="Ir para o início"><Brand /></a>
           <nav className="hidden items-center gap-10 text-[13px] font-bold text-zinc-300 lg:flex">
             <a href="#sobre" className="hover:text-white">Sobre</a>
             <a href="#servicos" className="hover:text-white">Soluções</a>
@@ -164,9 +159,7 @@ function Index() {
             <a href="#avaliacoes" className="hover:text-white">Avaliações</a>
             <a href="#localizacao" className="hover:text-white">Localização</a>
           </nav>
-          <a href="#formulario" className="inline-flex h-11 items-center gap-2 rounded-full bg-red-600 px-6 text-xs font-black text-white transition hover:bg-red-500">
-            Solicitar orçamento
-          </a>
+          <div className="hidden w-[210px] lg:block" aria-hidden="true" />
         </div>
       </header>
 
@@ -189,16 +182,22 @@ function Index() {
                 Soluções em drywall, steel frame, gesso, forro e acessórios para uma obra mais rápida, limpa, organizada e com excelente acabamento.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a href="#formulario" className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500">
+                <a
+                  href="#formulario"
+                  className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500"
+                >
                   Falar com a equipe <ArrowRight className="h-4 w-4" />
                 </a>
-                <a href="#servicos" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-7 py-3.5 text-sm font-black text-white backdrop-blur transition hover:bg-white/10">
+                <a
+                  href="#servicos"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-7 py-3.5 text-sm font-black text-white backdrop-blur transition hover:bg-white/10"
+                >
                   Ver soluções <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
 
-            <div id="formulario" className="relative ml-auto w-full max-w-[470px] rounded-[24px] border border-white/10 bg-zinc-950/90 p-6 shadow-[0_25px_80px_rgba(0,0,0,.55)] backdrop-blur-xl lg:p-7">
+            <div id="formulario" className="relative ml-auto w-full max-w-[470px] scroll-mt-28 rounded-[24px] border border-white/10 bg-zinc-950/90 p-6 shadow-[0_25px_80px_rgba(0,0,0,.55)] backdrop-blur-xl lg:p-7">
               <MessageCircle className="absolute right-6 top-6 h-8 w-8 text-red-500" />
               <p className="text-[11px] font-black uppercase tracking-[.28em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
               <h2 className="mt-3 max-w-[340px] text-[1.72rem] font-black leading-[1.02] tracking-[-.035em]">Preencha os dados e siga para o WhatsApp.</h2>
@@ -259,7 +258,6 @@ function Index() {
                   </div>
                 ))}
               </div>
-              <div className="mt-7"><a href="#formulario" className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-3.5 text-sm font-black text-white transition hover:bg-red-500">Falar com a Fast <ArrowRight className="h-4 w-4" /></a></div>
             </div>
           </div>
         </section>
@@ -280,7 +278,6 @@ function Index() {
                   <div className="p-6">
                     <h3 className="text-xl font-black">{title}</h3>
                     <p className="mt-3 text-sm leading-6 text-zinc-600">{text}</p>
-                    <div className="mt-6"><a href="#formulario" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 py-3 text-sm font-black text-white transition hover:bg-red-500">Pedir orçamento <ArrowRight className="h-4 w-4" /></a></div>
                   </div>
                 </article>
               ))}
@@ -295,7 +292,7 @@ function Index() {
               {products.map((p) => (
                 <article key={p.title} className="overflow-hidden rounded-3xl border border-white/10 bg-white/[.04]">
                   <img src={p.image} alt={p.title} className="h-48 w-full object-cover" />
-                  <div className="p-6"><h3 className="text-lg font-black">{p.title}</h3><div className="mt-5"><a href="#formulario" className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/[.07] py-3 text-sm font-black text-white transition hover:border-red-600 hover:bg-red-600">Solicitar orçamento <ArrowRight className="h-4 w-4" /></a></div></div>
+                  <div className="p-6"><h3 className="text-lg font-black">{p.title}</h3></div>
                 </article>
               ))}
             </div>
@@ -314,16 +311,13 @@ function Index() {
                 </article>
               ))}
             </div>
-            <div className="mt-10 text-center">
-              <a href="#formulario" className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-3.5 text-sm font-black text-white transition hover:bg-red-500">Falar com a Fast <ArrowRight className="h-4 w-4" /></a>
-            </div>
           </div>
         </section>
 
         <section className="bg-red-600 py-14 text-white">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 text-center lg:flex-row lg:px-8 lg:text-left">
-            <div><h2 className="text-3xl font-black">Peça seu orçamento sem compromisso.</h2><p className="mt-2 text-red-50">Fale agora com nossa equipe e receba as melhores soluções para sua obra.</p></div>
-            <a href="#formulario" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-black text-red-600 transition hover:bg-red-50">Solicitar orçamento <ArrowRight className="h-4 w-4" /></a>
+          <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+            <h2 className="text-3xl font-black">Peça seu orçamento sem compromisso.</h2>
+            <p className="mt-2 text-red-50">Use o formulário da primeira dobra ou o botão flutuante de WhatsApp para falar com nossa equipe.</p>
           </div>
         </section>
 
@@ -335,7 +329,6 @@ function Index() {
               <div className="mt-7 rounded-2xl border border-white/10 bg-white/[.04] p-6"><MapPin className="h-5 w-5 text-red-500" /><p className="mt-3 text-sm leading-7 text-zinc-300">Av. Luís Eduardo Magalhães, Quadra 05<br />Recreio · Vitória da Conquista - BA<br />CEP 45020-282<br /><br />(77) 98856-0246</p></div>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a href={maps} target="_blank" rel="noreferrer" className="rounded-full border border-white/15 px-5 py-3 text-sm font-black transition hover:border-red-500 hover:text-red-500">Abrir no Google Maps</a>
-                <a href="#formulario" className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-5 py-3 text-sm font-black text-white transition hover:bg-red-500">Solicitar orçamento <ArrowRight className="h-4 w-4" /></a>
               </div>
             </div>
             <iframe title="Mapa Fast Drywall" src="https://www.google.com/maps?q=Av.+Lu%C3%ADs+Eduardo+Magalh%C3%A3es,+Quadra+05,+Recreio,+Vit%C3%B3ria+da+Conquista+-+BA&output=embed" className="h-[420px] w-full rounded-3xl border-0" loading="lazy" />
@@ -347,9 +340,34 @@ function Index() {
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <Brand />
           <p className="text-sm text-zinc-500">© 2026 Fast Drywall &amp; Steel Frame VCA</p>
-          <div className="flex gap-3">
-            <a href="https://www.instagram.com/fastdrywall.vitoriaconquista/" target="_blank" rel="noreferrer"><Instagram className="h-5 w-5" /></a>
-            <a href="https://www.facebook.com/fastdrywall.vitconquista.ba" target="_blank" rel="noreferrer"><Facebook className="h-5 w-5" /></a>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.instagram.com/fastdrywall.vitoriaconquista/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white transition hover:border-red-500 hover:bg-red-600"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.facebook.com/fastdrywall.vitconquista.ba"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white transition hover:border-red-500 hover:bg-red-600"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href={maps}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Google Maps"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white transition hover:border-red-500 hover:bg-red-600"
+            >
+              <MapPin className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </footer>
