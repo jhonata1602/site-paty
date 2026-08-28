@@ -31,7 +31,7 @@ import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
-import fastLogo from "@/assets/fast-logo-original.svg";
+import fastLogo from "@/assets/fast-logo-oficial.svg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -99,7 +99,7 @@ function Brand() {
     <img
       src={fastLogo}
       alt="Fast Drywall & Steel Frame"
-      className="h-12 w-auto rounded-sm bg-white px-1.5 py-1 object-contain"
+      className="h-12 w-auto rounded-md bg-white object-contain px-2 py-1"
     />
   );
 }
@@ -151,7 +151,7 @@ function Index() {
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur-xl">
         <div className="mx-auto flex h-[76px] max-w-[1380px] items-center justify-between px-5 lg:px-8">
-          <a href="#inicio" aria-label="Ir para o início"><Brand /></a>
+          <a href="#inicio"><Brand /></a>
           <nav className="hidden items-center gap-10 text-[13px] font-bold text-zinc-300 lg:flex">
             <a href="#sobre" className="hover:text-white">Sobre</a>
             <a href="#servicos" className="hover:text-white">Soluções</a>
@@ -159,7 +159,7 @@ function Index() {
             <a href="#avaliacoes" className="hover:text-white">Avaliações</a>
             <a href="#localizacao" className="hover:text-white">Localização</a>
           </nav>
-          <div className="hidden w-[210px] lg:block" aria-hidden="true" />
+          <div className="w-12" />
         </div>
       </header>
 
@@ -182,16 +182,10 @@ function Index() {
                 Soluções em drywall, steel frame, gesso, forro e acessórios para uma obra mais rápida, limpa, organizada e com excelente acabamento.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#formulario"
-                  className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500"
-                >
+                <a href="#formulario" className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500">
                   Falar com a equipe <ArrowRight className="h-4 w-4" />
                 </a>
-                <a
-                  href="#servicos"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-7 py-3.5 text-sm font-black text-white backdrop-blur transition hover:bg-white/10"
-                >
+                <a href="#servicos" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-7 py-3.5 text-sm font-black text-white backdrop-blur transition hover:bg-white/10">
                   Ver soluções <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
@@ -287,7 +281,10 @@ function Index() {
 
         <section id="produtos" className="bg-zinc-950 py-20 text-white">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <div className="text-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-400">Linha de produtos</p><h2 className="mt-3 text-4xl font-black">Materiais de qualidade, pronta entrega.</h2></div>
+            <div className="text-center">
+              <p className="text-xs font-black uppercase tracking-[.25em] text-red-400">Linha de produtos</p>
+              <h2 className="mt-3 text-4xl font-black">Materiais de qualidade, pronta entrega.</h2>
+            </div>
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               {products.map((p) => (
                 <article key={p.title} className="overflow-hidden rounded-3xl border border-white/10 bg-white/[.04]">
@@ -301,7 +298,10 @@ function Index() {
 
         <section id="avaliacoes" className="bg-zinc-50 py-20">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <div className="text-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Reputação e confiança</p><h2 className="mt-3 text-4xl font-black">Clientes satisfeitos e atendimento que gera confiança.</h2></div>
+            <div className="text-center">
+              <p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Reputação e confiança</p>
+              <h2 className="mt-3 text-4xl font-black">Clientes satisfeitos e atendimento que gera confiança.</h2>
+            </div>
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
               {reviews.map((r) => (
                 <article key={r.name} className="rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm">
@@ -317,7 +317,7 @@ function Index() {
         <section className="bg-red-600 py-14 text-white">
           <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
             <h2 className="text-3xl font-black">Peça seu orçamento sem compromisso.</h2>
-            <p className="mt-2 text-red-50">Use o formulário da primeira dobra ou o botão flutuante de WhatsApp para falar com nossa equipe.</p>
+            <p className="mt-2 text-red-50">Preencha o formulário no início da página ou use o WhatsApp flutuante para falar com nossa equipe.</p>
           </div>
         </section>
 
@@ -326,8 +326,11 @@ function Index() {
             <div>
               <p className="text-xs font-black uppercase tracking-[.25em] text-red-400">Onde estamos</p>
               <h2 className="mt-3 text-4xl font-black">Visite a Fast Drywall.</h2>
-              <div className="mt-7 rounded-2xl border border-white/10 bg-white/[.04] p-6"><MapPin className="h-5 w-5 text-red-500" /><p className="mt-3 text-sm leading-7 text-zinc-300">Av. Luís Eduardo Magalhães, Quadra 05<br />Recreio · Vitória da Conquista - BA<br />CEP 45020-282<br /><br />(77) 98856-0246</p></div>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-7 rounded-2xl border border-white/10 bg-white/[.04] p-6">
+                <MapPin className="h-5 w-5 text-red-500" />
+                <p className="mt-3 text-sm leading-7 text-zinc-300">Av. Luís Eduardo Magalhães, Quadra 05<br />Recreio · Vitória da Conquista - BA<br />CEP 45020-282<br /><br />(77) 98856-0246</p>
+              </div>
+              <div className="mt-6">
                 <a href={maps} target="_blank" rel="noreferrer" className="rounded-full border border-white/15 px-5 py-3 text-sm font-black transition hover:border-red-500 hover:text-red-500">Abrir no Google Maps</a>
               </div>
             </div>
@@ -346,7 +349,7 @@ function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white transition hover:border-red-500 hover:bg-red-600"
+              className="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-violet-600 via-pink-500 to-orange-400 text-white shadow-lg transition hover:-translate-y-1"
             >
               <Instagram className="h-5 w-5" />
             </a>
@@ -355,7 +358,7 @@ function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white transition hover:border-red-500 hover:bg-red-600"
+              className="grid h-11 w-11 place-items-center rounded-full bg-[#1877F2] text-white shadow-lg transition hover:-translate-y-1"
             >
               <Facebook className="h-5 w-5" />
             </a>
@@ -364,9 +367,13 @@ function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Google Maps"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white transition hover:border-red-500 hover:bg-red-600"
+              className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-white shadow-lg transition hover:-translate-y-1"
             >
-              <MapPin className="h-5 w-5" />
+              <span className="absolute left-0 top-0 h-1/2 w-1/2 bg-[#34A853]" />
+              <span className="absolute right-0 top-0 h-1/2 w-1/2 bg-[#4285F4]" />
+              <span className="absolute bottom-0 left-0 h-1/2 w-1/2 bg-[#FBBC05]" />
+              <span className="absolute bottom-0 right-0 h-1/2 w-1/2 bg-[#EA4335]" />
+              <MapPin className="relative z-10 h-5 w-5 fill-white text-white" />
             </a>
           </div>
         </div>
