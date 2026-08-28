@@ -615,7 +615,7 @@ function Index() {
               >
                 <Star className="h-4 w-4" /> Ver mais avaliações no Google
               </a>
-              <WhatsButton label="Falar com a Fast" />
+              
             </div>
           </div>
         </section>
