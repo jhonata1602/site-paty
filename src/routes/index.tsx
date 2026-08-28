@@ -31,8 +31,7 @@ import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
-
-const fastLogo = "/fast-logo-2026.svg?v=20260828-3";
+import fastLogo from "@/assets/fast-logo-oficial.svg";
 
 export const Route = createFileRoute("/")({
   component: Index,
