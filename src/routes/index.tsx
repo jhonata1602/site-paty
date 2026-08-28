@@ -697,25 +697,33 @@ function Index() {
               Soluções completas em drywall, steel frame, gesso, forros, perfis e acessórios em Vitória da Conquista - BA.
             </p>
             <div className="mt-6 flex gap-3">
-              {[
-                [MessageCircle, wa("Olá! Quero falar com a Fast Drywall.")],
-                [Instagram, "https://instagram.com"],
-                [Facebook, "https://facebook.com"],
-                [MapPin, maps],
-              ].map(([Icon, href], i) => {
-                const I = Icon as ComponentType<{ className?: string }>;
-                return (
-                  <a
-                    key={i}
-                    href={href as string}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-500"
-                  >
-                    <I className="h-4 w-4" />
-                  </a>
-                );
-              })}
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                className="grid h-10 w-10 place-items-center rounded-full bg-[#1877F2] text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-110"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a
+                href={maps}
+                target="_blank"
+                rel="noreferrer"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500 hover:bg-red-500"
+                aria-label="Google Maps"
+              >
+                <MapPin className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
