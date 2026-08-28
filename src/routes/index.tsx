@@ -137,7 +137,7 @@ function Brand({ compact = false }: { compact?: boolean }) {
   return (
     <div className="flex items-center gap-3">
       <div className="grid h-10 w-10 shrink-0 place-items-center rotate-45 rounded-md border border-red-400/60 bg-gradient-to-br from-red-500 to-red-800 shadow-lg shadow-red-900/40">
-        <div className="h-5 w-2 -rotate-45 rounded-sm border-b-4 border-r-4 border-white" />
+        <span className="-rotate-45 text-lg font-black text-white">F</span>
       </div>
       <div className="leading-none">
         <div className={`font-black tracking-[-.05em] text-white ${compact ? "text-xl" : "text-2xl"}`}>FAST</div>
