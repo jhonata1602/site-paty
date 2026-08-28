@@ -633,12 +633,10 @@ function Index() {
               </p>
             </div>
             <a
-              href={wa("Quero solicitar um orçamento sem compromisso.")}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex h-16 shrink-0 items-center gap-3 rounded-full bg-white px-9 text-base font-black text-red-600 shadow-2xl shadow-red-900/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-500 hover:text-white"
+              href="#formulario"
+              className="group inline-flex h-16 shrink-0 items-center gap-3 rounded-full bg-white px-9 text-base font-black text-red-600 shadow-2xl shadow-red-900/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-500 hover:text-white"
             >
-              <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
+              Ir para o formulário
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
