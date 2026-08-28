@@ -286,9 +286,9 @@ function Index() {
           </nav>
           <a
             href="#formulario"
-            className="inline-flex h-11 items-center gap-2 rounded-full bg-red-600 px-5 text-xs font-black text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-500 active:bg-emerald-600"
+            className="inline-flex h-11 items-center gap-2 rounded-full bg-red-600 px-5 text-xs font-black text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-500 active:bg-red-700"
           >
-            <MessageCircle className="h-4 w-4" /> Solicitar orçamento
+            Solicitar orçamento
           </a>
         </div>
       </header>
