@@ -288,8 +288,12 @@ function Index() {
 
         <section id="sobre" className="py-20 lg:py-24">
           <div className="mx-auto grid max-w-7xl items-stretch gap-12 px-5 lg:grid-cols-2 lg:px-8">
-            <div className="min-h-[560px] overflow-hidden rounded-3xl bg-zinc-100 shadow-2xl">
-              <img src={storeImg} alt="Fachada da Fast Drywall" className="h-full min-h-[560px] w-full object-cover object-[center_42%]" />
+            <div className="flex w-full items-center justify-center overflow-hidden rounded-3xl bg-white shadow-2xl lg:min-h-[560px]">
+              <img
+                src={storeImg}
+                alt="Fachada da Fast Drywall"
+                className="block h-auto max-h-[560px] w-full object-contain"
+              />
             </div>
             <div className="flex h-full flex-col justify-center">
               <p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Quem somos</p>
