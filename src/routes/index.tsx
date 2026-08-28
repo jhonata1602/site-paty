@@ -11,7 +11,9 @@ import {
   Home,
   Instagram,
   Layers3,
+  Mail,
   MapPin,
+
   MessageCircle,
   Package,
   PackageCheck,
@@ -22,7 +24,9 @@ import {
   Sparkles,
   Star,
   Thermometer,
+  User,
   Users,
+
   Wallet,
   Wrench,
 } from "lucide-react";
