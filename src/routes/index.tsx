@@ -103,7 +103,7 @@ const solutions = [
 
 const products = [
   { title: "Placas de Drywall", image: prodPlacas, text: "Placas standard, RU e RF para paredes, divisórias e forros." },
-  { title: "Perfis Steel Frame", image: prodPerfisSf, text: "Perfis galvanizados para estruturas leves e construção a seco." },
+  { title: "Steel Frame", image: prodPerfisSf, text: "Perfis galvanizados para estruturas leves e construção a seco." },
   { title: "Forros e Gesso", image: prodGesso, text: "Materiais para teto, rebaixamento e acabamento dos ambientes." },
   { title: "Perfis e Acessórios", image: prodAcessorios, text: "Parafusos, fitas, cantoneiras, massas e ferramentas de montagem." },
 ];
