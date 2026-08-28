@@ -500,9 +500,6 @@ function Index() {
                 </div>
               ))}
             </div>
-            <div className="mt-12 flex justify-center">
-              <WhatsButton label="Tirar dúvidas no WhatsApp" message="Quero tirar dúvidas sobre construção a seco." />
-            </div>
           </div>
         </section>
 
