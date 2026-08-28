@@ -63,8 +63,10 @@ export const Route = createFileRoute("/")({
 });
 
 const waPhone = "5577988560246";
-const maps = "https://www.google.com/maps/search/?api=1&query=Fast+Drywall+Steel+Frame+Vit%C3%B3ria+da+Conquista";
-const googleReviews = "https://www.google.com/maps/search/?api=1&query=Fast+Drywall+Steel+Frame+Vit%C3%B3ria+da+Conquista";
+const maps =
+  "https://www.google.com/maps/search/?api=1&query=Fast+Drywall+Steel+Frame+Vit%C3%B3ria+da+Conquista";
+const googleReviews =
+  "https://www.google.com/maps/search/?api=1&query=Fast+Drywall+Steel+Frame+Vit%C3%B3ria+da+Conquista";
 const heroImage = "https://www.westhollywooddrywallservices.com/weho-drywall-hero.png";
 
 const wa = (message: string) =>
@@ -102,10 +104,26 @@ const solutions = [
 ];
 
 const products = [
-  { title: "Placas de Drywall", image: prodPlacas, text: "Placas standard, RU e RF para paredes, divisórias e forros." },
-  { title: "Steel Frame", image: prodPerfisSf, text: "Perfis galvanizados para estruturas leves e construção a seco." },
-  { title: "Forros e Gesso", image: prodGesso, text: "Materiais para teto, rebaixamento e acabamento dos ambientes." },
-  { title: "Perfis e Acessórios", image: prodAcessorios, text: "Parafusos, fitas, cantoneiras, massas e ferramentas de montagem." },
+  {
+    title: "Placas de Drywall",
+    image: prodPlacas,
+    text: "Placas standard, RU e RF para paredes, divisórias e forros.",
+  },
+  {
+    title: "Steel Frame",
+    image: prodPerfisSf,
+    text: "Perfis galvanizados para estruturas leves e construção a seco.",
+  },
+  {
+    title: "Forros e Gesso",
+    image: prodGesso,
+    text: "Materiais para teto, rebaixamento e acabamento dos ambientes.",
+  },
+  {
+    title: "Perfis e Acessórios",
+    image: prodAcessorios,
+    text: "Parafusos, fitas, cantoneiras, massas e ferramentas de montagem.",
+  },
 ];
 
 const benefits: [ComponentType<{ className?: string }>, string, string][] = [
@@ -121,9 +139,24 @@ const benefits: [ComponentType<{ className?: string }>, string, string][] = [
 ];
 
 const reviews = [
-  { name: "Marcos A.", role: "Cliente Fast", image: av1, text: "O melhor de Conquista! Atendimento rápido e produtos de qualidade." },
-  { name: "Renata L.", role: "Arquiteta", image: av2, text: "Além do ótimo atendimento, a loja possui preços excelentes." },
-  { name: "Diego S.", role: "Construtor", image: av3, text: "Empresa boa, ótima qualidade nos materiais e equipe exemplar." },
+  {
+    name: "Marcos A.",
+    role: "Cliente Fast",
+    image: av1,
+    text: "O melhor de Conquista! Atendimento rápido e produtos de qualidade.",
+  },
+  {
+    name: "Renata L.",
+    role: "Arquiteta",
+    image: av2,
+    text: "Além do ótimo atendimento, a loja possui preços excelentes.",
+  },
+  {
+    name: "Diego S.",
+    role: "Construtor",
+    image: av3,
+    text: "Empresa boa, ótima qualidade nos materiais e equipe exemplar.",
+  },
 ];
 
 const steps = [
@@ -140,8 +173,14 @@ function Brand({ compact = false }: { compact?: boolean }) {
         <span className="-rotate-45 text-lg font-black text-white">F</span>
       </div>
       <div className="leading-none">
-        <div className={`font-black tracking-[-.05em] text-white ${compact ? "text-xl" : "text-2xl"}`}>FAST</div>
-        <div className="mt-1 text-[9px] font-black uppercase tracking-[.18em] text-red-500">Drywall &amp; Steel Frame VCA</div>
+        <div
+          className={`font-black tracking-[-.05em] text-white ${compact ? "text-xl" : "text-2xl"}`}
+        >
+          FAST
+        </div>
+        <div className="mt-1 text-[9px] font-black uppercase tracking-[.18em] text-red-500">
+          Drywall &amp; Steel Frame VCA
+        </div>
       </div>
     </div>
   );
@@ -149,7 +188,9 @@ function Brand({ compact = false }: { compact?: boolean }) {
 
 function Tag({ children, light = false }: { children: string; light?: boolean }) {
   return (
-    <p className={`text-[11px] font-black uppercase tracking-[.28em] ${light ? "text-red-400" : "text-red-600"}`}>
+    <p
+      className={`text-[11px] font-black uppercase tracking-[.28em] ${light ? "text-red-400" : "text-red-600"}`}
+    >
       {children}
     </p>
   );
@@ -169,14 +210,19 @@ function SectionHead({
   return (
     <div className="mx-auto max-w-2xl text-center">
       <Tag light={light}>{tag}</Tag>
-      <h2 className={`mt-3 text-3xl font-black leading-[1.05] tracking-[-.035em] sm:text-4xl ${light ? "text-white" : "text-zinc-950"}`}>
+      <h2
+        className={`mt-3 text-3xl font-black leading-[1.05] tracking-[-.035em] sm:text-4xl ${light ? "text-white" : "text-zinc-950"}`}
+      >
         {title}
       </h2>
-      {subtitle && <p className={`mt-4 text-base leading-7 ${light ? "text-zinc-400" : "text-zinc-600"}`}>{subtitle}</p>}
+      {subtitle && (
+        <p className={`mt-4 text-base leading-7 ${light ? "text-zinc-400" : "text-zinc-600"}`}>
+          {subtitle}
+        </p>
+      )}
     </div>
   );
 }
-
 
 function FloatingWhats() {
   return (
@@ -195,17 +241,23 @@ function FloatingWhats() {
 function Index() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", interest: "", message: "" });
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
-  const ready = form.name.trim().length > 1 && emailOk && form.phone.trim().length >= 8 && form.interest.length > 1;
+  const ready =
+    form.name.trim().length > 1 &&
+    emailOk &&
+    form.phone.trim().length >= 8 &&
+    form.interest.length > 1;
   const leadWhatsapp = wa(
     `Meu nome é ${form.name}. E-mail: ${form.email}. WhatsApp: ${form.phone}. Interesse: ${form.interest}.${form.message ? ` Detalhes: ${form.message}.` : ""} Quero solicitar um orçamento.`,
   );
-  const set = (key: keyof typeof form, value: string) => setForm((prev) => ({ ...prev, [key]: value }));
+  const set = (key: keyof typeof form, value: string) =>
+    setForm((prev) => ({ ...prev, [key]: value }));
   const submit = (e: FormEvent) => {
     e.preventDefault();
     if (ready) window.open(leadWhatsapp, "_blank", "noopener,noreferrer");
   };
 
-  const field = "h-12 w-full rounded-xl border border-white/10 bg-white/[.06] px-4 text-sm text-white placeholder:text-zinc-500 outline-none transition focus:border-red-500 focus:bg-white/[.09]";
+  const field =
+    "h-12 w-full rounded-xl border border-white/10 bg-white/[.06] px-4 text-sm text-white placeholder:text-zinc-500 outline-none transition focus:border-red-500 focus:bg-white/[.09]";
 
   return (
     <div className="min-h-screen bg-white text-zinc-950 antialiased">
@@ -256,11 +308,12 @@ function Index() {
             <div className="max-w-xl">
               <Tag light>Construção a seco em Vitória da Conquista</Tag>
               <h1 className="mt-5 text-[2.75rem] font-black leading-[.95] tracking-[-.05em] sm:text-6xl lg:text-[4.25rem]">
-                Construir com inteligência é construir com a <span className="text-red-500">Fast Drywall.</span>
+                Construir com inteligência é construir com a{" "}
+                <span className="text-red-500">Fast Drywall.</span>
               </h1>
               <p className="mt-7 max-w-lg text-base leading-8 text-zinc-300">
-                Soluções em drywall, steel frame, gesso, forro e acessórios para uma obra mais rápida, limpa, organizada e com
-                excelente acabamento.
+                Soluções em drywall, steel frame, gesso, forro e acessórios para uma obra mais
+                rápida, limpa, organizada e com excelente acabamento.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
@@ -284,10 +337,19 @@ function Index() {
               id="formulario"
               className="rounded-3xl border border-white/10 bg-zinc-900/70 p-7 shadow-2xl shadow-black/50 backdrop-blur-xl"
             >
-              <h2 className="text-2xl font-black leading-tight tracking-[-.03em]">Peça seu orçamento agora.</h2>
-              <p className="mt-2 text-xs leading-5 text-zinc-400">Preencha os dados e siga direto para o WhatsApp.</p>
+              <h2 className="text-2xl font-black leading-tight tracking-[-.03em]">
+                Peça seu orçamento agora.
+              </h2>
+              <p className="mt-2 text-xs leading-5 text-zinc-400">
+                Preencha os dados e siga direto para o WhatsApp.
+              </p>
               <form onSubmit={submit} className="mt-6 space-y-3.5">
-                <input value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={field} />
+                <input
+                  value={form.name}
+                  onChange={(e) => set("name", e.target.value)}
+                  placeholder="Seu nome"
+                  className={field}
+                />
                 <input
                   type="email"
                   value={form.email}
@@ -295,9 +357,20 @@ function Index() {
                   placeholder="Seu Gmail / e-mail"
                   className={field}
                 />
-                <input value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="Seu WhatsApp" className={field} />
-                <select value={form.interest} onChange={(e) => set("interest", e.target.value)} className={field}>
-                  <option value="" className="text-zinc-900">Selecione seu interesse</option>
+                <input
+                  value={form.phone}
+                  onChange={(e) => set("phone", e.target.value)}
+                  placeholder="Seu WhatsApp"
+                  className={field}
+                />
+                <select
+                  value={form.interest}
+                  onChange={(e) => set("interest", e.target.value)}
+                  className={field}
+                >
+                  <option value="" className="text-zinc-900">
+                    Selecione seu interesse
+                  </option>
                   <option className="text-zinc-900">Drywall</option>
                   <option className="text-zinc-900">Steel Frame</option>
                   <option className="text-zinc-900">Gesso e forros</option>
@@ -340,7 +413,9 @@ function Index() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/10 to-transparent" />
               <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/10 bg-zinc-950/85 p-6 text-white backdrop-blur-xl">
                 <Tag light>Loja física</Tag>
-                <h3 className="mt-2 text-2xl font-black tracking-[-.03em]">Fast Drywall &amp; Steel Frame VCA</h3>
+                <h3 className="mt-2 text-2xl font-black tracking-[-.03em]">
+                  Fast Drywall &amp; Steel Frame VCA
+                </h3>
                 <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-300">
                   <span className="flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-red-500" /> Vitória da Conquista - BA
@@ -368,9 +443,10 @@ function Index() {
                 Sua obra começa com a escolha certa.
               </h2>
               <p className="mt-6 text-base leading-8 text-zinc-600">
-                A Fast Drywall &amp; Steel Frame VCA é referência em soluções para construção a seco em Vitória da Conquista.
-                Trabalhamos com drywall, steel frame, placas, gesso, forros e acessórios, com atendimento especializado, variedade
-                de produtos e suporte para ajudar sua obra a ganhar agilidade, organização e acabamento profissional.
+                A Fast Drywall &amp; Steel Frame VCA é referência em soluções para construção a seco
+                em Vitória da Conquista. Trabalhamos com drywall, steel frame, placas, gesso, forros
+                e acessórios, com atendimento especializado, variedade de produtos e suporte para
+                ajudar sua obra a ganhar agilidade, organização e acabamento profissional.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {(
@@ -506,7 +582,10 @@ function Index() {
         {/* COMO FUNCIONA */}
         <section className="bg-white py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-5 lg:px-8">
-            <SectionHead tag="Como solicitar seu orçamento" title="É rápido, fácil e sem compromisso." />
+            <SectionHead
+              tag="Como solicitar seu orçamento"
+              title="É rápido, fácil e sem compromisso."
+            />
             <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {steps.map(([n, t, d], i) => (
                 <div key={n} className="relative">
@@ -544,7 +623,9 @@ function Index() {
                       <Star key={i} className="h-4 w-4 fill-current" />
                     ))}
                   </div>
-                  <p className="mt-5 flex-1 text-lg font-bold leading-8 tracking-[-.02em]">“{r.text}”</p>
+                  <p className="mt-5 flex-1 text-lg font-bold leading-8 tracking-[-.02em]">
+                    “{r.text}”
+                  </p>
                   <div className="mt-6 flex items-center gap-4 border-t border-zinc-100 pt-6">
                     <img
                       src={r.image}
@@ -571,7 +652,6 @@ function Index() {
               >
                 <Star className="h-4 w-4" /> Ver mais avaliações no Google
               </a>
-              
             </div>
           </div>
         </section>
@@ -603,7 +683,9 @@ function Index() {
           <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 lg:grid-cols-[.85fr_1.15fr] lg:px-8">
             <div>
               <Tag light>Onde estamos</Tag>
-              <h2 className="mt-3 text-4xl font-black leading-[1] tracking-[-.04em]">Visite a Fast Drywall.</h2>
+              <h2 className="mt-3 text-4xl font-black leading-[1] tracking-[-.04em]">
+                Visite a Fast Drywall.
+              </h2>
               <div className="mt-8 space-y-4">
                 <div className="flex gap-4 rounded-2xl border border-white/10 bg-white/[.04] p-5">
                   <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
@@ -647,7 +729,8 @@ function Index() {
           <div>
             <Brand />
             <p className="mt-5 max-w-xs text-sm leading-7">
-              Soluções completas em drywall, steel frame, gesso, forros, perfis e acessórios em Vitória da Conquista - BA.
+              Soluções completas em drywall, steel frame, gesso, forros, perfis e acessórios em
+              Vitória da Conquista - BA.
             </p>
             <div className="mt-6 flex gap-3">
               <a
@@ -714,7 +797,9 @@ function Index() {
 
           <div>
             <h3 className="text-sm font-black uppercase tracking-[.2em] text-white">Orçamento</h3>
-            <p className="mt-5 text-sm leading-7">Atendimento rápido e sem compromisso pelo WhatsApp.</p>
+            <p className="mt-5 text-sm leading-7">
+              Atendimento rápido e sem compromisso pelo WhatsApp.
+            </p>
           </div>
         </div>
         <div className="mx-auto mt-12 max-w-7xl border-t border-white/10 px-5 pt-6 text-xs lg:px-8">
