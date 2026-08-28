@@ -231,7 +231,7 @@ function FloatingWhats() {
       target="_blank"
       rel="noreferrer"
       aria-label="Falar no WhatsApp"
-      className="fixed bottom-6 right-6 z-[60] inline-flex h-14 w-14 items-center justify-center rounded-full bg-red-600 text-white shadow-2xl shadow-red-900/40 transition-all duration-300 hover:scale-110 hover:bg-emerald-500 active:bg-emerald-600 lg:h-16 lg:w-16"
+      className="fixed bottom-6 right-6 z-[60] inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xl shadow-emerald-900/40 transition-all duration-300 hover:scale-110 hover:bg-emerald-400 active:bg-emerald-600 lg:h-16 lg:w-16"
     >
       <MessageCircle className="h-6 w-6 lg:h-7 lg:w-7" />
     </a>
