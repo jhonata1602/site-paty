@@ -31,7 +31,6 @@ import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
-import fastLogo from "@/assets/fast-logo-oficial.svg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -96,12 +95,43 @@ const reviews = [
 ];
 
 function Brand({ footer = false }: { footer?: boolean }) {
+  const gradientId = footer ? "fast-red-footer" : "fast-red-header";
+  const gradientId2 = footer ? "fast-red2-footer" : "fast-red2-header";
+
   return (
-    <img
-      src={fastLogo}
-      alt="Fast Drywall & Steel Frame"
-      className={`${footer ? "h-14 sm:h-16" : "h-12 sm:h-14"} w-auto object-contain`}
-    />
+    <svg
+      viewBox="0 0 420 105"
+      role="img"
+      aria-label="Fast Drywall & Steel Frame"
+      className={`${footer ? "h-16 sm:h-[72px]" : "h-14 sm:h-16"} w-auto shrink-0`}
+    >
+      <defs>
+        <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#ff2b2b" />
+          <stop offset="0.48" stopColor="#d20f19" />
+          <stop offset="1" stopColor="#78070f" />
+        </linearGradient>
+        <linearGradient id={gradientId2} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#ff4242" />
+          <stop offset="0.55" stopColor="#c90d16" />
+          <stop offset="1" stopColor="#860810" />
+        </linearGradient>
+      </defs>
+
+      <g transform="translate(8 7)">
+        <path d="M46 0 L92 46 L46 92 L0 46 Z" fill={`url(#${gradientId})`} />
+        <path d="M46 8 L84 46 L46 84 L8 46 Z" fill="#9f0b13" />
+        <path d="M46 2 L90 46 L46 90 L2 46 Z" fill="none" stroke="#e31b23" strokeWidth="5" />
+        <path d="M46 2 V32 L31 46 L46 61 V90" fill="none" stroke="#ffffff" strokeWidth="7" strokeLinecap="square" strokeLinejoin="miter" />
+        <path d="M33 46 L46 33 L60 46 L46 59 Z" fill={`url(#${gradientId2})`} />
+      </g>
+
+      <g transform="translate(118 1)">
+        <text x="0" y="61" fontFamily="Impact, Haettenschweiler, 'Arial Narrow Bold', Arial, sans-serif" fontSize="72" fontWeight="900" fill="#050505" letterSpacing="-2">FAST</text>
+        <text x="3" y="82" fontFamily="Arial, Helvetica, sans-serif" fontSize="19" fontWeight="800" fill="#d71920">Drywall &amp;</text>
+        <text x="3" y="102" fontFamily="Arial, Helvetica, sans-serif" fontSize="19" fontWeight="800" fill="#d71920">Steel Frame</text>
+      </g>
+    </svg>
   );
 }
 
