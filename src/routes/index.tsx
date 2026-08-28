@@ -177,41 +177,6 @@ function SectionHead({
   );
 }
 
-function WhatsButton({
-  label,
-  message = "Quero solicitar um orçamento.",
-  size = "md",
-  variant = "solid",
-  full = false,
-}: {
-  label: string;
-  message?: string;
-  size?: "sm" | "md" | "lg";
-  variant?: "solid" | "outline";
-  full?: boolean;
-}) {
-  const sizes = {
-    sm: "h-10 px-4 text-xs",
-    md: "h-12 px-6 text-sm",
-    lg: "h-14 px-8 text-base",
-  }[size];
-  const look =
-    variant === "solid"
-      ? "bg-red-600 text-white shadow-lg shadow-red-600/25 hover:bg-emerald-500 hover:shadow-emerald-500/25 active:bg-emerald-600"
-      : "border border-red-600/40 bg-transparent text-red-600 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white";
-  return (
-    <a
-      href={wa(message)}
-      target="_blank"
-      rel="noreferrer"
-      className={`group inline-flex items-center justify-center gap-2 rounded-full font-black transition-all duration-300 hover:-translate-y-0.5 ${sizes} ${look} ${full ? "w-full" : ""}`}
-    >
-      <MessageCircle className="h-4 w-4" />
-      {label}
-      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-    </a>
-  );
-}
 
 function FloatingWhats() {
   return (
