@@ -353,11 +353,10 @@ function Index() {
               <h2 className="mt-3 text-4xl font-black">Tudo que sua obra precisa em construção a seco.</h2>
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {solutions.map(({ title, icon: Icon, image, text }) => (
+              {solutions.map(({ title, image, text }) => (
                 <article key={title} className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                   <div className="relative h-52 overflow-hidden">
                     <img src={image} alt={title} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
-                    <div className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-xl bg-red-600 text-white"><Icon className="h-5 w-5" /></div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-black">{title}</h3>
@@ -385,9 +384,6 @@ function Index() {
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img src={p.image} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                    <div className="absolute right-4 top-4 grid h-12 w-12 place-items-center rounded-full bg-white/95 text-red-600 shadow-lg transition duration-300 group-hover:translate-x-1 group-hover:scale-105">
-                      <ArrowRight className="h-5 w-5" />
-                    </div>
                   </div>
                   <div className="p-6"><h3 className="text-lg font-black">{p.title}</h3></div>
                 </a>
