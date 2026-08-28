@@ -590,7 +590,7 @@ function Index() {
               {steps.map(([n, t, d], i) => (
                 <div key={n} className="relative">
                   <div className="group h-full rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-zinc-900/5">
-                    <div className="grid h-10 w-10 place-items-center rounded-full bg-red-600 text-xs font-black text-white transition-colors duration-300 group-hover:bg-emerald-500">
+                    <div className="grid h-10 w-10 place-items-center rounded-full bg-red-600 text-xs font-black text-white transition-colors duration-300 group-hover:bg-red-500">
                       {n}
                     </div>
                     <h3 className="mt-5 text-base font-black tracking-[-.02em]">{t}</h3>
