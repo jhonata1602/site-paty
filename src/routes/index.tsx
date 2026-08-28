@@ -667,7 +667,6 @@ function Index() {
                 </div>
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
-                <WhatsButton label="Chamar a loja" message="Quero falar com a loja Fast Drywall." />
                 <a
                   href={maps}
                   target="_blank"
