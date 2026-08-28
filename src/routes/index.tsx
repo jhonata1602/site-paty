@@ -564,9 +564,6 @@ function Index() {
                 </div>
               ))}
             </div>
-            <div className="mt-12 flex justify-center">
-              <WhatsButton label="Começar meu orçamento" />
-            </div>
           </div>
         </section>
 
