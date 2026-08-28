@@ -128,18 +128,18 @@ function RootComponent() {
         if (placeholder) {
           const avatar = document.createElement("img");
           avatar.src = reviewAvatar4;
-          avatar.alt = "Cliente Fast";
+          avatar.alt = "Thiago T.";
           avatar.className = "h-12 w-12 shrink-0 rounded-full object-cover";
           placeholder.replaceWith(avatar);
         }
       } else {
         existingImg.src = reviewAvatar4;
-        existingImg.alt = "Cliente Fast";
+        existingImg.alt = "Thiago T.";
         existingImg.className = "h-12 w-12 shrink-0 rounded-full object-cover";
       }
 
       const name = footer.querySelector("p");
-      if (name) name.textContent = "Cliente Fast";
+      if (name) name.textContent = "Thiago T.";
       return true;
     };
 
