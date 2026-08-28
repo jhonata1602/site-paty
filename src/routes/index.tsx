@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type MouseEvent } from "react";
 import {
   ArrowRight,
   Building2,
@@ -49,8 +49,7 @@ export const Route = createFileRoute("/")({
 
 const phone = "5577988560246";
 const heroImage = "https://www.westhollywooddrywallservices.com/weho-drywall-hero.png";
-const maps =
-  "https://www.google.com/maps/search/?api=1&query=Fast+Drywall+Steel+Frame+Vit%C3%B3ria+da+Conquista";
+const maps = "https://maps.app.goo.gl/eiki7GtC96wXzcgHA";
 const instagram = "https://www.instagram.com/fastdrywall.vitoriaconquista/";
 const facebook = "https://www.facebook.com/fastdrywall.vitconquista.ba";
 const wa = (text: string) =>
@@ -137,12 +136,22 @@ function Index() {
     } Quero solicitar um orçamento.`,
   );
 
+  const openExternal = (url: string) => {
+    const opened = window.open(url, "_blank", "noopener,noreferrer");
+    if (!opened) window.location.assign(url);
+  };
+
+  const handleExternal = (event: MouseEvent<HTMLAnchorElement>, url: string) => {
+    event.preventDefault();
+    openExternal(url);
+  };
+
   const set = (key: keyof typeof form, value: string) =>
     setForm((prev) => ({ ...prev, [key]: value }));
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    if (ready) window.open(leadUrl, "_blank", "noopener,noreferrer");
+    if (ready) openExternal(leadUrl);
   };
 
   const selectProduct = (interest: string) => {
@@ -156,8 +165,7 @@ function Index() {
     <div className="min-h-screen bg-white text-zinc-950 antialiased">
       <a
         href={wa("Quero solicitar um orçamento.")}
-        target="_blank"
-        rel="noreferrer"
+        onClick={(event) => handleExternal(event, wa("Quero solicitar um orçamento."))}
         aria-label="WhatsApp"
         className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-2xl transition hover:scale-110 hover:bg-emerald-400"
       >
@@ -352,7 +360,13 @@ function Index() {
                 <p className="mt-3 text-sm leading-7 text-zinc-300">Av. Luís Eduardo Magalhães, Quadra 05<br />Recreio · Vitória da Conquista - BA<br />CEP 45020-282<br /><br />(77) 98856-0246</p>
               </div>
               <div className="mt-6">
-                <a href={maps} target="_blank" rel="noreferrer" className="rounded-full border border-white/15 px-5 py-3 text-sm font-black transition hover:border-red-500 hover:text-red-500">Abrir no Google Maps</a>
+                <a
+                  href={maps}
+                  onClick={(event) => handleExternal(event, maps)}
+                  className="rounded-full border border-white/15 px-5 py-3 text-sm font-black transition hover:border-red-500 hover:text-red-500"
+                >
+                  Abrir no Google Maps
+                </a>
               </div>
             </div>
             <iframe title="Mapa Fast Drywall" src="https://www.google.com/maps?q=Av.+Lu%C3%ADs+Eduardo+Magalh%C3%A3es,+Quadra+05,+Recreio,+Vit%C3%B3ria+da+Conquista+-+BA&output=embed" className="h-[420px] w-full rounded-3xl border-0" loading="lazy" />
@@ -369,8 +383,7 @@ function Index() {
           <div className="flex items-center gap-3">
             <a
               href={instagram}
-              target="_blank"
-              rel="noreferrer"
+              onClick={(event) => handleExternal(event, instagram)}
               aria-label="Instagram"
               className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-violet-600 via-pink-500 to-orange-400 text-white shadow-lg transition hover:-translate-y-1"
             >
@@ -378,8 +391,7 @@ function Index() {
             </a>
             <a
               href={facebook}
-              target="_blank"
-              rel="noreferrer"
+              onClick={(event) => handleExternal(event, facebook)}
               aria-label="Facebook"
               className="grid h-12 w-12 place-items-center rounded-full bg-[#1877F2] text-white shadow-lg transition hover:-translate-y-1"
             >
@@ -387,8 +399,7 @@ function Index() {
             </a>
             <a
               href={wa("Quero falar com a equipe.")}
-              target="_blank"
-              rel="noreferrer"
+              onClick={(event) => handleExternal(event, wa("Quero falar com a equipe."))}
               aria-label="WhatsApp"
               className="grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:-translate-y-1"
             >
@@ -396,8 +407,7 @@ function Index() {
             </a>
             <a
               href={maps}
-              target="_blank"
-              rel="noreferrer"
+              onClick={(event) => handleExternal(event, maps)}
               aria-label="Google Maps"
               className="relative grid h-12 w-12 place-items-center overflow-hidden rounded-full bg-white shadow-lg ring-1 ring-zinc-200 transition hover:-translate-y-1"
             >
