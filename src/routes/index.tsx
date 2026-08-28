@@ -754,9 +754,6 @@ function Index() {
           <div>
             <h3 className="text-sm font-black uppercase tracking-[.2em] text-white">Orçamento</h3>
             <p className="mt-5 text-sm leading-7">Atendimento rápido e sem compromisso pelo WhatsApp.</p>
-            <div className="mt-5">
-              <WhatsButton label="Falar agora" size="sm" />
-            </div>
           </div>
         </div>
         <div className="mx-auto mt-12 max-w-7xl border-t border-white/10 px-5 pt-6 text-xs lg:px-8">
