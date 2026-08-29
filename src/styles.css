@@ -291,3 +291,10 @@
     opacity: 1 !important;
   }
 }
+
+/* Card Perfis e Acessórios: usa a foto exclusiva enviada pelo cliente. */
+#produtos .grid > a:nth-child(4) img {
+  content: url("/prod-perfis-acessorios-final.jpg") !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
