@@ -197,10 +197,10 @@
   background-position: center right;
 }
 
-/* Segundo slide branco: mesma imagem, só um pouco mais aparente. */
+/* Segundo slide branco: imagem agora claramente mais visível, mantendo leitura. */
 #servicos::before {
   background-image:
-    linear-gradient(rgba(250,250,250,.70), rgba(250,250,250,.78)),
+    linear-gradient(rgba(250,250,250,.42), rgba(250,250,250,.52)),
     url("./assets/sol-forro.jpg");
   background-position: center;
 }
