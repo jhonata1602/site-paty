@@ -36,12 +36,26 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Fast Drywall & Steel Frame VCA | Vitória da Conquista" },
+      { title: "Drywall e Steel Frame em Vitória da Conquista | Fast Drywall" },
       {
         name: "description",
         content:
-          "Drywall, Steel Frame, gesso, forros, placas e acessórios em Vitória da Conquista. Solicite seu orçamento pelo WhatsApp.",
+          "Loja de Drywall e Steel Frame em Vitória da Conquista. Placas, perfis, gesso, forros e acessórios para construção a seco. Peça seu orçamento pelo WhatsApp.",
       },
+      {
+        name: "keywords",
+        content:
+          "drywall Vitória da Conquista, steel frame Vitória da Conquista, loja de drywall, placas de drywall, perfis para drywall, gesso, forro de gesso, construção a seco",
+      },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:title", content: "Drywall e Steel Frame em Vitória da Conquista | Fast Drywall" },
+      {
+        property: "og:description",
+        content:
+          "Materiais e soluções em Drywall, Steel Frame, gesso, forros, placas e acessórios em Vitória da Conquista.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
     ],
   }),
 });
@@ -153,7 +167,8 @@ function Index() {
     message: "",
   });
 
-  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
+  const emailOk =
+    form.email.trim().length === 0 || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
   const ready =
     form.name.trim().length > 1 &&
     emailOk &&
@@ -161,7 +176,7 @@ function Index() {
     form.interest.length > 1;
 
   const leadUrl = wa(
-    `Meu nome é ${form.name}. E-mail: ${form.email}. WhatsApp: ${form.phone}. Interesse: ${form.interest}.${
+    `Meu nome é ${form.name}. ${form.email.trim() ? `E-mail: ${form.email}. ` : ""}WhatsApp: ${form.phone}. Interesse: ${form.interest}.${
       form.message ? ` Detalhes: ${form.message}.` : ""
     } Quero solicitar um orçamento.`,
   );
@@ -208,9 +223,9 @@ function Index() {
     <div className="min-h-screen bg-white text-zinc-950 antialiased">
       <button
         type="button"
-        onClick={scrollToForm}
-        aria-label="Preencher formulário de orçamento"
-        title="Preencher formulário"
+        onClick={() => openExternal(wa("Quero solicitar um orçamento e falar com a equipe."))}
+        aria-label="Falar agora pelo WhatsApp"
+        title="Falar agora pelo WhatsApp"
         className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-2xl transition hover:scale-110 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/40"
       >
         <MessageCircle className="h-6 w-6" />
@@ -253,16 +268,16 @@ function Index() {
           </div>
 
           <div className="relative mx-auto grid min-h-[760px] max-w-[1380px] items-start gap-12 px-5 py-12 lg:grid-cols-[1fr_.82fr] lg:px-8 lg:py-16">
-            <div className="max-w-[590px] lg:pt-20">
+            <div className="max-w-[650px] lg:pt-20">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-4 py-2 backdrop-blur-md">
                 <span className="text-red-400">✦</span>
-                <span className="text-[12px] font-bold text-zinc-200">Construção a seco em Vitória da Conquista</span>
+                <span className="text-[12px] font-bold text-zinc-200">Loja especializada em construção a seco em Vitória da Conquista</span>
               </div>
-              <h1 className="mt-7 text-[3.1rem] font-black leading-[.93] tracking-[-.055em] sm:text-[4rem] lg:text-[4.5rem]">
-                Construir com<br /> inteligência é<br /> construir com a<br /> <span className="text-red-500">Fast Drywall.</span>
+              <h1 className="mt-7 text-[2.85rem] font-black leading-[.95] tracking-[-.05em] sm:text-[3.8rem] lg:text-[4.35rem]">
+                Drywall e Steel Frame<br />em Vitória da Conquista<br /><span className="text-red-500">é com a Fast Drywall.</span>
               </h1>
-              <p className="mt-7 max-w-[530px] text-[17px] leading-8 text-zinc-200">
-                Soluções em drywall, steel frame, gesso, forro e acessórios para uma obra mais rápida, limpa, organizada e com excelente acabamento.
+              <p className="mt-7 max-w-[570px] text-[17px] leading-8 text-zinc-200">
+                Materiais e soluções em drywall, steel frame, gesso, forros, placas, perfis e acessórios para uma obra mais rápida, limpa, organizada e com excelente acabamento.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
@@ -273,7 +288,7 @@ function Index() {
                   }}
                   className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500"
                 >
-                  Falar com a equipe <ArrowRight className="h-4 w-4" />
+                  Solicitar orçamento <ArrowRight className="h-4 w-4" />
                 </a>
                 <a href="#servicos" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-7 py-3.5 text-sm font-black text-white backdrop-blur transition hover:bg-white/10">
                   Ver soluções <ArrowRight className="h-4 w-4" />
@@ -286,10 +301,9 @@ function Index() {
                 <div className="absolute right-6 top-6"><WhatsAppMark /></div>
                 <p className="text-[11px] font-black uppercase tracking-[.28em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
                 <h2 className="mt-3 max-w-[340px] text-[1.72rem] font-black leading-[1.02] tracking-[-.035em]">Preencha os dados e siga para o WhatsApp.</h2>
-                <p className="mt-2 text-[12px] text-zinc-400">Fale com nossa equipe e receba seu orçamento.</p>
+                <p className="mt-2 text-[12px] text-zinc-400">Nome, WhatsApp e interesse são suficientes. E-mail é opcional.</p>
                 <form onSubmit={submit} className="mt-5 space-y-3">
                   <div className="relative"><User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input id="lead-name" value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} /></div>
-                  <div className="relative"><Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu Gmail / e-mail" className={`${field} pl-11`} /></div>
                   <div className="relative"><Phone className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="Seu WhatsApp" className={`${field} pl-11`} /></div>
                   <select value={form.interest} onChange={(e) => set("interest", e.target.value)} className={field}>
                     <option value="" className="text-zinc-900">Selecione seu interesse</option>
@@ -299,6 +313,7 @@ function Index() {
                     <option className="text-zinc-900">Perfis e acessórios</option>
                     <option className="text-zinc-900">Orçamento completo</option>
                   </select>
+                  <div className="relative"><Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu e-mail (opcional)" className={`${field} pl-11`} /></div>
                   <textarea value={form.message} onChange={(e) => set("message", e.target.value)} placeholder="Descreva rapidamente o que você precisa (opcional)" className="min-h-[88px] w-full rounded-lg border border-white/10 bg-white/[.07] px-4 py-3 text-sm text-white placeholder:text-zinc-400 outline-none transition focus:border-red-500" />
                   {ready ? (
                     <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 py-3.5 text-sm font-black text-white transition hover:bg-emerald-400">
@@ -306,10 +321,10 @@ function Index() {
                     </button>
                   ) : (
                     <div className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white/10 py-3.5 text-sm font-black text-zinc-500">
-                      <MessageCircle className="h-4 w-4" /> Preencha os campos obrigatórios
+                      <MessageCircle className="h-4 w-4" /> Preencha nome, WhatsApp e interesse
                     </div>
                   )}
-                  <p className="text-center text-[10px] text-zinc-500">O botão do WhatsApp aparecerá quando preencher todos os campos obrigatórios.</p>
+                  <p className="text-center text-[10px] text-zinc-500">Atendimento rápido pelo WhatsApp para tirar dúvidas e solicitar orçamento.</p>
                 </form>
               </div>
             </div>
@@ -321,14 +336,14 @@ function Index() {
             <div className="flex w-full items-center justify-center overflow-hidden rounded-3xl bg-white shadow-2xl lg:min-h-[560px]">
               <img
                 src={storeImg}
-                alt="Fachada da Fast Drywall"
+                alt="Fachada da Fast Drywall em Vitória da Conquista"
                 className="block h-auto max-h-[560px] w-full object-contain"
               />
             </div>
             <div className="flex h-full flex-col justify-center">
               <p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Quem somos</p>
               <h2 className="mt-3 text-4xl font-black sm:text-5xl">Sua obra começa com a escolha certa.</h2>
-              <p className="mt-6 text-base leading-8 text-zinc-600">A Fast Drywall &amp; Steel Frame VCA é referência em soluções para construção a seco em Vitória da Conquista. Trabalhamos com drywall, steel frame, placas, gesso, forros e acessórios, com atendimento especializado, variedade de produtos e suporte para sua obra.</p>
+              <p className="mt-6 text-base leading-8 text-zinc-600">A Fast Drywall &amp; Steel Frame VCA é uma loja especializada em materiais e soluções para construção a seco em Vitória da Conquista. Trabalhamos com drywall, steel frame, placas, gesso, forros, perfis e acessórios, com atendimento especializado, variedade de produtos e suporte para sua obra.</p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {[
                   { icon: ShieldCheck, title: "Produtos de qualidade" },
@@ -356,7 +371,7 @@ function Index() {
               {solutions.map(({ title, image, text }) => (
                 <article key={title} className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                   <div className="relative h-52 overflow-hidden">
-                    <img src={image} alt={title} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                    <img src={image} alt={`${title} em Vitória da Conquista`} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-black">{title}</h3>
@@ -383,7 +398,7 @@ function Index() {
                   className="group overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/90 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:shadow-2xl"
                 >
                   <div className="relative h-48 overflow-hidden">
-                    <img src={p.image} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <img src={p.image} alt={`${p.title} em Vitória da Conquista`} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-6"><h3 className="text-lg font-black">{p.title}</h3></div>
                 </a>
@@ -429,7 +444,14 @@ function Index() {
         <section className="bg-red-600 py-14 text-white">
           <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
             <h2 className="text-3xl font-black">Peça seu orçamento sem compromisso.</h2>
-            <p className="mt-2 text-red-50">Preencha o formulário no início da página ou use o botão flutuante para voltar rapidamente até ele.</p>
+            <p className="mt-2 text-red-50">Fale com a Fast Drywall e encontre os materiais certos para sua obra em Vitória da Conquista.</p>
+            <a
+              href={wa("Quero solicitar um orçamento para minha obra.")}
+              onClick={(event) => handleExternal(event, wa("Quero solicitar um orçamento para minha obra."))}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-black text-red-600 shadow-xl transition hover:-translate-y-0.5 hover:bg-zinc-50"
+            >
+              <MessageCircle className="h-4 w-4" /> Falar agora pelo WhatsApp
+            </a>
           </div>
         </section>
 
@@ -437,7 +459,7 @@ function Index() {
           <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
             <div>
               <p className="text-xs font-black uppercase tracking-[.25em] text-red-400">Onde estamos</p>
-              <h2 className="mt-3 text-4xl font-black">Visite a Fast Drywall.</h2>
+              <h2 className="mt-3 text-4xl font-black">Loja de Drywall e Steel Frame em Vitória da Conquista.</h2>
               <div className="mt-7 rounded-2xl border border-white/10 bg-white/[.04] p-6">
                 <MapPin className="h-5 w-5 text-red-500" />
                 <p className="mt-3 text-sm leading-7 text-zinc-300">Av. Luís Eduardo Magalhães, Quadra 05<br />Recreio · Vitória da Conquista - BA<br />CEP 45020-282<br /><br />(77) 98856-0246</p>
@@ -452,7 +474,7 @@ function Index() {
                 </a>
               </div>
             </div>
-            <iframe title="Mapa Fast Drywall" src="https://www.google.com/maps?q=Av.+Lu%C3%ADs+Eduardo+Magalh%C3%A3es,+Quadra+05,+Recreio,+Vit%C3%B3ria+da+Conquista+-+BA&output=embed" className="h-[420px] w-full rounded-3xl border-0" loading="lazy" />
+            <iframe title="Mapa da Fast Drywall em Vitória da Conquista" src="https://www.google.com/maps?q=Av.+Lu%C3%ADs+Eduardo+Magalh%C3%A3es,+Quadra+05,+Recreio,+Vit%C3%B3ria+da+Conquista+-+BA&output=embed" className="h-[420px] w-full rounded-3xl border-0" loading="lazy" />
           </div>
         </section>
       </main>
@@ -482,8 +504,7 @@ function Index() {
             </a>
             <a
               href={wa("Quero falar com a equipe.")}
-              onClick={(event) => handleExternal(event, wa("Quero falar com a equipe."))
-              }
+              onClick={(event) => handleExternal(event, wa("Quero falar com a equipe."))}
               aria-label="WhatsApp"
               className="grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:-translate-y-1"
             >
