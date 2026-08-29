@@ -26,6 +26,7 @@ import solPerfis from "@/assets/sol-perfis.jpg";
 import prodPlacas from "@/assets/prod-placas.jpg";
 import prodPerfisSf from "@/assets/prod-perfis-sf.jpg";
 import prodGesso from "@/assets/prod-gesso.jpg";
+import prodPerfisAcessorios from "@/assets/prod-perfis-acessorios.jpg";
 import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
@@ -98,7 +99,7 @@ const products = [
   { title: "Placas de Drywall", image: prodPlacas, interest: "Drywall" },
   { title: "Steel Frame", image: prodPerfisSf, interest: "Steel Frame" },
   { title: "Forros e Gesso", image: prodGesso, interest: "Gesso e forros" },
-  { title: "Perfis e Acessórios", image: solPerfis, interest: "Perfis e acessórios" },
+  { title: "Perfis e Acessórios", image: prodPerfisAcessorios, interest: "Perfis e acessórios" },
 ];
 
 const reviews = [
