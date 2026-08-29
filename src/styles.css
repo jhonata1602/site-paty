@@ -97,7 +97,7 @@
   --muted: oklch(0.279 0.041 260.031);
   --muted-foreground: oklch(0.704 0.04 256.788);
   --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
+  --accent-foreground: oklch(0.208 0.042 265.755);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(1 0 0 / 10%);
@@ -290,11 +290,4 @@
     transform: none !important;
     opacity: 1 !important;
   }
-}
-
-/* Card Perfis e Acessórios: usa a foto exclusiva enviada pelo cliente. */
-#produtos .grid > a:nth-child(4) img {
-  content: url("/prod-perfis-acessorios-final.jpg") !important;
-  object-fit: cover !important;
-  object-position: center center !important;
 }
