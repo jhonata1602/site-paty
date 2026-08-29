@@ -26,7 +26,7 @@ import solPerfis from "@/assets/sol-perfis.jpg";
 import prodPlacas from "@/assets/prod-placas.jpg";
 import prodPerfisSf from "@/assets/prod-perfis-sf.jpg";
 import prodGesso from "@/assets/prod-gesso.jpg";
-import prodAcessorios from "@/assets/prod-acessorios-v2.jpg";
+import prodAcessorios from "@/assets/prod-perfis-acessorios-premium.jpg";
 import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
