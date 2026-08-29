@@ -212,7 +212,24 @@
   background-position: center;
 }
 
-/* Entrada suave dos cards/ícones conforme aparecem na tela. */
+/* Os quatro benefícios do Quem Somos devem permanecer 100% visíveis em qualquer viewport. */
+#sobre .mt-8.grid > div {
+  opacity: 1 !important;
+  color: #000 !important;
+}
+
+#sobre .mt-8.grid > div > p {
+  color: #000 !important;
+  opacity: 1 !important;
+  font-weight: 900;
+}
+
+#sobre .mt-8.grid > div > svg {
+  color: #dc2626 !important;
+  opacity: 1 !important;
+}
+
+/* Entrada suave dos demais cards/ícones conforme aparecem na tela. */
 @keyframes fast-reveal-up {
   from {
     opacity: .15;
@@ -236,7 +253,6 @@
 }
 
 @supports (animation-timeline: view()) {
-  #sobre .mt-8.grid > div,
   #servicos article,
   #produtos a.group,
   #avaliacoes article,
@@ -249,7 +265,6 @@
     animation-range: entry 5% cover 24%;
   }
 
-  #sobre .mt-8.grid > div > svg,
   #servicos article svg,
   #avaliacoes article svg,
   #avaliacoes a[aria-label="Ver mais avaliações no Google"] svg {
@@ -264,12 +279,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #sobre .mt-8.grid > div,
   #servicos article,
   #produtos a.group,
   #avaliacoes article,
   #avaliacoes a[aria-label="Ver mais avaliações no Google"],
-  #sobre .mt-8.grid > div > svg,
   #servicos article svg,
   #avaliacoes article svg,
   #avaliacoes a[aria-label="Ver mais avaliações no Google"] svg {
