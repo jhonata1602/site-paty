@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap será adicionado quando o domínio oficial estiver definido.
+# preview-refresh: 2026-08-30T18:20
