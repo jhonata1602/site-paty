@@ -305,3 +305,9 @@ main > section.bg-red-600 a:hover {
   border-color: #34df78 !important;
   transform: translateY(-2px);
 }
+
+/* WhatsApp: manter apenas o botão flutuante como acesso direto. */
+main a[href^="https://wa.me/"],
+footer a[href^="https://wa.me/"] {
+  display: none !important;
+}
