@@ -311,3 +311,66 @@ main a[href^="https://wa.me/"],
 footer a[href^="https://wa.me/"] {
   display: none !important;
 }
+
+/* Rodapé premium: foto opaca, melhor contraste e informações legais visíveis. */
+footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent !important;
+  color: #18181b !important;
+  border-top-color: rgba(24, 24, 27, .18) !important;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.80), rgba(255,255,255,.90)),
+    url("./assets/fast-store-premium.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: saturate(.72) contrast(.96);
+  transform: scale(1.03);
+}
+
+footer p {
+  color: #27272a !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.72);
+}
+
+footer > div {
+  position: relative;
+  z-index: 1;
+}
+
+footer > div::after {
+  content: "Política de Privacidade  •  Termos de Uso";
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(39,39,42,.18);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: #27272a;
+  text-shadow: 0 1px 0 rgba(255,255,255,.72);
+}
+
+@media (min-width: 1024px) {
+  footer > div {
+    flex-wrap: wrap;
+  }
+
+  footer > div::after {
+    flex-basis: 100%;
+  }
+}
