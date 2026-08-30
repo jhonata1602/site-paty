@@ -113,7 +113,7 @@
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
   --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
@@ -290,4 +290,18 @@
     transform: none !important;
     opacity: 1 !important;
   }
+}
+
+/* WhatsApp: CTA da faixa vermelha sempre verde, com hover verde mais claro. */
+main > section.bg-red-600 a {
+  background: #25D366 !important;
+  color: #fff !important;
+  border-color: #25D366 !important;
+}
+
+main > section.bg-red-600 a:hover {
+  background: #34df78 !important;
+  color: #fff !important;
+  border-color: #34df78 !important;
+  transform: translateY(-2px);
 }
