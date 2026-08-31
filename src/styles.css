@@ -360,3 +360,108 @@ footer svg[aria-label="Fast Drywall & Steel Frame"] {
   header > div:first-child { height: 78px !important; }
   header svg[aria-label="Fast Drywall & Steel Frame"] { height: 58px !important; }
 }
+
+/* HERO FINAL: usa exatamente a arte enviada e mantém os dois links funcionais como hotspots invisíveis. */
+#inicio {
+  min-height: 0 !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  background: #0b1117 !important;
+}
+
+#inicio > div.absolute.inset-0 {
+  inset: 0 !important;
+}
+
+#inicio > div.absolute.inset-0 > img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+#inicio > div.absolute.inset-0 > div:first-of-type,
+#inicio > div.absolute.inset-0 > div:last-of-type {
+  display: none !important;
+}
+
+#inicio > div.relative {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+}
+
+#inicio > div.relative > div {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+#inicio > div.relative > div > :not(.mt-6) {
+  display: none !important;
+}
+
+#inicio > div.relative > div > .mt-6 {
+  position: absolute !important;
+  inset: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+
+#inicio .mt-6 button,
+#inicio .mt-6 a {
+  position: absolute !important;
+  display: block !important;
+  opacity: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: transparent !important;
+  pointer-events: auto !important;
+  z-index: 20 !important;
+}
+
+#inicio .mt-6 button {
+  left: 4.5% !important;
+  top: 84% !important;
+  width: 33% !important;
+  height: 12% !important;
+}
+
+#inicio .mt-6 a {
+  left: 41% !important;
+  top: 84% !important;
+  width: 30% !important;
+  height: 12% !important;
+}
+
+@media (max-width: 900px) {
+  #inicio {
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+  #inicio > div.absolute.inset-0 > img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+  #inicio > div.relative {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+}
