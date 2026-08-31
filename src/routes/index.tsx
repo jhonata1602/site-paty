@@ -77,7 +77,7 @@ const solutions = [
   {
     title: "Steel Frame",
     icon: Building2,
-    image: "/steel-frame-4k.webp",
+    image: prodPerfisSf,
     text: "Estruturas em aço galvanizado para obras leves, resistentes, precisas e produtivas.",
   },
   {
