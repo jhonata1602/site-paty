@@ -1,243 +1,102 @@
-/* Primeira dobra limpa e estável.
-   Não esconde mais a copy original do site e não usa regras duplicadas. */
-
+/* HERO FINAL — uma única arte aprovada, sem duplicação de copy/menu. */
 #inicio {
   position: relative !important;
-  min-height: 720px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  aspect-ratio: 1672 / 941 !important;
   overflow: hidden !important;
-  background: #0b131a !important;
+  background: #0b1117 url('/hero-principal-aprovado.jpg?v=20260831-final') center center / cover no-repeat !important;
 }
 
-/* Mantém o asset nativo do projeto como imagem do hero. */
+/* Desliga completamente a imagem/overlays antigos do JSX. */
 #inicio > div.absolute.inset-0 {
-  display: block !important;
+  display: none !important;
+}
+
+/* Usa a estrutura do JSX somente como camada dos dois links clicáveis. */
+#inicio > div.relative {
   position: absolute !important;
   inset: 0 !important;
-  overflow: hidden !important;
-  z-index: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
 }
 
-#inicio > div.absolute.inset-0 > img {
-  display: block !important;
+#inicio > div.relative > div {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+/* A copy, badge e texto já fazem parte da arte aprovada. */
+#inicio > div.relative > div > :not(.mt-6) {
+  display: none !important;
+}
+
+#inicio .mt-6 {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
-  object-position: 72% center !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-/* Degradê somente para leitura da copy no lado esquerdo. */
-#inicio > div.absolute.inset-0 > div:first-of-type {
-  display: block !important;
-  background: linear-gradient(90deg,
-    rgba(8,14,20,.92) 0%,
-    rgba(8,14,20,.82) 28%,
-    rgba(8,14,20,.55) 48%,
-    rgba(8,14,20,.18) 68%,
-    rgba(8,14,20,0) 84%) !important;
-}
-
-#inicio > div.absolute.inset-0 > div:last-of-type {
-  display: block !important;
-  height: 100px !important;
-  background: linear-gradient(to top, rgba(5,10,15,.36), rgba(5,10,15,0)) !important;
-}
-
-/* Copy original do JSX, sem esconder nada. */
-#inicio > div.relative {
-  position: relative !important;
-  z-index: 10 !important;
-  min-height: 720px !important;
-  max-width: 1500px !important;
-  margin: 0 auto !important;
-  padding: 58px 70px 54px !important;
-  display: flex !important;
-  align-items: center !important;
-  pointer-events: auto !important;
-}
-
-#inicio > div.relative > div {
-  position: relative !important;
-  width: min(690px, 49vw) !important;
-  max-width: 690px !important;
   margin: 0 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-#inicio > div.relative > div > * {
-  display: revert !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Badge */
-#inicio > div.relative > div > div:first-child {
-  display: inline-flex !important;
-  min-height: 50px !important;
-  padding: 0 18px !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(255,255,255,.26) !important;
-  background: rgba(10,17,23,.24) !important;
-  backdrop-filter: blur(8px) !important;
-}
-
-#inicio h1 {
-  margin-top: 24px !important;
-  max-width: 680px !important;
-  font-size: clamp(56px, 5.1vw, 84px) !important;
-  line-height: .94 !important;
-  letter-spacing: -.05em !important;
-  color: #fff !important;
-}
-
-#inicio h1 span {
-  color: #f12b2f !important;
-}
-
-#inicio h1 + p {
-  margin-top: 22px !important;
-  max-width: 640px !important;
-  font-size: 18px !important;
-  line-height: 1.7 !important;
-  color: rgba(255,255,255,.92) !important;
-}
-
-/* Benefícios no mesmo bloco dos CTAs, acima dos botões. */
-#inicio .mt-6 {
-  position: relative !important;
-  width: auto !important;
-  height: auto !important;
-  margin-top: 28px !important;
-  padding-top: 50px !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 14px 18px !important;
-  align-items: center !important;
-  pointer-events: auto !important;
-}
-
-#inicio .mt-6::before {
-  content: "⚡  Execução Rápida      ✓  Alta Qualidade      ◈  Sistemas Modernos" !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
+  padding: 0 !important;
   display: block !important;
-  color: rgba(255,255,255,.96) !important;
-  font-size: 16px !important;
-  font-weight: 800 !important;
-  line-height: 1.4 !important;
-  white-space: pre-wrap !important;
+  pointer-events: none !important;
 }
 
-#inicio .mt-6 button,
-#inicio .mt-6 a {
-  position: static !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 62px !important;
-  padding: 0 38px !important;
-  margin: 0 !important;
-  border-radius: 999px !important;
-  font-size: 17px !important;
-  font-weight: 900 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
-
-#inicio .mt-6 button {
-  background: linear-gradient(135deg,#f20f17 0%,#df171f 100%) !important;
-  color: #fff !important;
-  border: 0 !important;
-  box-shadow: 0 12px 30px rgba(231,24,31,.24) !important;
-}
-
-#inicio .mt-6 a {
-  background: rgba(7,15,21,.78) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,.36) !important;
-  backdrop-filter: blur(8px) !important;
-}
-
+#inicio .mt-6::before,
+#inicio .mt-6::after,
 #inicio::before,
-#inicio::after,
-#inicio .mt-6::after {
+#inicio::after {
   content: none !important;
   display: none !important;
 }
 
-@media (max-width: 1100px) {
-  #inicio > div.relative {
-    padding-left: 38px !important;
-    padding-right: 38px !important;
-  }
+/* Hotspots invisíveis sobre os botões desenhados na arte. */
+#inicio .mt-6 button,
+#inicio .mt-6 a {
+  position: absolute !important;
+  display: block !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+  color: transparent !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 30 !important;
+}
 
-  #inicio > div.relative > div {
-    width: min(640px, 58vw) !important;
-  }
+#inicio .mt-6 button {
+  left: 4.7% !important;
+  top: 82.4% !important;
+  width: 19.8% !important;
+  height: 7.8% !important;
+}
 
-  #inicio h1 {
-    font-size: clamp(48px, 6vw, 68px) !important;
-  }
+#inicio .mt-6 a {
+  left: 25.7% !important;
+  top: 82.4% !important;
+  width: 16.1% !important;
+  height: 7.8% !important;
 }
 
 @media (max-width: 760px) {
   #inicio {
-    min-height: 690px !important;
-  }
-
-  #inicio > div.absolute.inset-0 > img {
-    object-position: 68% center !important;
-  }
-
-  #inicio > div.absolute.inset-0 > div:first-of-type {
-    background: linear-gradient(90deg,
-      rgba(8,14,20,.97) 0%,
-      rgba(8,14,20,.91) 52%,
-      rgba(8,14,20,.66) 78%,
-      rgba(8,14,20,.30) 100%) !important;
-  }
-
-  #inicio > div.relative {
-    min-height: 690px !important;
-    padding: 38px 20px 42px !important;
-  }
-
-  #inicio > div.relative > div {
-    width: 100% !important;
-    max-width: 520px !important;
-  }
-
-  #inicio h1 {
-    font-size: clamp(40px, 11vw, 54px) !important;
-  }
-
-  #inicio h1 + p {
-    font-size: 15px !important;
-    line-height: 1.58 !important;
-  }
-
-  #inicio .mt-6 {
-    padding-top: 58px !important;
-  }
-
-  #inicio .mt-6::before {
-    font-size: 11px !important;
-    white-space: normal !important;
-    max-width: 100% !important;
-  }
-
-  #inicio .mt-6 button,
-  #inicio .mt-6 a {
-    min-height: 50px !important;
-    padding: 0 22px !important;
-    font-size: 13px !important;
+    aspect-ratio: 1672 / 941 !important;
+    background-position: center center !important;
   }
 }
