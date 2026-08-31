@@ -263,30 +263,30 @@ function Index() {
       </header>
 
       <main>
-        <section id="inicio" className="relative min-h-[600px] overflow-hidden bg-black text-white lg:min-h-[620px]">
+        <section id="inicio" className="relative isolate min-h-[600px] overflow-hidden bg-black text-white lg:min-h-[620px]">
           <div className="absolute inset-0">
-            <img src={heroImage} alt="Profissional trabalhando com sistema de construção a seco" className="absolute inset-0 h-full w-full object-cover object-[70%_center]" />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.98)_0%,rgba(0,0,0,.94)_34%,rgba(0,0,0,.62)_55%,rgba(0,0,0,.18)_78%,rgba(82,5,8,.34)_100%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/45 to-transparent" />
+            <img src={heroImage} alt="Profissional trabalhando com sistema de construção a seco" className="h-full w-full object-cover object-[72%_center]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.82)_0%,rgba(0,0,0,.72)_28%,rgba(0,0,0,.42)_52%,rgba(0,0,0,.12)_72%,rgba(0,0,0,.06)_100%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/35 to-transparent" />
           </div>
-          <div className="relative mx-auto flex min-h-[600px] max-w-[1380px] items-center px-5 py-12 lg:min-h-[620px] lg:px-8 lg:py-10">
+          <div className="relative z-10 mx-auto flex min-h-[600px] max-w-[1380px] items-center px-5 py-12 lg:min-h-[620px] lg:px-8 lg:py-10">
             <div className="max-w-[680px]">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-4 py-2 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-4 py-2 backdrop-blur-sm">
                 <span className="text-red-400">✦</span>
-                <span className="text-[12px] font-bold text-zinc-200">Especialistas em construção a seco</span>
+                <span className="text-[12px] font-bold text-white">Especialistas em construção a seco</span>
               </div>
-              <h1 className="mt-5 text-[2.7rem] font-black leading-[.96] tracking-[-.05em] sm:text-[3.5rem] lg:text-[4.15rem]">
+              <h1 className="mt-5 text-[2.7rem] font-black leading-[.96] tracking-[-.05em] text-white sm:text-[3.5rem] lg:text-[4.15rem]">
                 Construir com<br />inteligência é<br />construir com a<br />
                 <span className="text-red-500">Fast Drywall.</span>
               </h1>
-              <p className="mt-5 max-w-[590px] text-[16px] leading-7 text-zinc-200">
+              <p className="mt-5 max-w-[590px] text-[16px] leading-7 text-white/90">
                 Materiais e soluções em drywall, steel frame, gesso, forros, placas, perfis e acessórios para uma obra mais rápida, limpa, organizada e com excelente acabamento.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <button type="button" onClick={scrollToForm} className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-black text-white shadow-xl shadow-red-600/20 transition hover:bg-red-500">
                   Solicitar orçamento <ArrowRight className="h-4 w-4" />
                 </button>
-                <a href="#servicos" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-7 py-3.5 text-sm font-black text-white backdrop-blur transition hover:bg-white/10">
+                <a href="#servicos" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/20 px-7 py-3.5 text-sm font-black text-white backdrop-blur-sm transition hover:bg-white/10">
                   Ver soluções <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
