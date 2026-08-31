@@ -1,15 +1,13 @@
-/* Primeira dobra limpa e organizada.
-   Mantém a copy e os botões originais do JSX.
-   A arte enviada entra apenas como cenário: o cabeçalho e a copy que vêm gravados na imagem ficam fora/encobertos. */
+/* Primeira dobra no estilo da referência aprovada.
+   Mantém a copy e os botões originais do JSX e organiza a composição. */
 
 #inicio {
   position: relative !important;
-  min-height: 620px !important;
+  min-height: 720px !important;
   overflow: hidden !important;
-  background: #081018 !important;
+  background: #0a1117 !important;
 }
 
-/* Camada da imagem de fundo. */
 #inicio > div.absolute.inset-0 {
   position: absolute !important;
   inset: 0 !important;
@@ -17,39 +15,34 @@
   z-index: 0 !important;
 }
 
-/* Recorta a faixa branca/cabeçalho que está gravada na própria arte.
-   Mantém o trabalhador e o ambiente como fundo. */
+/* Mantém apenas o cenário e o profissional como fundo. */
 #inicio > div.absolute.inset-0 > img {
   position: absolute !important;
-  left: 0 !important;
-  top: -17% !important;
-  width: 100% !important;
-  height: 120% !important;
+  inset: 0 !important;
   display: block !important;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover !important;
-  object-position: 76% center !important;
+  object-position: 72% center !important;
   opacity: 1 !important;
   visibility: visible !important;
   filter: none !important;
-  transform: scale(1.035) !important;
-  transform-origin: 72% 52% !important;
+  transform: none !important;
 }
 
-/* Cobre a copy que já vem gravada na imagem e cria uma área limpa
-   para a copy ORIGINAL do site. */
+/* Degradê lateral para destacar a copy sem escurecer o profissional. */
 #inicio > div.absolute.inset-0 > div:first-of-type {
   position: absolute !important;
   inset: 0 !important;
   display: block !important;
   background: linear-gradient(
     90deg,
-    rgba(5, 11, 17, .99) 0%,
-    rgba(5, 11, 17, .98) 30%,
-    rgba(5, 11, 17, .94) 43%,
-    rgba(5, 11, 17, .72) 53%,
-    rgba(5, 11, 17, .32) 64%,
-    rgba(5, 11, 17, .08) 78%,
-    rgba(5, 11, 17, 0) 100%
+    rgba(9,16,22,.93) 0%,
+    rgba(9,16,22,.86) 24%,
+    rgba(9,16,22,.68) 42%,
+    rgba(9,16,22,.36) 57%,
+    rgba(9,16,22,.10) 70%,
+    rgba(9,16,22,0) 82%
   ) !important;
   z-index: 1 !important;
 }
@@ -58,20 +51,19 @@
   position: absolute !important;
   inset-inline: 0 !important;
   bottom: 0 !important;
-  height: 120px !important;
   display: block !important;
-  background: linear-gradient(to top, rgba(4,9,14,.70), rgba(4,9,14,0)) !important;
+  height: 120px !important;
+  background: linear-gradient(to top, rgba(7,13,18,.40), rgba(7,13,18,0)) !important;
   z-index: 2 !important;
 }
 
-/* Copy original sempre acima da arte. */
 #inicio > div.relative {
   position: relative !important;
   z-index: 10 !important;
-  min-height: 620px !important;
-  max-width: 1380px !important;
+  min-height: 720px !important;
+  max-width: 1500px !important;
   margin: 0 auto !important;
-  padding: 52px 32px 118px !important;
+  padding: 58px 70px 54px !important;
   display: flex !important;
   align-items: center !important;
   pointer-events: auto !important;
@@ -80,8 +72,8 @@
 #inicio > div.relative > div {
   position: relative !important;
   z-index: 11 !important;
-  width: min(635px, 49vw) !important;
-  max-width: 635px !important;
+  width: min(690px, 49vw) !important;
+  max-width: 690px !important;
   margin: 0 !important;
   opacity: 1 !important;
   visibility: visible !important;
@@ -92,153 +84,178 @@
   visibility: visible !important;
 }
 
+/* Badge superior */
+#inicio > div.relative > div > div:first-child {
+  min-height: 50px !important;
+  padding: 0 18px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,.30) !important;
+  background: rgba(10,17,23,.22) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+#inicio > div.relative > div > div:first-child span:last-child {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+/* Título no mesmo ritmo visual da referência. */
 #inicio h1 {
-  margin-top: 18px !important;
-  max-width: 620px !important;
-  font-size: clamp(44px, 4.15vw, 64px) !important;
-  line-height: .98 !important;
-  letter-spacing: -.045em !important;
+  margin-top: 26px !important;
+  max-width: 680px !important;
+  font-size: clamp(58px, 5.25vw, 86px) !important;
+  line-height: .94 !important;
+  letter-spacing: -.05em !important;
   color: #fff !important;
-  text-shadow: 0 3px 18px rgba(0,0,0,.28) !important;
+  text-shadow: 0 3px 18px rgba(0,0,0,.22) !important;
 }
 
 #inicio h1 span {
-  color: #ef2b2d !important;
+  color: #f1282d !important;
 }
 
 #inicio h1 + p {
-  margin-top: 19px !important;
-  max-width: 565px !important;
-  font-size: 16px !important;
-  line-height: 1.65 !important;
-  color: rgba(255,255,255,.90) !important;
+  margin-top: 25px !important;
+  max-width: 650px !important;
+  font-size: 18px !important;
+  line-height: 1.72 !important;
+  color: rgba(255,255,255,.92) !important;
 }
 
+/* Área dos benefícios + botões. */
 #inicio .mt-6 {
-  margin-top: 24px !important;
+  margin-top: 26px !important;
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 12px !important;
+  gap: 14px 18px !important;
   align-items: center !important;
+}
+
+/* Benefícios entram acima dos botões, como na referência. */
+#inicio .mt-6::before {
+  content: "⚡  Execução Rápida        ✓  Alta Qualidade        ◈  Sistemas Modernos";
+  flex: 0 0 100% !important;
+  display: block !important;
+  margin-bottom: 14px !important;
+  color: rgba(255,255,255,.96) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+  letter-spacing: .005em !important;
+  white-space: pre-wrap !important;
 }
 
 #inicio .mt-6 button,
 #inicio .mt-6 a {
   position: static !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  min-height: 48px !important;
-  padding-left: 25px !important;
-  padding-right: 25px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 64px !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  border-radius: 999px !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
   white-space: nowrap !important;
   pointer-events: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* Rodapé de benefícios limpo, inspirado na referência. */
+#inicio .mt-6 button {
+  background: linear-gradient(135deg,#f20f17 0%,#e01920 100%) !important;
+  box-shadow: 0 12px 30px rgba(231,24,31,.26) !important;
+}
+
+#inicio .mt-6 a {
+  background: rgba(8,16,22,.72) !important;
+  border-color: rgba(255,255,255,.42) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Remove a faixa inferior antiga. */
 #inicio::after {
-  content: "⚡ Execução Rápida   •   ✓ Alta Qualidade   •   ◈ Sistemas Modernos";
-  position: absolute !important;
-  left: max(32px, calc((100% - 1380px) / 2 + 32px)) !important;
-  bottom: 25px !important;
-  z-index: 30 !important;
-  display: flex !important;
-  align-items: center !important;
-  min-height: 50px !important;
-  width: fit-content !important;
-  max-width: 720px !important;
-  padding: 11px 20px !important;
-  border: 1px solid rgba(255,255,255,.15) !important;
-  border-radius: 16px !important;
-  background: rgba(7,13,19,.72) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: rgba(255,255,255,.96) !important;
-  font-size: 12.5px !important;
-  font-weight: 800 !important;
-  letter-spacing: .01em !important;
-  box-shadow: 0 12px 30px rgba(0,0,0,.24) !important;
-  pointer-events: none !important;
+  content: none !important;
+  display: none !important;
 }
 
-@media (max-width: 1024px) {
-  #inicio > div.absolute.inset-0 > img {
-    top: -15% !important;
-    height: 118% !important;
-    object-position: 72% center !important;
+@media (max-width: 1100px) {
+  #inicio > div.relative {
+    padding-left: 38px !important;
+    padding-right: 38px !important;
   }
 
   #inicio > div.relative > div {
-    width: min(600px, 58vw) !important;
+    width: min(650px, 58vw) !important;
   }
 
   #inicio h1 {
-    font-size: clamp(40px, 5.2vw, 56px) !important;
+    font-size: clamp(48px, 6vw, 68px) !important;
+  }
+
+  #inicio > div.absolute.inset-0 > img {
+    object-position: 69% center !important;
   }
 }
 
 @media (max-width: 760px) {
   #inicio {
-    min-height: 650px !important;
+    min-height: 700px !important;
   }
 
   #inicio > div.absolute.inset-0 > img {
-    top: -10% !important;
-    height: 112% !important;
-    object-position: 70% center !important;
-    transform: scale(1.08) !important;
+    object-position: 67% center !important;
   }
 
   #inicio > div.absolute.inset-0 > div:first-of-type {
     background: linear-gradient(
       90deg,
-      rgba(5,11,17,.98) 0%,
-      rgba(5,11,17,.94) 55%,
-      rgba(5,11,17,.66) 78%,
-      rgba(5,11,17,.32) 100%
+      rgba(9,16,22,.97) 0%,
+      rgba(9,16,22,.91) 48%,
+      rgba(9,16,22,.66) 76%,
+      rgba(9,16,22,.28) 100%
     ) !important;
   }
 
   #inicio > div.relative {
-    min-height: 650px !important;
-    padding: 40px 20px 126px !important;
+    min-height: 700px !important;
+    padding: 38px 20px 44px !important;
   }
 
   #inicio > div.relative > div {
     width: 100% !important;
-    max-width: 500px !important;
+    max-width: 520px !important;
   }
 
   #inicio h1 {
-    font-size: clamp(37px, 10.5vw, 50px) !important;
+    margin-top: 20px !important;
+    max-width: 500px !important;
+    font-size: clamp(40px, 11vw, 55px) !important;
+    line-height: .96 !important;
   }
 
   #inicio h1 + p {
-    max-width: 455px !important;
+    margin-top: 18px !important;
+    max-width: 470px !important;
     font-size: 15px !important;
-    line-height: 1.58 !important;
+    line-height: 1.6 !important;
+  }
+
+  #inicio .mt-6::before {
+    margin-bottom: 9px !important;
+    font-size: 11px !important;
+    line-height: 1.6 !important;
+    white-space: normal !important;
   }
 
   #inicio .mt-6 button,
   #inicio .mt-6 a {
-    min-height: 46px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    min-height: 50px !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
     font-size: 13px !important;
-  }
-
-  #inicio::after {
-    left: 20px !important;
-    right: 20px !important;
-    bottom: 17px !important;
-    width: auto !important;
-    max-width: none !important;
-    justify-content: center !important;
-    min-height: 48px !important;
-    padding: 9px 12px !important;
-    border-radius: 14px !important;
-    font-size: 10.5px !important;
-    line-height: 1.4 !important;
-    text-align: center !important;
-    white-space: normal !important;
   }
 }
