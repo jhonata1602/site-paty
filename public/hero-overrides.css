@@ -1,1 +1,86 @@
-/* Hero overrides desativados. O layout original da primeira dobra volta a controlar imagem, texto e botões. */
+/* Primeira dobra: preserva 100% da copy original do site.
+   Somente ajusta a imagem de fundo e adiciona o rodapé visual de benefícios. */
+#inicio {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #0b1117 !important;
+}
+
+/* Mantém a imagem do hero como fundo, sem alterar a copy original. */
+#inicio > div.absolute.inset-0 > img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 72% center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+/* Mantém a leitura da copy no lado esquerdo. */
+#inicio > div.absolute.inset-0 > div:first-of-type {
+  display: block !important;
+  background: linear-gradient(90deg, rgba(8,14,20,.90) 0%, rgba(8,14,20,.76) 30%, rgba(8,14,20,.38) 54%, rgba(8,14,20,.08) 75%, rgba(8,14,20,0) 100%) !important;
+}
+
+#inicio > div.absolute.inset-0 > div:last-of-type {
+  display: block !important;
+}
+
+/* Não esconder, substituir ou reordenar nenhuma copy/botão do JSX original. */
+#inicio > div.relative,
+#inicio > div.relative > div,
+#inicio > div.relative > div > * {
+  visibility: visible !important;
+}
+
+/* Rodapé visual inspirado no criativo aprovado, sem trocar a copy principal. */
+#inicio::after {
+  content: "⚡  Execução Rápida      ✓  Alta Qualidade      ◈  Sistemas Modernos";
+  position: absolute;
+  left: max(5%, calc((100% - 1380px) / 2 + 32px));
+  bottom: 26px;
+  z-index: 20;
+  display: block;
+  max-width: 760px;
+  padding: 12px 18px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  background: rgba(7,12,17,.44);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255,255,255,.94);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+  pointer-events: none;
+}
+
+/* Dá espaço para o rodapé sem bagunçar os botões/copy. */
+#inicio > div.relative {
+  padding-bottom: 88px !important;
+}
+
+@media (max-width: 900px) {
+  #inicio > div.absolute.inset-0 > img {
+    object-position: 68% center !important;
+  }
+
+  #inicio::after {
+    left: 20px;
+    right: 20px;
+    bottom: 16px;
+    max-width: none;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  #inicio > div.relative {
+    padding-bottom: 92px !important;
+  }
+}
