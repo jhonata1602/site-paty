@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1761 620" preserveAspectRatio="none">
+  <defs>
+    <clipPath id="right"><rect x="810" y="0" width="951" height="620"/></clipPath>
+    <linearGradient id="blend" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0b1117" stop-opacity="1"/>
+      <stop offset="0.52" stop-color="#0b1117" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#0b1117" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1761" height="620" fill="#0b1117"/>
+  <g clip-path="url(#right)">
+    <image href="/__l5e/assets-v1/c0f6cdcc-a4b6-4514-93f7-2734246a50ec/hero-steel-frame.png" x="690" y="-78" width="1150" height="770" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+  <rect x="690" y="0" width="360" height="620" fill="url(#blend)"/>
+</svg>
