@@ -61,7 +61,7 @@ export const Route = createFileRoute("/")({
 });
 
 const phone = "5577988560246";
-const heroImage = "https://www.westhollywooddrywallservices.com/weho-drywall-hero.png";
+const heroImage = heroSteelFrame.url;
 const maps = "https://maps.app.goo.gl/eiki7GtC96wXzcgHA";
 const instagram = "https://www.instagram.com/fastdrywall.vitoriaconquista/";
 const facebook = "https://www.facebook.com/fastdrywall.vitconquista.ba";
