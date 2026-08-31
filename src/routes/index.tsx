@@ -30,6 +30,7 @@ import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
+import heroSteelFrame from "@/assets/hero-steel-frame.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
