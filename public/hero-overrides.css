@@ -1,261 +1,111 @@
-/* Primeira dobra no estilo da referência aprovada.
-   Mantém a copy e os botões originais do JSX e organiza a composição. */
-
+/* Primeira dobra final: usa a arte aprovada como um único hero limpo.
+   O JSX original fica escondido visualmente; os dois CTAs continuam clicáveis por hotspots. */
 #inicio {
   position: relative !important;
-  min-height: 720px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
   overflow: hidden !important;
-  background: #0a1117 !important;
+  background-color: #0b1117 !important;
+  background-image: url('/hero-approved.jpg?v=20260831-1') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
 }
 
+/* Remove completamente o hero antigo e seus degradês. */
 #inicio > div.absolute.inset-0 {
-  position: absolute !important;
-  inset: 0 !important;
-  overflow: hidden !important;
-  z-index: 0 !important;
+  display: none !important;
 }
 
-/* Mantém apenas o cenário e o profissional como fundo. */
-#inicio > div.absolute.inset-0 > img {
-  position: absolute !important;
-  inset: 0 !important;
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: 72% center !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-/* Degradê lateral para destacar a copy sem escurecer o profissional. */
-#inicio > div.absolute.inset-0 > div:first-of-type {
-  position: absolute !important;
-  inset: 0 !important;
-  display: block !important;
-  background: linear-gradient(
-    90deg,
-    rgba(9,16,22,.93) 0%,
-    rgba(9,16,22,.86) 24%,
-    rgba(9,16,22,.68) 42%,
-    rgba(9,16,22,.36) 57%,
-    rgba(9,16,22,.10) 70%,
-    rgba(9,16,22,0) 82%
-  ) !important;
-  z-index: 1 !important;
-}
-
-#inicio > div.absolute.inset-0 > div:last-of-type {
-  position: absolute !important;
-  inset-inline: 0 !important;
-  bottom: 0 !important;
-  display: block !important;
-  height: 120px !important;
-  background: linear-gradient(to top, rgba(7,13,18,.40), rgba(7,13,18,0)) !important;
-  z-index: 2 !important;
-}
-
+/* Mantém apenas a camada estrutural para os hotspots. */
 #inicio > div.relative {
-  position: relative !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
   z-index: 10 !important;
-  min-height: 720px !important;
-  max-width: 1500px !important;
-  margin: 0 auto !important;
-  padding: 58px 70px 54px !important;
-  display: flex !important;
-  align-items: center !important;
-  pointer-events: auto !important;
 }
 
 #inicio > div.relative > div {
-  position: relative !important;
-  z-index: 11 !important;
-  width: min(690px, 49vw) !important;
-  max-width: 690px !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
   margin: 0 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
 }
 
-#inicio > div.relative > div > * {
-  opacity: 1 !important;
-  visibility: visible !important;
+/* Esconde badge, título e parágrafo do JSX porque já estão desenhados na arte aprovada. */
+#inicio > div.relative > div > :not(.mt-6) {
+  display: none !important;
 }
 
-/* Badge superior */
-#inicio > div.relative > div > div:first-child {
-  min-height: 50px !important;
-  padding: 0 18px !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(255,255,255,.30) !important;
-  background: rgba(10,17,23,.22) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-#inicio > div.relative > div > div:first-child span:last-child {
-  font-size: 14px !important;
-  font-weight: 700 !important;
-}
-
-/* Título no mesmo ritmo visual da referência. */
-#inicio h1 {
-  margin-top: 26px !important;
-  max-width: 680px !important;
-  font-size: clamp(58px, 5.25vw, 86px) !important;
-  line-height: .94 !important;
-  letter-spacing: -.05em !important;
-  color: #fff !important;
-  text-shadow: 0 3px 18px rgba(0,0,0,.22) !important;
-}
-
-#inicio h1 span {
-  color: #f1282d !important;
-}
-
-#inicio h1 + p {
-  margin-top: 25px !important;
-  max-width: 650px !important;
-  font-size: 18px !important;
-  line-height: 1.72 !important;
-  color: rgba(255,255,255,.92) !important;
-}
-
-/* Área dos benefícios + botões. */
 #inicio .mt-6 {
-  margin-top: 26px !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 14px 18px !important;
-  align-items: center !important;
-}
-
-/* Benefícios entram acima dos botões, como na referência. */
-#inicio .mt-6::before {
-  content: "⚡  Execução Rápida        ✓  Alta Qualidade        ◈  Sistemas Modernos";
-  flex: 0 0 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
   display: block !important;
-  margin-bottom: 14px !important;
-  color: rgba(255,255,255,.96) !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  line-height: 1.5 !important;
-  letter-spacing: .005em !important;
-  white-space: pre-wrap !important;
+  pointer-events: none !important;
 }
 
-#inicio .mt-6 button,
-#inicio .mt-6 a {
-  position: static !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 64px !important;
-  padding-left: 40px !important;
-  padding-right: 40px !important;
-  border-radius: 999px !important;
-  font-size: 17px !important;
-  font-weight: 900 !important;
-  white-space: nowrap !important;
-  pointer-events: auto !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-#inicio .mt-6 button {
-  background: linear-gradient(135deg,#f20f17 0%,#e01920 100%) !important;
-  box-shadow: 0 12px 30px rgba(231,24,31,.26) !important;
-}
-
-#inicio .mt-6 a {
-  background: rgba(8,16,22,.72) !important;
-  border-color: rgba(255,255,255,.42) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-/* Remove a faixa inferior antiga. */
+/* Esconde qualquer pseudo-elemento de benefício antigo. */
+#inicio .mt-6::before,
+#inicio .mt-6::after,
+#inicio::before,
 #inicio::after {
   content: none !important;
   display: none !important;
 }
 
-@media (max-width: 1100px) {
-  #inicio > div.relative {
-    padding-left: 38px !important;
-    padding-right: 38px !important;
-  }
+/* Hotspots transparentes exatamente sobre os botões desenhados na arte. */
+#inicio .mt-6 button,
+#inicio .mt-6 a {
+  position: absolute !important;
+  display: block !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+  color: transparent !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 30 !important;
+}
 
-  #inicio > div.relative > div {
-    width: min(650px, 58vw) !important;
-  }
+/* Solicitar orçamento */
+#inicio .mt-6 button {
+  left: 4.7% !important;
+  top: 86.0% !important;
+  width: 19.7% !important;
+  height: 7.3% !important;
+}
 
-  #inicio h1 {
-    font-size: clamp(48px, 6vw, 68px) !important;
-  }
-
-  #inicio > div.absolute.inset-0 > img {
-    object-position: 69% center !important;
-  }
+/* Ver soluções */
+#inicio .mt-6 a {
+  left: 25.8% !important;
+  top: 86.0% !important;
+  width: 16.2% !important;
+  height: 7.3% !important;
 }
 
 @media (max-width: 760px) {
   #inicio {
-    min-height: 700px !important;
-  }
-
-  #inicio > div.absolute.inset-0 > img {
-    object-position: 67% center !important;
-  }
-
-  #inicio > div.absolute.inset-0 > div:first-of-type {
-    background: linear-gradient(
-      90deg,
-      rgba(9,16,22,.97) 0%,
-      rgba(9,16,22,.91) 48%,
-      rgba(9,16,22,.66) 76%,
-      rgba(9,16,22,.28) 100%
-    ) !important;
-  }
-
-  #inicio > div.relative {
-    min-height: 700px !important;
-    padding: 38px 20px 44px !important;
-  }
-
-  #inicio > div.relative > div {
-    width: 100% !important;
-    max-width: 520px !important;
-  }
-
-  #inicio h1 {
-    margin-top: 20px !important;
-    max-width: 500px !important;
-    font-size: clamp(40px, 11vw, 55px) !important;
-    line-height: .96 !important;
-  }
-
-  #inicio h1 + p {
-    margin-top: 18px !important;
-    max-width: 470px !important;
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-  }
-
-  #inicio .mt-6::before {
-    margin-bottom: 9px !important;
-    font-size: 11px !important;
-    line-height: 1.6 !important;
-    white-space: normal !important;
-  }
-
-  #inicio .mt-6 button,
-  #inicio .mt-6 a {
-    min-height: 50px !important;
-    padding-left: 22px !important;
-    padding-right: 22px !important;
-    font-size: 13px !important;
+    aspect-ratio: 16 / 9 !important;
+    background-size: cover !important;
+    background-position: center center !important;
   }
 }
