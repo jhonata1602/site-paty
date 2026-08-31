@@ -435,16 +435,6 @@ function Index() {
           </div>
         </section>
 
-        <section className="bg-red-600 py-14 text-white">
-          <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
-            <h2 className="text-3xl font-black">Peça seu orçamento sem compromisso.</h2>
-            <p className="mt-2 text-red-50">Encontre os materiais certos para sua obra com atendimento especializado.</p>
-            <button type="button" onClick={scrollToForm} className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-black text-red-600 shadow-xl transition hover:-translate-y-0.5 hover:bg-zinc-50">
-              Solicitar orçamento <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
-        </section>
-
         <section id="localizacao" className="bg-zinc-950 py-20 text-white">
           <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[.78fr_1.22fr] lg:items-stretch lg:px-8">
             <div className="rounded-3xl border border-white/10 bg-white/[.04] p-7 shadow-2xl shadow-black/20 lg:p-8">
