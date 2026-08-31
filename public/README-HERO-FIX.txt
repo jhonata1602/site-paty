@@ -1,0 +1,1 @@
+Temporary marker for hero asset migration. Safe to delete later.
