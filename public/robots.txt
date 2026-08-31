@@ -3,3 +3,4 @@ Allow: /
 
 # Sitemap será adicionado quando o domínio oficial estiver definido.
 # preview-refresh: 2026-08-30T18:20
+# preview-refresh-final-steel: 2026-08-30T21:33
