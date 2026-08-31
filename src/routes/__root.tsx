@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
-const reviewAvatar4 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA4KCw0LCQ4NDA0QDw4RFiQXFhQUFiwgIRokNC43NjMuMjI6QVNGOj1OPjIySGJJTlZYXV5dOEVmbWVabFNbXVn/2wBDAQ8QEBYTFioXFypZOzI7WVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVn/wAARCABgAGADASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAwUBAgQGAP/EAC0QAAICAQMCBAUEAwAAAAAAAAECAAMRBBIhBTETQVFhFCIyUoEVcZGhI0Kx/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIDAAT/xAAdEQEBAAIDAAMAAAAAAAAAAAAAAQIRAyFBBBIx/9oADAMBAAIRAxEAPwCnOORLKB5iWAI7ywwfKRVeCySVUZY4Ei1xVUztnC+kSdS17ZXYCR24hk21phfrVrztXOBnOZkHUTYc7goHkByRFvxJdGNrJux+T7TOt+4co/pwY2tAcHqIXI3k7ffia6dXXbtBO1jxgzmjS7OSMgAZHOczdp224JUqxMF0026DbPbczFTrTWE8T56icbvMRkfaLoQcbYM8mHK5ngoxzMIy4PeTtAPEnAxxIHEwFPV9aEU1oxwDhseZ9IDp+iOvTxbFwD2mLVKbtW6548Q/9nWaZFqpVUHAAhvUNhN1hTo1IbJA/ial6XpyoGwD8TWDCLzJV0SMdXSdNX/rkybejU3AjtmbTwe8uCQMwbHTlup9IfS0MVcsAckY7zT0/UfEaYZ+pPlMadUO7RvnmJOmgI5CtkMvaUxu45+Sapg0GYQiVImKIsuJAAnpgcpqLQuosI5O4n+51a2LTpK3scKNo/M4++txqnQ5yW49+Z0WvCLt3qbNqgBe+T+0bM3Hvsf9Y0aNg2TdRqqbhlG4nMEmywqdFsH3EARn0sZYblIAk7FsbacWaiqsZdsATN+s6Mtt8Ttx2gOrpisMik5ESUAiza2g3j7+DBJs2VsdHrra7+nWPS4bAJnO9KtxrQndW4HtGmjrDpbsQ1goylSMc4ivo1bHUq23hVOTGw9S5PD7EggT0jEZJYSRKiXEzE2o0jNZp2RMvWfnA+3dHhoDsW7e4ghUfF8QHnGD7iEe7wwB/MTzt0ft3PQbNKAfmZmHuYSmpVGVxMjXte2c4QdveE+Lan6gu3HGBND0zsrWyldwBEzVaNA+a3ZQftPEBTr7rSFRRtBySYOy5tM4dSdh7iKY0epal3cn3MV6PTLRT6OCd/7kzYNSb02989pa1Amcd25J9ZonlqSgYkGWkGVczwxJzBgy2ZgXPIxzKWoGUDyIxPNYtdZd2CqO5Miu1L6FtQ5R+xgynSmF7YtX8RSE8BEZezZ7gTVVp7L9v+anB9YQgkesoVQc+GDFi4nwttVYPi0pnnGJkoGptZ/GVPCH0kDlpqpVfKsD8Qr8AcQUQK0FZCqcbRgQzOW+o5gl9ZOYcZpDPLdWMqZ4mVJjpqKZfMyPqUq75J9oCzWOUYjCg8AS+PBnkneTGAdZ1BsodEPyr/ZjDpKn9G0oPfZmKbK99Lr5x10xgem0keS4m+Tj9ZJD/Gv2ttWF3hnD9vWXF9R5J5lHCsCDFup0/wA+UYjM5Y6O5+HK6irAOeZU2+PZhfoHc+syaXQKKTYxLH3mksKtBbZ22oTn8QUd314nmezFel1rGusscqwwc+RjBXDDgzoz4ssO/HLjnMuhMyCRIzIMkd//2Q==";
+const reviewAvatar4 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA4KCw0LCQ4NDA0QDw4RFiQXFhQUFiwgIRokNC43NjMuMjI6QVNGOj1OPjIySGJJTlZYXV5dOEVmbWVabFNbXVn/2wBDAQ8QEBYTFioXFypZOzI7WVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVn/wAARCABgAGADASIAAhEBAxE...TRUNCATED...";
 
 function NotFoundComponent() {
   return (
@@ -65,6 +65,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: "/hero-overrides.css" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
