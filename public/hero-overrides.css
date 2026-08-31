@@ -1,86 +1,209 @@
-/* Primeira dobra: preserva 100% da copy original do site.
-   Somente ajusta a imagem de fundo e adiciona o rodapé visual de benefícios. */
+/* Primeira dobra organizada.
+   Mantém 100% da copy e dos botões originais do JSX.
+   Ajusta apenas composição, imagem de fundo e faixa inferior de benefícios. */
+
 #inicio {
   position: relative !important;
+  min-height: 620px !important;
   overflow: hidden !important;
   background: #0b1117 !important;
 }
 
-/* Mantém a imagem do hero como fundo, sem alterar a copy original. */
+/* Imagem usada somente como fundo visual. */
+#inicio > div.absolute.inset-0 {
+  position: absolute !important;
+  inset: 0 !important;
+}
+
 #inicio > div.absolute.inset-0 > img {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: 72% center !important;
+  object-position: 73% center !important;
   opacity: 1 !important;
   visibility: visible !important;
   filter: none !important;
+  transform: none !important;
 }
 
-/* Mantém a leitura da copy no lado esquerdo. */
+/* Degradê limpo para leitura da copy original. */
 #inicio > div.absolute.inset-0 > div:first-of-type {
   display: block !important;
-  background: linear-gradient(90deg, rgba(8,14,20,.90) 0%, rgba(8,14,20,.76) 30%, rgba(8,14,20,.38) 54%, rgba(8,14,20,.08) 75%, rgba(8,14,20,0) 100%) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 13, 19, .94) 0%,
+    rgba(7, 13, 19, .86) 28%,
+    rgba(7, 13, 19, .62) 45%,
+    rgba(7, 13, 19, .24) 64%,
+    rgba(7, 13, 19, .05) 82%,
+    rgba(7, 13, 19, 0) 100%
+  ) !important;
 }
 
 #inicio > div.absolute.inset-0 > div:last-of-type {
   display: block !important;
+  height: 110px !important;
+  background: linear-gradient(to top, rgba(5,10,15,.48), rgba(5,10,15,0)) !important;
 }
 
-/* Não esconder, substituir ou reordenar nenhuma copy/botão do JSX original. */
-#inicio > div.relative,
-#inicio > div.relative > div,
-#inicio > div.relative > div > * {
-  visibility: visible !important;
-}
-
-/* Rodapé visual inspirado no criativo aprovado, sem trocar a copy principal. */
-#inicio::after {
-  content: "⚡  Execução Rápida      ✓  Alta Qualidade      ◈  Sistemas Modernos";
-  position: absolute;
-  left: max(5%, calc((100% - 1380px) / 2 + 32px));
-  bottom: 26px;
-  z-index: 20;
-  display: block;
-  max-width: 760px;
-  padding: 12px 18px;
-  border: 1px solid rgba(255,255,255,.16);
-  border-radius: 999px;
-  background: rgba(7,12,17,.44);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: rgba(255,255,255,.94);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: .01em;
-  box-shadow: 0 10px 28px rgba(0,0,0,.18);
-  pointer-events: none;
-}
-
-/* Dá espaço para o rodapé sem bagunçar os botões/copy. */
+/* Estrutura original centralizada e alinhada. */
 #inicio > div.relative {
-  padding-bottom: 88px !important;
+  position: relative !important;
+  z-index: 10 !important;
+  min-height: 620px !important;
+  max-width: 1380px !important;
+  margin: 0 auto !important;
+  padding: 58px 32px 122px !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
-@media (max-width: 900px) {
-  #inicio > div.absolute.inset-0 > img {
-    object-position: 68% center !important;
+#inicio > div.relative > div {
+  width: min(640px, 52vw) !important;
+  max-width: 640px !important;
+  margin: 0 !important;
+}
+
+/* Mantém a copy original, apenas organiza proporções. */
+#inicio h1 {
+  margin-top: 18px !important;
+  max-width: 620px !important;
+  font-size: clamp(46px, 4.5vw, 66px) !important;
+  line-height: .98 !important;
+  letter-spacing: -.045em !important;
+}
+
+#inicio h1 + p {
+  margin-top: 20px !important;
+  max-width: 570px !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+}
+
+/* Botões originais em uma linha organizada. */
+#inicio .mt-6 {
+  margin-top: 24px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+
+#inicio .mt-6 button,
+#inicio .mt-6 a {
+  min-height: 48px !important;
+  padding-left: 26px !important;
+  padding-right: 26px !important;
+  white-space: nowrap !important;
+}
+
+/* Faixa inferior inspirada no rodapé do criativo de referência. */
+#inicio::after {
+  content: "⚡ Execução Rápida     •     ✓ Alta Qualidade     •     ◈ Sistemas Modernos";
+  position: absolute !important;
+  left: max(32px, calc((100% - 1380px) / 2 + 32px)) !important;
+  bottom: 28px !important;
+  z-index: 20 !important;
+  display: flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  max-width: 760px !important;
+  min-height: 52px !important;
+  padding: 12px 22px !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 18px !important;
+  background: rgba(8,14,20,.66) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: rgba(255,255,255,.96) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: .01em !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.22) !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 1024px) {
+  #inicio > div.relative > div {
+    width: min(610px, 62vw) !important;
   }
 
-  #inicio::after {
-    left: 20px;
-    right: 20px;
-    bottom: 16px;
-    max-width: none;
-    padding: 10px 14px;
-    border-radius: 18px;
-    font-size: 11px;
-    line-height: 1.5;
-    text-align: center;
+  #inicio h1 {
+    font-size: clamp(42px, 5.4vw, 58px) !important;
+  }
+
+  #inicio > div.absolute.inset-0 > img {
+    object-position: 70% center !important;
+  }
+}
+
+@media (max-width: 760px) {
+  #inicio {
+    min-height: 660px !important;
+  }
+
+  #inicio > div.absolute.inset-0 > img {
+    object-position: 64% center !important;
+  }
+
+  #inicio > div.absolute.inset-0 > div:first-of-type {
+    background: linear-gradient(
+      90deg,
+      rgba(7,13,19,.96) 0%,
+      rgba(7,13,19,.88) 48%,
+      rgba(7,13,19,.50) 78%,
+      rgba(7,13,19,.20) 100%
+    ) !important;
   }
 
   #inicio > div.relative {
-    padding-bottom: 92px !important;
+    min-height: 660px !important;
+    padding: 42px 20px 130px !important;
+    align-items: center !important;
+  }
+
+  #inicio > div.relative > div {
+    width: 100% !important;
+    max-width: 520px !important;
+  }
+
+  #inicio h1 {
+    max-width: 480px !important;
+    font-size: clamp(38px, 11vw, 52px) !important;
+  }
+
+  #inicio h1 + p {
+    max-width: 470px !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  #inicio .mt-6 {
+    gap: 10px !important;
+  }
+
+  #inicio .mt-6 button,
+  #inicio .mt-6 a {
+    min-height: 46px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    font-size: 13px !important;
+  }
+
+  #inicio::after {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 18px !important;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 50px !important;
+    padding: 10px 14px !important;
+    border-radius: 16px !important;
+    font-size: 10.5px !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: normal !important;
   }
 }
