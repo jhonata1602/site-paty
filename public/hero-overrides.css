@@ -1,267 +1,101 @@
-/* Primeira dobra reconstruída de forma limpa.
-   Usa o profissional/cenário apenas no lado direito e mantém a copy real do site à esquerda.
-   Isso elimina menu, copy e botões duplicados que estavam gravados na imagem antiga. */
-
+/* Primeira dobra final baseada na arte aprovada. */
 #inicio {
   position: relative !important;
-  min-height: 720px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
   overflow: hidden !important;
-  background: linear-gradient(90deg, #0b131a 0%, #111b22 48%, #d8d8d4 48%, #ecebe7 100%) !important;
-  color: #fff !important;
+  background-color: #0b1117 !important;
+  background-image: url('/hero-approved.jpg?v=20260831-2') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
 }
 
-/* A imagem antiga fica confinada ao lado direito. */
 #inicio > div.absolute.inset-0 {
-  position: absolute !important;
-  top: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  left: 46% !important;
-  overflow: hidden !important;
-  display: block !important;
-  z-index: 0 !important;
-}
-
-#inicio > div.absolute.inset-0 > img {
-  position: absolute !important;
-  top: -15% !important;
-  left: -48% !important;
-  width: 150% !important;
-  height: 122% !important;
-  max-width: none !important;
-  display: block !important;
-  object-fit: cover !important;
-  object-position: 76% center !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-/* Esconde qualquer overlay antigo dentro da imagem. */
-#inicio > div.absolute.inset-0 > div {
   display: none !important;
 }
 
-/* Transição suave entre a área escura da copy e o profissional. */
-#inicio::before {
-  content: "" !important;
+#inicio > div.relative {
   position: absolute !important;
   inset: 0 !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
   display: block !important;
-  background: linear-gradient(
-    90deg,
-    rgba(10,17,23,.99) 0%,
-    rgba(10,17,23,.97) 34%,
-    rgba(10,17,23,.82) 46%,
-    rgba(10,17,23,.42) 56%,
-    rgba(10,17,23,.10) 66%,
-    rgba(10,17,23,0) 76%
-  ) !important;
-}
-
-/* Copy original do JSX. */
-#inicio > div.relative {
-  position: relative !important;
+  pointer-events: none !important;
   z-index: 10 !important;
-  min-height: 720px !important;
-  max-width: 1500px !important;
-  margin: 0 auto !important;
-  padding: 58px 72px 54px !important;
-  display: flex !important;
-  align-items: center !important;
-  pointer-events: auto !important;
 }
 
 #inicio > div.relative > div {
-  width: min(690px, 48vw) !important;
-  max-width: 690px !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
   margin: 0 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
 }
 
-#inicio > div.relative > div > * {
-  opacity: 1 !important;
-  visibility: visible !important;
+#inicio > div.relative > div > :not(.mt-6) {
+  display: none !important;
 }
 
-/* Badge */
-#inicio > div.relative > div > div:first-child {
-  min-height: 50px !important;
-  padding: 0 18px !important;
-  border: 1px solid rgba(255,255,255,.28) !important;
-  border-radius: 999px !important;
-  background: rgba(16,24,30,.30) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-#inicio > div.relative > div > div:first-child span:last-child {
-  font-size: 14px !important;
-  font-weight: 700 !important;
-}
-
-/* Título */
-#inicio h1 {
-  margin-top: 26px !important;
-  max-width: 690px !important;
-  font-size: clamp(58px, 5.15vw, 84px) !important;
-  line-height: .94 !important;
-  letter-spacing: -.05em !important;
-  color: #fff !important;
-  text-shadow: 0 3px 18px rgba(0,0,0,.20) !important;
-}
-
-#inicio h1 span {
-  color: #f22a2f !important;
-}
-
-#inicio h1 + p {
-  margin-top: 24px !important;
-  max-width: 650px !important;
-  font-size: 18px !important;
-  line-height: 1.7 !important;
-  color: rgba(255,255,255,.92) !important;
-}
-
-/* Benefícios acima dos CTAs. */
 #inicio .mt-6 {
-  margin-top: 28px !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  align-items: center !important;
-  gap: 16px 18px !important;
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  pointer-events: auto !important;
-}
-
-#inicio .mt-6::before {
-  content: "⚡  Execução Rápida      ✓  Alta Qualidade      ◈  Sistemas Modernos" !important;
-  flex: 0 0 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
   display: block !important;
-  margin-bottom: 12px !important;
-  color: rgba(255,255,255,.96) !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  line-height: 1.45 !important;
-  white-space: pre-wrap !important;
+  pointer-events: none !important;
 }
 
-#inicio .mt-6 button,
-#inicio .mt-6 a {
-  position: static !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  min-height: 62px !important;
-  padding: 0 38px !important;
-  border-radius: 999px !important;
-  font-size: 17px !important;
-  font-weight: 900 !important;
-  white-space: nowrap !important;
-  pointer-events: auto !important;
-}
-
-#inicio .mt-6 button {
-  background: linear-gradient(135deg,#f20f17 0%,#e01920 100%) !important;
-  color: #fff !important;
-  border: 0 !important;
-  box-shadow: 0 12px 30px rgba(231,24,31,.26) !important;
-}
-
-#inicio .mt-6 a {
-  background: rgba(7,15,21,.80) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,.38) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
+#inicio .mt-6::before,
+#inicio .mt-6::after,
+#inicio::before,
 #inicio::after {
   content: none !important;
   display: none !important;
 }
 
-@media (max-width: 1100px) {
-  #inicio > div.relative {
-    padding-left: 38px !important;
-    padding-right: 38px !important;
-  }
+#inicio .mt-6 button,
+#inicio .mt-6 a {
+  position: absolute !important;
+  display: block !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 30 !important;
+}
 
-  #inicio > div.relative > div {
-    width: min(640px, 58vw) !important;
-  }
+#inicio .mt-6 button {
+  left: 4.8% !important;
+  top: 86.2% !important;
+  width: 19.5% !important;
+  height: 7.4% !important;
+}
 
-  #inicio h1 {
-    font-size: clamp(48px, 6vw, 68px) !important;
-  }
-
-  #inicio > div.absolute.inset-0 {
-    left: 43% !important;
-  }
+#inicio .mt-6 a {
+  left: 25.8% !important;
+  top: 86.2% !important;
+  width: 16.4% !important;
+  height: 7.4% !important;
 }
 
 @media (max-width: 760px) {
   #inicio {
-    min-height: 700px !important;
-    background: #0b131a !important;
-  }
-
-  #inicio > div.absolute.inset-0 {
-    left: 50% !important;
-    opacity: .60 !important;
-  }
-
-  #inicio > div.absolute.inset-0 > img {
-    top: -8% !important;
-    left: -70% !important;
-    width: 180% !important;
-    height: 112% !important;
-    object-position: 75% center !important;
-  }
-
-  #inicio::before {
-    background: linear-gradient(90deg, rgba(10,17,23,.98) 0%, rgba(10,17,23,.94) 58%, rgba(10,17,23,.72) 82%, rgba(10,17,23,.40) 100%) !important;
-  }
-
-  #inicio > div.relative {
-    min-height: 700px !important;
-    padding: 38px 20px 44px !important;
-  }
-
-  #inicio > div.relative > div {
-    width: 100% !important;
-    max-width: 520px !important;
-  }
-
-  #inicio h1 {
-    font-size: clamp(40px, 11vw, 54px) !important;
-    line-height: .96 !important;
-  }
-
-  #inicio h1 + p {
-    font-size: 15px !important;
-    line-height: 1.58 !important;
-    max-width: 470px !important;
-  }
-
-  #inicio .mt-6::before {
-    font-size: 11px !important;
-    white-space: normal !important;
-    line-height: 1.55 !important;
-  }
-
-  #inicio .mt-6 button,
-  #inicio .mt-6 a {
-    min-height: 50px !important;
-    padding: 0 22px !important;
-    font-size: 13px !important;
+    aspect-ratio: 16 / 9 !important;
+    background-size: cover !important;
+    background-position: center center !important;
   }
 }
