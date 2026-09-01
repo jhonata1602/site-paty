@@ -155,7 +155,7 @@ function Index() {
             rel="noopener noreferrer"
             onClick={(event) => handleExternal(event, budgetUrl)}
             aria-label="Solicitar orçamento pelo WhatsApp"
-            className="absolute bottom-[9.5%] left-[4.8%] flex h-[7.6%] w-[20%] cursor-pointer items-center justify-center rounded-full bg-transparent text-transparent text-xs sm:text-sm md:text-base lg:text-lg font-black transition-all duration-300 ease-in-out hover:scale-[1.03] hover:bg-[#25D366] hover:text-white hover:shadow-2xl hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-400/60"
+            className="absolute bottom-[9.5%] left-[4.8%] z-10 flex h-[7.6%] w-[20%] cursor-pointer items-center justify-center rounded-full bg-[#d71920] font-black text-white text-[clamp(11px,1.25vw,17px)] shadow-lg transition-all duration-300 ease-in-out hover:scale-[1.03] hover:bg-[#25D366] hover:shadow-2xl hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-400/60"
           >
             Solicitar orçamento
           </a>
@@ -167,70 +167,70 @@ function Index() {
         <section id="servicos" className="border-y border-zinc-200 bg-zinc-50 py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="text-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Soluções para sua obra</p><h2 className="mt-3 text-4xl font-black">Tudo que sua obra precisa em construção a seco.</h2></div><div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{solutions.map(({ title, image, text }) => <article key={title} className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div className="relative h-52 overflow-hidden"><img src={image} alt={`${title} em Vitória da Conquista`} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" /></div><div className="p-6"><h3 className="text-xl font-black">{title}</h3><p className="mt-3 text-sm leading-6 text-zinc-600">{text}</p></div></article>)}</div></div></section>
 
         <section id="steel-frame" className="relative overflow-hidden bg-[linear-gradient(135deg,#8f0d14_0%,#c9141c_48%,#ef2931_100%)] py-14 text-white lg:py-16">
-          <div className="relative mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.1fr_.9fr] lg:items-stretch lg:gap-10 lg:px-8">
-            <div className="flex flex-col justify-between">
-              <div>
-                <p className="text-xs font-black uppercase tracking-[.28em] text-red-100">Steel Frame</p>
-                <h2 className="mt-2 text-3xl font-black leading-tight sm:text-4xl">Inovação que valoriza seu projeto.</h2>
-                <p className="mt-2 text-sm leading-relaxed text-red-50/90">Tecnologia construtiva para quem busca eficiência, precisão, organização e desempenho do início ao acabamento.</p>
-              </div>
+          <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-xs font-black uppercase tracking-[.28em] text-red-100">Steel Frame</p>
+              <h2 className="mt-2 text-3xl font-black leading-tight sm:text-4xl">Inovação que valoriza seu projeto.</h2>
+              <p className="mt-2 text-sm leading-relaxed text-red-50/90">Tecnologia construtiva para quem busca eficiência, precisão, organização e desempenho do início ao acabamento.</p>
+            </div>
 
-              <div className="my-auto grid gap-3 pt-5 sm:pt-6">
+            <div className="mt-8 grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-stretch lg:gap-8 xl:gap-10">
+              <div className="grid h-full grid-rows-5 gap-3">
                 {steelBenefits.map(({ icon: Icon, title, text }) => (
                   <div
                     key={title}
-                    className="flex min-h-[72px] w-full items-center gap-4 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-sm transition hover:bg-white/[.15] sm:px-5"
+                    className="flex h-full w-full items-center gap-4 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-sm transition hover:bg-white/[.15] sm:px-5"
                   >
                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white text-red-600 shadow-md">
                       <Icon className="h-5 w-5 shrink-0" strokeWidth={2.2} />
                     </span>
                     <div className="min-w-0 flex-1 flex flex-col justify-center">
-                      <h3 className="text-sm font-black leading-snug text-white sm:text-[15px]">{title}</h3>
-                      <p className="mt-0.5 text-xs leading-snug text-red-50/90 sm:text-[13px]">{text}</p>
+                      <h3 className="text-sm font-black leading-tight text-white sm:text-[15px]">{title}</h3>
+                      <p className="mt-1 text-xs leading-tight text-red-50/90 sm:text-[12.5px]">{text}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
 
-            <div id="formulario" className="scroll-mt-40 flex flex-col justify-between rounded-[24px] border border-white/10 bg-zinc-950/95 p-6 shadow-[0_24px_70px_rgba(0,0,0,.30)] lg:p-7">
-              <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-[.25em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
-                  <h3 className="mt-1.5 text-[1.45rem] font-black leading-tight text-white">Fale com a equipe da Fast Drywall.</h3>
-                  <p className="mt-1 text-[12px] leading-5 text-zinc-400">Preencha seus dados e continue para o WhatsApp.</p>
+              <div id="formulario" className="scroll-mt-40 flex h-full flex-col justify-between rounded-[24px] border border-white/10 bg-zinc-950/95 p-6 shadow-[0_24px_70px_rgba(0,0,0,.30)] lg:p-7">
+                <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[.25em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
+                    <h3 className="mt-1.5 text-[1.45rem] font-black leading-tight text-white">Fale com a equipe da Fast Drywall.</h3>
+                    <p className="mt-1 text-[12px] leading-5 text-zinc-400">Preencha seus dados e continue para o WhatsApp.</p>
+                  </div>
+                  <WhatsAppMark />
                 </div>
-                <WhatsAppMark />
+
+                <form onSubmit={submit} className="mt-4 space-y-3">
+                  <div className="relative">
+                    <User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                    <input id="lead-name" required value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} />
+                  </div>
+                  <div className="relative">
+                    <Phone className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                    <input required value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="WhatsApp / contato" className={`${field} pl-11`} />
+                  </div>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                    <input required type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu e-mail" className={`${field} pl-11`} />
+                  </div>
+                  <div className="relative">
+                    <Package className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                    <select required value={form.interest} onChange={(e) => set("interest", e.target.value)} className={`${field} pl-11`}>
+                      <option value="" className="text-zinc-900">Selecione seu interesse</option>
+                      <option className="text-zinc-900">Drywall</option>
+                      <option className="text-zinc-900">Steel Frame</option>
+                      <option className="text-zinc-900">Gesso e forros</option>
+                      <option className="text-zinc-900">Perfis e acessórios</option>
+                      <option className="text-zinc-900">Orçamento completo</option>
+                    </select>
+                  </div>
+                  <button type="submit" disabled={!ready} className={`inline-flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-black transition ${ready ? "bg-emerald-500 text-white hover:bg-emerald-400" : "cursor-not-allowed bg-white/10 text-zinc-500"}`}>
+                    <MessageCircle className="h-4 w-4" /> Continuar para o WhatsApp <ArrowRight className="h-4 w-4" />
+                  </button>
+                </form>
               </div>
-
-              <form onSubmit={submit} className="mt-4 space-y-3">
-                <div className="relative">
-                  <User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
-                  <input id="lead-name" required value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} />
-                </div>
-                <div className="relative">
-                  <Phone className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
-                  <input required value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="WhatsApp / contato" className={`${field} pl-11`} />
-                </div>
-                <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
-                  <input required type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu e-mail" className={`${field} pl-11`} />
-                </div>
-                <div className="relative">
-                  <Package className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
-                  <select required value={form.interest} onChange={(e) => set("interest", e.target.value)} className={`${field} pl-11`}>
-                    <option value="" className="text-zinc-900">Selecione seu interesse</option>
-                    <option className="text-zinc-900">Drywall</option>
-                    <option className="text-zinc-900">Steel Frame</option>
-                    <option className="text-zinc-900">Gesso e forros</option>
-                    <option className="text-zinc-900">Perfis e acessórios</option>
-                    <option className="text-zinc-900">Orçamento completo</option>
-                  </select>
-                </div>
-                <button type="submit" disabled={!ready} className={`inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-black transition ${ready ? "bg-emerald-500 text-white hover:bg-emerald-400" : "cursor-not-allowed bg-white/10 text-zinc-500"}`}>
-                  <MessageCircle className="h-4 w-4" /> Continuar para o WhatsApp <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
             </div>
           </div>
         </section>
