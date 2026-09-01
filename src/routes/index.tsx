@@ -179,14 +179,14 @@ function Index() {
                 {steelBenefits.map(({ icon: Icon, title, text }) => (
                   <div
                     key={title}
-                    className="flex h-full w-full items-center gap-4 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-sm transition hover:bg-white/[.15] sm:px-5"
+                    className="flex h-full w-full items-center gap-4 rounded-2xl border border-white/20 bg-white px-4 py-3 shadow-md transition hover:bg-zinc-50 sm:px-5"
                   >
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white text-red-600 shadow-md">
-                      <Icon className="h-5 w-5 shrink-0" strokeWidth={2.2} />
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white text-red-600 shadow-sm ring-1 ring-zinc-200/80">
+                      <Icon className="h-5 w-5 shrink-0 text-red-600" strokeWidth={2.2} />
                     </span>
                     <div className="min-w-0 flex-1 flex flex-col justify-center">
-                      <h3 className="text-sm font-black leading-tight text-white sm:text-[15px]">{title}</h3>
-                      <p className="mt-1 text-xs leading-tight text-red-50/90 sm:text-[12.5px]">{text}</p>
+                      <h3 className="text-sm font-black leading-tight text-red-600 sm:text-[15px]">{title}</h3>
+                      <p className="mt-1 text-xs font-semibold leading-tight text-red-600/90 sm:text-[12.5px]">{text}</p>
                     </div>
                   </div>
                 ))}
@@ -236,8 +236,6 @@ function Index() {
         </section>
 
         <section id="avaliacoes" className="bg-zinc-50 py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="text-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Reputação e confiança</p><h2 className="mt-3 text-4xl font-black">Clientes satisfeitos e atendimento que gera confiança.</h2></div><div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{reviews.map((r) => <article key={r.name} className="flex min-h-[250px] h-full flex-col rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm"><div className="flex gap-1 text-amber-500">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div><p className="mt-5 text-[17px] font-bold leading-8">“{r.text}”</p><div className="mt-auto flex items-center gap-4 pt-7"><img src={r.image} alt={r.name} className="h-12 w-12 rounded-full object-cover" /><p className="font-black">{r.name}</p></div></article>)}<a href={maps} onClick={(event) => handleExternal(event, maps)} className="flex min-h-[250px] h-full flex-col rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm" aria-label="Ver mais avaliações no Google"><div className="flex gap-1 text-amber-500">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div><p className="mt-5 text-[17px] font-bold leading-8">“Veja mais avaliações e experiências de clientes no Google.”</p></a></div></div></section>
-
-        <section className="bg-red-600 py-14 text-white"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><h2 className="text-3xl font-black">Peça seu orçamento sem compromisso.</h2><p className="mt-2 text-red-50">Encontre os materiais certos para sua obra com atendimento especializado.</p><a href={budgetUrl} onClick={(event) => handleExternal(event, budgetUrl)} className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-black text-red-600 shadow-xl">Solicitar orçamento <ArrowRight className="h-4 w-4" /></a></div></section>
 
         <section id="localizacao" className="bg-zinc-950 py-20 text-white"><div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[.78fr_1.22fr] lg:items-stretch lg:px-8"><div className="rounded-3xl border border-white/10 bg-white/[.04] p-7 shadow-2xl lg:p-8"><p className="text-xs font-black uppercase tracking-[.28em] text-red-400">Onde estamos</p><h2 className="mt-3 text-4xl font-black">Visite a Fast Drywall.</h2><div className="mt-8 flex gap-4 rounded-2xl border border-white/10 bg-black/20 p-5"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-red-600/15 text-red-400"><MapPin className="h-5 w-5" /></span><p className="text-sm leading-7 text-zinc-300">Av. Luís Eduardo Magalhães, Quadra 05<br />Recreio · Vitória da Conquista - BA<br />CEP 45020-282</p></div><div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-5"><p className="text-base font-black text-white">(77) 98856-0246</p></div><a href={maps} onClick={(event) => handleExternal(event, maps)} className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[.05] px-5 py-3 text-sm font-black">Abrir no Google Maps <ArrowRight className="h-4 w-4" /></a></div><iframe title="Mapa da Fast Drywall em Vitória da Conquista" src="https://www.google.com/maps?q=Av.+Lu%C3%ADs+Eduardo+Magalh%C3%A3es,+Quadra+05,+Recreio,+Vitória+da+Conquista+-+BA&output=embed" className="h-[460px] w-full rounded-3xl border-0" loading="lazy" /></div></section>
       </main>
