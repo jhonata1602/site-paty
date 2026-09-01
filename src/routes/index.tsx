@@ -93,7 +93,7 @@ function Brand({ footer = false }: { footer?: boolean }) {
       viewBox="0 0 420 105"
       role="img"
       aria-label="Fast Drywall & Steel Frame"
-      className={`${footer ? "h-16 sm:h-[72px]" : "h-14 sm:h-16"} w-auto shrink-0`}
+      className={`${footer ? "h-16 sm:h-[72px]" : "h-[70px] sm:h-[82px] lg:h-[92px]"} w-auto shrink-0`}
     >
       <defs>
         <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
@@ -144,13 +144,12 @@ function Index() {
     <div className="min-h-screen bg-white text-zinc-950 antialiased">
       <button type="button" onClick={scrollToForm} aria-label="Solicitar orçamento" title="Solicitar orçamento" className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-2xl transition hover:scale-110 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/40"><MessageCircle className="h-6 w-6" /></button>
 
-      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 shadow-sm backdrop-blur-xl">
-        <div className="mx-auto flex h-[84px] max-w-[1380px] items-center justify-between px-5 lg:px-8">
+      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white shadow-[0_6px_22px_rgba(0,0,0,.06)]">
+        <div className="mx-auto flex h-[96px] max-w-[1540px] items-center justify-between px-5 sm:h-[108px] sm:px-8 lg:h-[118px] lg:px-12">
           <a href="#inicio" aria-label="Fast Drywall início" className="shrink-0"><Brand /></a>
-          <nav className="hidden items-center gap-10 text-[13px] font-bold text-zinc-600 lg:flex"><a href="#sobre" className="transition hover:text-red-600">Sobre</a><a href="#servicos" className="transition hover:text-red-600">Soluções</a><a href="#steel-frame" className="transition hover:text-red-600">Steel Frame</a><a href="#avaliacoes" className="transition hover:text-red-600">Avaliações</a><a href="#localizacao" className="transition hover:text-red-600">Localização</a></nav>
-          <div className="w-10 lg:w-[250px]" aria-hidden="true" />
+          <nav className="hidden items-center gap-10 text-[14px] font-black text-zinc-800 lg:ml-auto lg:flex xl:gap-14 xl:text-[16px]"><a href="#sobre" className="transition hover:text-red-600">Sobre</a><a href="#servicos" className="transition hover:text-red-600">Soluções</a><a href="#steel-frame" className="transition hover:text-red-600">Steel Frame</a><a href="#avaliacoes" className="transition hover:text-red-600">Avaliações</a><a href="#localizacao" className="transition hover:text-red-600">Localização</a></nav>
         </div>
-        <div className="border-t border-zinc-100 lg:hidden"><nav aria-label="Navegação principal" className="mx-auto flex max-w-[1380px] items-center gap-6 overflow-x-auto px-5 py-3 text-[12px] font-black text-zinc-600 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"><a href="#sobre" className="shrink-0 transition hover:text-red-600">Sobre</a><a href="#servicos" className="shrink-0 transition hover:text-red-600">Soluções</a><a href="#steel-frame" className="shrink-0 transition hover:text-red-600">Steel Frame</a><a href="#avaliacoes" className="shrink-0 transition hover:text-red-600">Avaliações</a><a href="#localizacao" className="shrink-0 transition hover:text-red-600">Localização</a></nav></div>
+        <div className="border-t border-zinc-100 lg:hidden"><nav aria-label="Navegação principal" className="mx-auto flex max-w-[1380px] items-center gap-6 overflow-x-auto px-5 py-3 text-[12px] font-black text-zinc-700 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"><a href="#sobre" className="shrink-0 transition hover:text-red-600">Sobre</a><a href="#servicos" className="shrink-0 transition hover:text-red-600">Soluções</a><a href="#steel-frame" className="shrink-0 transition hover:text-red-600">Steel Frame</a><a href="#avaliacoes" className="shrink-0 transition hover:text-red-600">Avaliações</a><a href="#localizacao" className="shrink-0 transition hover:text-red-600">Localização</a></nav></div>
       </header>
 
       <main>
