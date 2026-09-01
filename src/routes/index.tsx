@@ -32,6 +32,7 @@ import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
+import fastLogo from "@/assets/fast-logo-original.svg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -86,43 +87,15 @@ const steelBenefits = [
 ];
 
 function Brand({ footer = false }: { footer?: boolean }) {
-  const gradientId = footer ? "fast-red-footer" : "fast-red-header";
-  const gradientId2 = footer ? "fast-red2-footer" : "fast-red2-header";
   return (
-    <div className="flex items-center gap-2.5 sm:gap-3">
-      <svg
-        viewBox="0 0 240 76"
-        role="img"
-        aria-label="Fast Drywall & Steel Frame"
-        className={`${footer ? "h-14 sm:h-16" : "h-10 sm:h-11 lg:h-12"} w-auto shrink-0`}
-      >
-        <defs>
-          <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#ff2828" />
-            <stop offset="50%" stopColor="#c50f17" />
-            <stop offset="100%" stopColor="#75060d" />
-          </linearGradient>
-          <linearGradient id={gradientId2} x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ff3d3d" />
-            <stop offset="55%" stopColor="#c40e16" />
-            <stop offset="100%" stopColor="#7e080f" />
-          </linearGradient>
-        </defs>
-        {/* Diamond */}
-        <g transform="translate(4 4)">
-          <path d="M34 0 L68 34 L34 68 L0 34 Z" fill={`url(#${gradientId})`} />
-          <path d="M34 6 L62 34 L34 62 L6 34 Z" fill="#9f0b13" />
-          <path d="M34 2 L66 34 L34 66 L2 34 Z" fill="none" stroke="#e31b23" strokeWidth="3.5" />
-          <path d="M34 2 V24 L23 34 L34 45 V66" fill="none" stroke="#ffffff" strokeWidth="5.5" strokeLinecap="square" strokeLinejoin="miter" />
-          <path d="M24 34 L34 24 L44 34 L34 44 Z" fill={`url(#${gradientId2})`} />
-        </g>
-        {/* Text */}
-        <g transform="translate(82 2)">
-          <text x="0" y="44" fontFamily="'Arial Black', Impact, Haettenschweiler, sans-serif" fontSize="50" fontWeight="900" fill="#050505" letterSpacing="-1.5">FAST</text>
-          <text x="2" y="59" fontFamily="Arial, Helvetica, sans-serif" fontSize="13.5" fontWeight="900" fill="#d71920">Drywall &amp;</text>
-          <text x="2" y="73" fontFamily="Arial, Helvetica, sans-serif" fontSize="13.5" fontWeight="900" fill="#d71920">Steel Frame</text>
-        </g>
-      </svg>
+    <div className="flex items-center">
+      <img
+        src={fastLogo}
+        alt="Fast Drywall & Steel Frame"
+        className={`${footer ? "h-11 sm:h-12" : "h-9 sm:h-10 lg:h-11"} w-auto object-contain`}
+        width={344}
+        height={83}
+      />
     </div>
   );
 }
@@ -185,7 +158,7 @@ function Index() {
         <section id="servicos" className="border-y border-zinc-200 bg-zinc-50 py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="text-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Soluções para sua obra</p><h2 className="mt-3 text-4xl font-black">Tudo que sua obra precisa em construção a seco.</h2></div><div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{solutions.map(({ title, image, text }) => <article key={title} className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div className="relative h-52 overflow-hidden"><img src={image} alt={`${title} em Vitória da Conquista`} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" /></div><div className="p-6"><h3 className="text-xl font-black">{title}</h3><p className="mt-3 text-sm leading-6 text-zinc-600">{text}</p></div></article>)}</div></div></section>
 
         <section id="steel-frame" className="relative overflow-hidden bg-[linear-gradient(135deg,#8f0d14_0%,#c9141c_48%,#ef2931_100%)] py-14 text-white lg:py-16">
-          <div className="relative mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.08fr_.92fr] lg:items-stretch lg:px-8">
+          <div className="relative mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.08fr_.92fr] lg:items-center lg:px-8">
             <div className="flex flex-col justify-between">
               <div>
                 <p className="text-xs font-black uppercase tracking-[.28em] text-red-100">Steel Frame</p>
@@ -193,17 +166,18 @@ function Index() {
                 <p className="mt-2 text-sm leading-relaxed text-red-50/90">Tecnologia construtiva para quem busca eficiência, precisão, organização e desempenho do início ao acabamento.</p>
               </div>
 
-              <div className="my-auto grid gap-2.5 pt-4">
+              <div className="mt-6 space-y-3">
                 {steelBenefits.map(({ icon: Icon, title, text }) => (
-                  <div key={title} className="rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 transition hover:bg-white/[.15]">
-                    <div className="flex items-center gap-3.5">
-                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white text-red-600 shadow-md">
-                        <Icon className="h-4 w-4" />
-                      </span>
-                      <div>
-                        <h3 className="text-sm font-black leading-snug">{title}</h3>
-                        <p className="text-[12px] leading-snug text-red-50/85">{text}</p>
-                      </div>
+                  <div
+                    key={title}
+                    className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/10 px-4 py-3.5 shadow-sm transition hover:bg-white/[.15] sm:px-5"
+                  >
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white text-red-600 shadow-md">
+                      <Icon className="h-5 w-5 shrink-0" strokeWidth={2.2} />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-sm font-black leading-snug text-white sm:text-[15px]">{title}</h3>
+                      <p className="mt-0.5 text-xs leading-snug text-red-50/90 sm:text-[13px]">{text}</p>
                     </div>
                   </div>
                 ))}
