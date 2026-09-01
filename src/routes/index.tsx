@@ -89,37 +89,41 @@ function Brand({ footer = false }: { footer?: boolean }) {
   const gradientId = footer ? "fast-red-footer" : "fast-red-header";
   const gradientId2 = footer ? "fast-red2-footer" : "fast-red2-header";
   return (
-    <svg
-      viewBox="0 0 420 105"
-      role="img"
-      aria-label="Fast Drywall & Steel Frame"
-      className={`${footer ? "h-16 sm:h-[72px]" : "h-[70px] sm:h-[82px] lg:h-[92px]"} w-auto shrink-0`}
-    >
-      <defs>
-        <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ef2a2a" />
-          <stop offset="0.5" stopColor="#c20e18" />
-          <stop offset="1" stopColor="#75070d" />
-        </linearGradient>
-        <linearGradient id={gradientId2} x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#f33a3a" />
-          <stop offset="0.55" stopColor="#c10e17" />
-          <stop offset="1" stopColor="#7e080f" />
-        </linearGradient>
-      </defs>
-      <g transform="translate(8 7)">
-        <path d="M46 0 L92 46 L46 92 L0 46 Z" fill={`url(#${gradientId})`} />
-        <path d="M46 8 L84 46 L46 84 L8 46 Z" fill="#a20b13" />
-        <path d="M46 2 L90 46 L46 90 L2 46 Z" fill="none" stroke="#e31b23" strokeWidth="5" />
-        <path d="M46 2 V32 L31 46 L46 61 V90" fill="none" stroke="#ffffff" strokeWidth="7" strokeLinecap="square" strokeLinejoin="miter" />
-        <path d="M33 46 L46 33 L60 46 L46 59 Z" fill={`url(#${gradientId2})`} />
-      </g>
-      <g transform="translate(118 1)">
-        <text x="0" y="61" fontFamily="Impact, Haettenschweiler, 'Arial Narrow Bold', Arial, sans-serif" fontSize="72" fontWeight="900" fill="#050505" letterSpacing="-2">FAST</text>
-        <text x="3" y="82" fontFamily="Arial, Helvetica, sans-serif" fontSize="19" fontWeight="800" fill="#d71920">Drywall &amp;</text>
-        <text x="3" y="102" fontFamily="Arial, Helvetica, sans-serif" fontSize="19" fontWeight="800" fill="#d71920">Steel Frame</text>
-      </g>
-    </svg>
+    <div className="flex items-center gap-2.5 sm:gap-3">
+      <svg
+        viewBox="0 0 240 76"
+        role="img"
+        aria-label="Fast Drywall & Steel Frame"
+        className={`${footer ? "h-14 sm:h-16" : "h-10 sm:h-11 lg:h-12"} w-auto shrink-0`}
+      >
+        <defs>
+          <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#ff2828" />
+            <stop offset="50%" stopColor="#c50f17" />
+            <stop offset="100%" stopColor="#75060d" />
+          </linearGradient>
+          <linearGradient id={gradientId2} x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#ff3d3d" />
+            <stop offset="55%" stopColor="#c40e16" />
+            <stop offset="100%" stopColor="#7e080f" />
+          </linearGradient>
+        </defs>
+        {/* Diamond */}
+        <g transform="translate(4 4)">
+          <path d="M34 0 L68 34 L34 68 L0 34 Z" fill={`url(#${gradientId})`} />
+          <path d="M34 6 L62 34 L34 62 L6 34 Z" fill="#9f0b13" />
+          <path d="M34 2 L66 34 L34 66 L2 34 Z" fill="none" stroke="#e31b23" strokeWidth="3.5" />
+          <path d="M34 2 V24 L23 34 L34 45 V66" fill="none" stroke="#ffffff" strokeWidth="5.5" strokeLinecap="square" strokeLinejoin="miter" />
+          <path d="M24 34 L34 24 L44 34 L34 44 Z" fill={`url(#${gradientId2})`} />
+        </g>
+        {/* Text */}
+        <g transform="translate(82 2)">
+          <text x="0" y="44" fontFamily="'Arial Black', Impact, Haettenschweiler, sans-serif" fontSize="50" fontWeight="900" fill="#050505" letterSpacing="-1.5">FAST</text>
+          <text x="2" y="59" fontFamily="Arial, Helvetica, sans-serif" fontSize="13.5" fontWeight="900" fill="#d71920">Drywall &amp;</text>
+          <text x="2" y="73" fontFamily="Arial, Helvetica, sans-serif" fontSize="13.5" fontWeight="900" fill="#d71920">Steel Frame</text>
+        </g>
+      </svg>
+    </div>
   );
 }
 
@@ -144,12 +148,28 @@ function Index() {
     <div className="min-h-screen bg-white text-zinc-950 antialiased">
       <button type="button" onClick={scrollToForm} aria-label="Solicitar orçamento" title="Solicitar orçamento" className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-2xl transition hover:scale-110 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/40"><MessageCircle className="h-6 w-6" /></button>
 
-      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white shadow-[0_6px_22px_rgba(0,0,0,.06)]">
-        <div className="mx-auto flex h-[96px] max-w-[1540px] items-center justify-between px-5 sm:h-[108px] sm:px-8 lg:h-[118px] lg:px-12">
-          <a href="#inicio" aria-label="Fast Drywall início" className="shrink-0"><Brand /></a>
-          <nav className="hidden items-center gap-10 text-[14px] font-black text-zinc-800 lg:ml-auto lg:flex xl:gap-14 xl:text-[16px]"><a href="#sobre" className="transition hover:text-red-600">Sobre</a><a href="#servicos" className="transition hover:text-red-600">Soluções</a><a href="#steel-frame" className="transition hover:text-red-600">Steel Frame</a><a href="#avaliacoes" className="transition hover:text-red-600">Avaliações</a><a href="#localizacao" className="transition hover:text-red-600">Localização</a></nav>
+      <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white shadow-sm">
+        <div className="mx-auto flex h-[74px] sm:h-[78px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
+          <a href="#inicio" aria-label="Fast Drywall início" className="shrink-0">
+            <Brand />
+          </a>
+          <nav className="hidden items-center gap-8 text-[15px] font-bold text-zinc-900 md:flex lg:gap-12 xl:gap-14">
+            <a href="#sobre" className="transition-colors hover:text-red-600">Sobre</a>
+            <a href="#servicos" className="transition-colors hover:text-red-600">Soluções</a>
+            <a href="#steel-frame" className="transition-colors hover:text-red-600">Steel Frame</a>
+            <a href="#avaliacoes" className="transition-colors hover:text-red-600">Avaliações</a>
+            <a href="#localizacao" className="transition-colors hover:text-red-600">Localização</a>
+          </nav>
         </div>
-        <div className="border-t border-zinc-100 lg:hidden"><nav aria-label="Navegação principal" className="mx-auto flex max-w-[1380px] items-center gap-6 overflow-x-auto px-5 py-3 text-[12px] font-black text-zinc-700 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"><a href="#sobre" className="shrink-0 transition hover:text-red-600">Sobre</a><a href="#servicos" className="shrink-0 transition hover:text-red-600">Soluções</a><a href="#steel-frame" className="shrink-0 transition hover:text-red-600">Steel Frame</a><a href="#avaliacoes" className="shrink-0 transition hover:text-red-600">Avaliações</a><a href="#localizacao" className="shrink-0 transition hover:text-red-600">Localização</a></nav></div>
+        <div className="border-t border-zinc-100 md:hidden bg-white/95 backdrop-blur-sm">
+          <nav aria-label="Navegação principal móvel" className="mx-auto flex items-center justify-between gap-4 overflow-x-auto px-4 py-2.5 text-[13px] font-bold text-zinc-800 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <a href="#sobre" className="shrink-0 transition-colors hover:text-red-600">Sobre</a>
+            <a href="#servicos" className="shrink-0 transition-colors hover:text-red-600">Soluções</a>
+            <a href="#steel-frame" className="shrink-0 transition-colors hover:text-red-600">Steel Frame</a>
+            <a href="#avaliacoes" className="shrink-0 transition-colors hover:text-red-600">Avaliações</a>
+            <a href="#localizacao" className="shrink-0 transition-colors hover:text-red-600">Localização</a>
+          </nav>
+        </div>
       </header>
 
       <main>
@@ -164,7 +184,73 @@ function Index() {
 
         <section id="servicos" className="border-y border-zinc-200 bg-zinc-50 py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="text-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Soluções para sua obra</p><h2 className="mt-3 text-4xl font-black">Tudo que sua obra precisa em construção a seco.</h2></div><div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{solutions.map(({ title, image, text }) => <article key={title} className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div className="relative h-52 overflow-hidden"><img src={image} alt={`${title} em Vitória da Conquista`} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" /></div><div className="p-6"><h3 className="text-xl font-black">{title}</h3><p className="mt-3 text-sm leading-6 text-zinc-600">{text}</p></div></article>)}</div></div></section>
 
-        <section id="steel-frame" className="relative overflow-hidden bg-[linear-gradient(135deg,#8f0d14_0%,#c9141c_48%,#ef2931_100%)] py-14 text-white lg:py-16"><div className="relative mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.08fr_.92fr] lg:items-center lg:px-8"><div><p className="text-xs font-black uppercase tracking-[.28em] text-red-100">Steel Frame</p><h2 className="mt-2 max-w-[620px] text-4xl font-black leading-tight sm:text-[2.7rem]">Inovação que valoriza seu projeto.</h2><p className="mt-3 max-w-[650px] text-sm leading-6 text-red-50/90">Tecnologia construtiva para quem busca eficiência, precisão, organização e desempenho do início ao acabamento.</p><div className="mt-6 grid gap-3">{steelBenefits.map(({ icon: Icon, title, text }) => <div key={title} className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3.5"><div className="flex items-center gap-4"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-red-600 shadow-lg"><Icon className="h-[18px] w-[18px]" /></span><div><h3 className="text-sm font-black leading-5">{title}</h3><p className="mt-0.5 text-[12px] leading-5 text-red-50/85">{text}</p></div></div></div>)}</div></div><div id="formulario" className="scroll-mt-40 rounded-[24px] border border-white/10 bg-zinc-950/95 p-5 shadow-[0_24px_70px_rgba(0,0,0,.30)] lg:p-6"><div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-black uppercase tracking-[.25em] text-red-400">SOLICITE SEU ORÇAMENTO</p><h3 className="mt-2 text-[1.55rem] font-black leading-tight">Fale com a equipe da Fast Drywall.</h3><p className="mt-1 text-[12px] leading-5 text-zinc-400">Preencha seus dados e continue para o WhatsApp.</p></div><WhatsAppMark /></div><form onSubmit={submit} className="mt-5 space-y-3"><div className="relative"><User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input id="lead-name" required value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} /></div><div className="relative"><Phone className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input required value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="WhatsApp / contato" className={`${field} pl-11`} /></div><div className="relative"><Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" /><input required type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu e-mail" className={`${field} pl-11`} /></div><select required value={form.interest} onChange={(e) => set("interest", e.target.value)} className={field}><option value="" className="text-zinc-900">Selecione seu interesse</option><option className="text-zinc-900">Drywall</option><option className="text-zinc-900">Steel Frame</option><option className="text-zinc-900">Gesso e forros</option><option className="text-zinc-900">Perfis e acessórios</option><option className="text-zinc-900">Orçamento completo</option></select><button type="submit" disabled={!ready} className={`inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-black transition ${ready ? "bg-emerald-500 text-white hover:bg-emerald-400" : "cursor-not-allowed bg-white/10 text-zinc-500"}`}><MessageCircle className="h-4 w-4" /> Continuar para o WhatsApp <ArrowRight className="h-4 w-4" /></button></form></div></div></section>
+        <section id="steel-frame" className="relative overflow-hidden bg-[linear-gradient(135deg,#8f0d14_0%,#c9141c_48%,#ef2931_100%)] py-14 text-white lg:py-16">
+          <div className="relative mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.08fr_.92fr] lg:items-stretch lg:px-8">
+            <div className="flex flex-col justify-between">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[.28em] text-red-100">Steel Frame</p>
+                <h2 className="mt-2 text-3xl font-black leading-tight sm:text-4xl">Inovação que valoriza seu projeto.</h2>
+                <p className="mt-2 text-sm leading-relaxed text-red-50/90">Tecnologia construtiva para quem busca eficiência, precisão, organização e desempenho do início ao acabamento.</p>
+              </div>
+
+              <div className="my-auto grid gap-2.5 pt-4">
+                {steelBenefits.map(({ icon: Icon, title, text }) => (
+                  <div key={title} className="rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 transition hover:bg-white/[.15]">
+                    <div className="flex items-center gap-3.5">
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white text-red-600 shadow-md">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                      <div>
+                        <h3 className="text-sm font-black leading-snug">{title}</h3>
+                        <p className="text-[12px] leading-snug text-red-50/85">{text}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div id="formulario" className="scroll-mt-40 flex flex-col justify-between rounded-[24px] border border-white/10 bg-zinc-950/95 p-6 shadow-[0_24px_70px_rgba(0,0,0,.30)] lg:p-7">
+              <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[.25em] text-red-400">SOLICITE SEU ORÇAMENTO</p>
+                  <h3 className="mt-1.5 text-[1.45rem] font-black leading-tight text-white">Fale com a equipe da Fast Drywall.</h3>
+                  <p className="mt-1 text-[12px] leading-5 text-zinc-400">Preencha seus dados e continue para o WhatsApp.</p>
+                </div>
+                <WhatsAppMark />
+              </div>
+
+              <form onSubmit={submit} className="mt-4 space-y-3">
+                <div className="relative">
+                  <User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                  <input id="lead-name" required value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Seu nome" className={`${field} pl-11`} />
+                </div>
+                <div className="relative">
+                  <Phone className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                  <input required value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="WhatsApp / contato" className={`${field} pl-11`} />
+                </div>
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                  <input required type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="Seu e-mail" className={`${field} pl-11`} />
+                </div>
+                <div className="relative">
+                  <Package className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                  <select required value={form.interest} onChange={(e) => set("interest", e.target.value)} className={`${field} pl-11`}>
+                    <option value="" className="text-zinc-900">Selecione seu interesse</option>
+                    <option className="text-zinc-900">Drywall</option>
+                    <option className="text-zinc-900">Steel Frame</option>
+                    <option className="text-zinc-900">Gesso e forros</option>
+                    <option className="text-zinc-900">Perfis e acessórios</option>
+                    <option className="text-zinc-900">Orçamento completo</option>
+                  </select>
+                </div>
+                <button type="submit" disabled={!ready} className={`inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-black transition ${ready ? "bg-emerald-500 text-white hover:bg-emerald-400" : "cursor-not-allowed bg-white/10 text-zinc-500"}`}>
+                  <MessageCircle className="h-4 w-4" /> Continuar para o WhatsApp <ArrowRight className="h-4 w-4" />
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
 
         <section id="avaliacoes" className="bg-zinc-50 py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="text-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Reputação e confiança</p><h2 className="mt-3 text-4xl font-black">Clientes satisfeitos e atendimento que gera confiança.</h2></div><div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{reviews.map((r) => <article key={r.name} className="flex min-h-[250px] h-full flex-col rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm"><div className="flex gap-1 text-amber-500">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div><p className="mt-5 text-[17px] font-bold leading-8">“{r.text}”</p><div className="mt-auto flex items-center gap-4 pt-7"><img src={r.image} alt={r.name} className="h-12 w-12 rounded-full object-cover" /><p className="font-black">{r.name}</p></div></article>)}<a href={maps} onClick={(event) => handleExternal(event, maps)} className="flex min-h-[250px] h-full flex-col rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm" aria-label="Ver mais avaliações no Google"><div className="flex gap-1 text-amber-500">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div><p className="mt-5 text-[17px] font-bold leading-8">“Veja mais avaliações e experiências de clientes no Google.”</p></a></div></div></section>
 

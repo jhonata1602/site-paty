@@ -1,30 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="105" viewBox="0 0 420 105" role="img" aria-labelledby="title desc">
-  <title id="title">FAST Drywall &amp; Steel Frame</title>
-  <desc id="desc">Logo FAST conforme referência da fachada</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 76" role="img" aria-label="FAST Drywall &amp; Steel Frame">
   <defs>
     <linearGradient id="redA" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff2525"/>
-      <stop offset="0.45" stop-color="#cf1119"/>
-      <stop offset="1" stop-color="#780710"/>
+      <stop offset="0%" stop-color="#ff2828"/>
+      <stop offset="50%" stop-color="#c50f17"/>
+      <stop offset="100%" stop-color="#75060d"/>
     </linearGradient>
     <linearGradient id="redB" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ff4040"/>
-      <stop offset="0.55" stop-color="#c50d16"/>
-      <stop offset="1" stop-color="#8a0810"/>
+      <stop offset="0%" stop-color="#ff3d3d"/>
+      <stop offset="55%" stop-color="#c40e16"/>
+      <stop offset="100%" stop-color="#7e080f"/>
     </linearGradient>
   </defs>
-
-  <g transform="translate(8 7)">
-    <path d="M46 0 L92 46 L46 92 L0 46 Z" fill="url(#redA)"/>
-    <path d="M46 8 L84 46 L46 84 L8 46 Z" fill="#9f0b13"/>
-    <path d="M46 2 L90 46 L46 90 L2 46 Z" fill="none" stroke="#e31b23" stroke-width="5"/>
-    <path d="M46 2 V32 L31 46 L46 61 V90" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
-    <path d="M33 46 L46 33 L60 46 L46 59 Z" fill="url(#redB)"/>
+  <g transform="translate(4 4)">
+    <path d="M34 0 L68 34 L34 68 L0 34 Z" fill="url(#redA)"/>
+    <path d="M34 6 L62 34 L34 62 L6 34 Z" fill="#9f0b13"/>
+    <path d="M34 2 L66 34 L34 66 L2 34 Z" fill="none" stroke="#e31b23" stroke-width="3.5"/>
+    <path d="M34 2 V24 L23 34 L34 45 V66" fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter"/>
+    <path d="M24 34 L34 24 L44 34 L34 44 Z" fill="url(#redB)"/>
   </g>
-
-  <g transform="translate(118 1)">
-    <text x="0" y="61" font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', Arial, sans-serif" font-size="72" font-weight="900" fill="#050505" letter-spacing="-2">FAST</text>
-    <text x="3" y="82" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="800" fill="#d71920">Drywall &amp;</text>
-    <text x="3" y="102" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="800" fill="#d71920">Steel Frame</text>
+  <g transform="translate(82 2)">
+    <text x="0" y="44" font-family="'Arial Black', Impact, Haettenschweiler, sans-serif" font-size="50" font-weight="900" fill="#050505" letter-spacing="-1.5">FAST</text>
+    <text x="2" y="59" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="900" fill="#d71920">Drywall &amp;</text>
+    <text x="2" y="73" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="900" fill="#d71920">Steel Frame</text>
   </g>
 </svg>
