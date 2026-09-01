@@ -86,14 +86,14 @@ const steelBenefits = [
 ];
 
 function Brand({ footer = false }: { footer?: boolean }) {
-  const gradientId = footer ? "fast-emblem-footer" : "fast-emblem-header";
-  const gradientId2 = footer ? "fast-emblem2-footer" : "fast-emblem2-header";
+  const gradientId = footer ? "fast-red-footer" : "fast-red-header";
+  const gradientId2 = footer ? "fast-red2-footer" : "fast-red2-header";
   return (
     <svg
-      viewBox="0 0 100 100"
+      viewBox="0 0 420 105"
       role="img"
-      aria-label="Fast Drywall"
-      className={`${footer ? "h-[72px] w-[72px]" : "h-16 w-16"} shrink-0`}
+      aria-label="Fast Drywall & Steel Frame"
+      className={`${footer ? "h-16 sm:h-[72px]" : "h-14 sm:h-16"} w-auto shrink-0`}
     >
       <defs>
         <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
@@ -107,11 +107,18 @@ function Brand({ footer = false }: { footer?: boolean }) {
           <stop offset="1" stopColor="#7e080f" />
         </linearGradient>
       </defs>
-      <path d="M50 2 L98 50 L50 98 L2 50 Z" fill={`url(#${gradientId})`} />
-      <path d="M50 10 L90 50 L50 90 L10 50 Z" fill="#a20b13" />
-      <path d="M50 3 L96 50 L50 97 L4 50 Z" fill="none" stroke="#e31b23" strokeWidth="5" />
-      <path d="M50 2 V34 L35 50 L50 64 V98" fill="none" stroke="#ffffff" strokeWidth="7" strokeLinecap="square" strokeLinejoin="miter" />
-      <path d="M36 50 L50 35 L65 50 L50 64 Z" fill={`url(#${gradientId2})`} />
+      <g transform="translate(8 7)">
+        <path d="M46 0 L92 46 L46 92 L0 46 Z" fill={`url(#${gradientId})`} />
+        <path d="M46 8 L84 46 L46 84 L8 46 Z" fill="#a20b13" />
+        <path d="M46 2 L90 46 L46 90 L2 46 Z" fill="none" stroke="#e31b23" strokeWidth="5" />
+        <path d="M46 2 V32 L31 46 L46 61 V90" fill="none" stroke="#ffffff" strokeWidth="7" strokeLinecap="square" strokeLinejoin="miter" />
+        <path d="M33 46 L46 33 L60 46 L46 59 Z" fill={`url(#${gradientId2})`} />
+      </g>
+      <g transform="translate(118 1)">
+        <text x="0" y="61" fontFamily="Impact, Haettenschweiler, 'Arial Narrow Bold', Arial, sans-serif" fontSize="72" fontWeight="900" fill="#050505" letterSpacing="-2">FAST</text>
+        <text x="3" y="82" fontFamily="Arial, Helvetica, sans-serif" fontSize="19" fontWeight="800" fill="#d71920">Drywall &amp;</text>
+        <text x="3" y="102" fontFamily="Arial, Helvetica, sans-serif" fontSize="19" fontWeight="800" fill="#d71920">Steel Frame</text>
+      </g>
     </svg>
   );
 }
@@ -141,7 +148,7 @@ function Index() {
         <div className="mx-auto flex h-[84px] max-w-[1380px] items-center justify-between px-5 lg:px-8">
           <a href="#inicio" aria-label="Fast Drywall início" className="shrink-0"><Brand /></a>
           <nav className="hidden items-center gap-10 text-[13px] font-bold text-zinc-600 lg:flex"><a href="#sobre" className="transition hover:text-red-600">Sobre</a><a href="#servicos" className="transition hover:text-red-600">Soluções</a><a href="#steel-frame" className="transition hover:text-red-600">Steel Frame</a><a href="#avaliacoes" className="transition hover:text-red-600">Avaliações</a><a href="#localizacao" className="transition hover:text-red-600">Localização</a></nav>
-          <div className="w-16 lg:w-16" aria-hidden="true" />
+          <div className="w-10 lg:w-[250px]" aria-hidden="true" />
         </div>
         <div className="border-t border-zinc-100 lg:hidden"><nav aria-label="Navegação principal" className="mx-auto flex max-w-[1380px] items-center gap-6 overflow-x-auto px-5 py-3 text-[12px] font-black text-zinc-600 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"><a href="#sobre" className="shrink-0 transition hover:text-red-600">Sobre</a><a href="#servicos" className="shrink-0 transition hover:text-red-600">Soluções</a><a href="#steel-frame" className="shrink-0 transition hover:text-red-600">Steel Frame</a><a href="#avaliacoes" className="shrink-0 transition hover:text-red-600">Avaliações</a><a href="#localizacao" className="shrink-0 transition hover:text-red-600">Localização</a></nav></div>
       </header>
