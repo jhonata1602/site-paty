@@ -155,12 +155,10 @@ function Index() {
             rel="noopener noreferrer"
             onClick={(event) => handleExternal(event, budgetUrl)}
             aria-label="Solicitar orçamento pelo WhatsApp"
-            className="group absolute bottom-[10.4%] left-[3.5%] z-10 flex h-[8.0%] w-[20.3%] cursor-pointer items-center justify-center rounded-full bg-transparent text-transparent text-[clamp(9px,1.25vw,17px)] font-black leading-none transition-all duration-300 ease-in-out hover:bg-[#25D366] hover:text-white hover:shadow-2xl hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-400/60"
+            className="absolute bottom-[10.4%] left-[3.5%] z-10 flex h-[8.0%] w-[20.3%] cursor-pointer items-center justify-center gap-2 rounded-full bg-[#d71920] px-2 font-black text-white text-[clamp(9px,1.25vw,17px)] leading-none shadow-lg transition-all duration-300 ease-in-out hover:scale-[1.03] hover:bg-[#25D366] hover:shadow-2xl hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-400/60"
           >
-            <span className="flex items-center gap-1.5 truncate px-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <Phone className="h-3.5 w-3.5 shrink-0 -rotate-12 fill-current" />
-              <span>Solicitar orçamento</span>
-            </span>
+            <Phone className="h-[1.1em] w-[1.1em] shrink-0 -rotate-12 fill-current" />
+            <span className="truncate">Solicitar orçamento</span>
           </a>
           <a
             href="#servicos"
