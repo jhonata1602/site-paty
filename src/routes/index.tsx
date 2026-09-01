@@ -32,7 +32,6 @@ import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
-import heroSteelFrame from "@/assets/hero-steel-frame.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -59,7 +58,7 @@ export const Route = createFileRoute("/")({
 });
 
 const phone = "5577988560246";
-const heroImage = heroSteelFrame.url;
+const heroImage = "/hero-primeira-dobra.png";
 const maps = "https://maps.app.goo.gl/eiki7GtC96wXzcgHA";
 const instagram = "https://www.instagram.com/fastdrywall.vitoriaconquista/";
 const facebook = "https://www.facebook.com/fastdrywall.vitconquista.ba";
@@ -141,27 +140,11 @@ function Index() {
       </header>
 
       <main>
-        <section id="inicio" className="relative min-h-[700px] overflow-hidden bg-[#0c1114] text-white lg:min-h-[720px]">
-          <div className="absolute inset-0 overflow-hidden bg-[#11171a]">
-            <img src={heroImage} alt="Profissional Fast Drywall instalando sistema de construção a seco" className="absolute inset-0 h-full w-full scale-[1.025] object-cover object-[72%_center]" style={{ filter: "none", imageRendering: "auto" }} />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,11,14,.98)_0%,rgba(7,13,16,.95)_30%,rgba(8,14,17,.78)_48%,rgba(8,14,17,.34)_64%,rgba(8,14,17,.04)_82%)]" />
-          </div>
-          <div className="relative mx-auto flex min-h-[700px] max-w-[1380px] items-center px-5 py-12 sm:px-7 lg:min-h-[720px] lg:px-8">
-            <div className="w-full max-w-[660px] lg:max-w-[690px]">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/20 px-4 py-2.5"><span className="text-red-500">✦</span><span className="text-[12px] font-bold text-white">Especialistas em construção a seco</span></div>
-              <h1 className="mt-7 text-[2.75rem] font-black leading-[.98] tracking-[-.045em] text-white sm:text-[3.65rem] lg:text-[4.55rem]">Construir com<br />inteligência é<br />construir com a<br /><span className="text-red-500">Fast Drywall.</span></h1>
-              <p className="mt-6 max-w-[625px] text-[15px] font-medium leading-7 text-zinc-100 sm:text-[16px] sm:leading-8">Materiais e soluções em drywall, steel frame, gesso, forros, placas, perfis e acessórios para uma obra mais rápida, limpa, organizada e com excelente acabamento.</p>
-              <div className="mt-7 grid max-w-[610px] grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-                {[{ icon: Gauge, title: "Execução", second: "Rápida" }, { icon: ShieldCheck, title: "Alta", second: "Qualidade" }, { icon: Layers3, title: "Sistemas", second: "Modernos" }].map(({ icon: Icon, title, second }) => (
-                  <div key={`${title}-${second}`} className="flex items-center gap-3"><span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-white/30 bg-black/20 text-red-500"><Icon className="h-6 w-6" strokeWidth={2.7} /></span><p className="text-[14px] font-bold leading-5 text-zinc-100">{title}<br /><span className="font-medium text-zinc-300">{second}</span></p></div>
-                ))}
-              </div>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-5">
-                <button type="button" onClick={scrollToForm} className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-red-600 px-8 text-[15px] font-black text-white shadow-[0_14px_38px_rgba(220,38,38,.28)] transition hover:-translate-y-0.5 hover:bg-red-500">Solicitar orçamento <ArrowRight className="h-5 w-5" /></button>
-                <a href="#servicos" className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full border border-white/55 bg-black/30 px-8 text-[15px] font-black text-white transition hover:-translate-y-0.5 hover:bg-white/10">Ver soluções <ArrowRight className="h-5 w-5" /></a>
-              </div>
-            </div>
-          </div>
+        <section id="inicio" className="relative aspect-[16/9] overflow-hidden bg-zinc-950">
+          <img src={heroImage} alt="Fast Drywall: construir com inteligência" className="absolute inset-0 h-full w-full object-cover" />
+          <h1 className="sr-only">Construir com inteligência é construir com a Fast Drywall.</h1>
+          <button type="button" onClick={scrollToForm} aria-label="Solicitar orçamento" className="absolute bottom-[9.5%] left-[4.8%] h-[7.6%] w-[20%] rounded-full bg-transparent text-transparent focus:outline-none focus:ring-4 focus:ring-red-500/70">Solicitar orçamento</button>
+          <a href="#servicos" aria-label="Ver soluções" className="absolute bottom-[9.5%] left-[26%] h-[7.6%] w-[16.5%] rounded-full bg-transparent text-transparent focus:outline-none focus:ring-4 focus:ring-white/70">Ver soluções</a>
         </section>
 
         <section id="sobre" className="py-20 lg:py-24"><div className="mx-auto grid max-w-7xl items-stretch gap-12 px-5 lg:grid-cols-2 lg:px-8"><div className="flex w-full items-center justify-center overflow-hidden rounded-3xl bg-white shadow-2xl lg:min-h-[560px]"><img src={storeImg} alt="Fachada da Fast Drywall em Vitória da Conquista" className="block h-auto max-h-[560px] w-full object-contain" /></div><div className="flex h-full flex-col justify-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Quem somos</p><h2 className="mt-3 text-4xl font-black sm:text-5xl">Sua obra começa com a escolha certa.</h2><p className="mt-6 text-base leading-8 text-zinc-600">A Fast Drywall &amp; Steel Frame VCA é uma loja especializada em materiais e soluções para construção a seco em Vitória da Conquista. Trabalhamos com drywall, steel frame, placas, gesso, forros, perfis e acessórios, com atendimento especializado, variedade de produtos e suporte para sua obra.</p><div className="mt-8 grid gap-4 sm:grid-cols-2">{[{ icon: ShieldCheck, title: "Produtos de qualidade" }, { icon: Package, title: "Estoque completo" }, { icon: Users, title: "Equipe especializada" }, { icon: MessageCircle, title: "Suporte para sua obra" }].map(({ icon: Icon, title }) => <div key={title} className="rounded-2xl border border-zinc-200 bg-white/90 p-5 transition hover:-translate-y-1 hover:shadow-xl"><Icon className="h-6 w-6 text-red-600" /><p className="mt-4 font-black">{title}</p></div>)}</div></div></div></section>
