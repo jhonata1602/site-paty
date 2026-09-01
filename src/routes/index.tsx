@@ -149,7 +149,16 @@ function Index() {
         <section id="inicio" className="relative aspect-[16/9] overflow-hidden bg-zinc-950">
           <img src={heroImage} alt="Fast Drywall: construir com inteligência" className="absolute inset-0 h-full w-full object-cover" />
           <h1 className="sr-only">Construir com inteligência é construir com a Fast Drywall.</h1>
-          <a href={budgetUrl} onClick={(event) => handleExternal(event, budgetUrl)} aria-label="Solicitar orçamento pelo WhatsApp" className="absolute bottom-[9.5%] left-[4.8%] h-[7.6%] w-[20%] rounded-full bg-transparent text-transparent focus:outline-none focus:ring-4 focus:ring-red-500/70">Solicitar orçamento</a>
+          <a
+            href={budgetUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(event) => handleExternal(event, budgetUrl)}
+            aria-label="Solicitar orçamento pelo WhatsApp"
+            className="absolute bottom-[9.5%] left-[4.8%] flex h-[7.6%] w-[20%] cursor-pointer items-center justify-center rounded-full bg-transparent text-transparent text-xs sm:text-sm md:text-base lg:text-lg font-black transition-all duration-300 ease-in-out hover:scale-[1.03] hover:bg-[#25D366] hover:text-white hover:shadow-2xl hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-400/60"
+          >
+            Solicitar orçamento
+          </a>
           <a href="#servicos" aria-label="Ver soluções" className="absolute bottom-[9.5%] left-[26%] h-[7.6%] w-[16.5%] rounded-full bg-transparent text-transparent focus:outline-none focus:ring-4 focus:ring-white/70">Ver soluções</a>
         </section>
 
@@ -158,7 +167,7 @@ function Index() {
         <section id="servicos" className="border-y border-zinc-200 bg-zinc-50 py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="text-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Soluções para sua obra</p><h2 className="mt-3 text-4xl font-black">Tudo que sua obra precisa em construção a seco.</h2></div><div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{solutions.map(({ title, image, text }) => <article key={title} className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div className="relative h-52 overflow-hidden"><img src={image} alt={`${title} em Vitória da Conquista`} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" /></div><div className="p-6"><h3 className="text-xl font-black">{title}</h3><p className="mt-3 text-sm leading-6 text-zinc-600">{text}</p></div></article>)}</div></div></section>
 
         <section id="steel-frame" className="relative overflow-hidden bg-[linear-gradient(135deg,#8f0d14_0%,#c9141c_48%,#ef2931_100%)] py-14 text-white lg:py-16">
-          <div className="relative mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.08fr_.92fr] lg:items-center lg:px-8">
+          <div className="relative mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.1fr_.9fr] lg:items-stretch lg:gap-10 lg:px-8">
             <div className="flex flex-col justify-between">
               <div>
                 <p className="text-xs font-black uppercase tracking-[.28em] text-red-100">Steel Frame</p>
@@ -166,16 +175,16 @@ function Index() {
                 <p className="mt-2 text-sm leading-relaxed text-red-50/90">Tecnologia construtiva para quem busca eficiência, precisão, organização e desempenho do início ao acabamento.</p>
               </div>
 
-              <div className="mt-6 space-y-3">
+              <div className="my-auto grid gap-3 pt-5 sm:pt-6">
                 {steelBenefits.map(({ icon: Icon, title, text }) => (
                   <div
                     key={title}
-                    className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/10 px-4 py-3.5 shadow-sm transition hover:bg-white/[.15] sm:px-5"
+                    className="flex min-h-[72px] w-full items-center gap-4 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-sm transition hover:bg-white/[.15] sm:px-5"
                   >
                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white text-red-600 shadow-md">
                       <Icon className="h-5 w-5 shrink-0" strokeWidth={2.2} />
                     </span>
-                    <div className="min-w-0 flex-1">
+                    <div className="min-w-0 flex-1 flex flex-col justify-center">
                       <h3 className="text-sm font-black leading-snug text-white sm:text-[15px]">{title}</h3>
                       <p className="mt-0.5 text-xs leading-snug text-red-50/90 sm:text-[13px]">{text}</p>
                     </div>
