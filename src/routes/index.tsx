@@ -32,7 +32,6 @@ import storeImg from "@/assets/fast-store-premium.jpg";
 import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
-import heroPrimeiraDobra from "@/assets/hero-primeira-dobra.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -59,7 +58,7 @@ export const Route = createFileRoute("/")({
 });
 
 const phone = "5577988560246";
-const heroImage = heroPrimeiraDobra.url;
+const heroImage = "/hero-primeira-dobra.png";
 const maps = "https://maps.app.goo.gl/eiki7GtC96wXzcgHA";
 const instagram = "https://www.instagram.com/fastdrywall.vitoriaconquista/";
 const facebook = "https://www.facebook.com/fastdrywall.vitconquista.ba";
