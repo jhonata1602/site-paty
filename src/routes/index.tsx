@@ -119,7 +119,17 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-white text-zinc-950 antialiased">
-      <button type="button" onClick={scrollToForm} aria-label="Solicitar orçamento" title="Solicitar orçamento" className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-2xl transition hover:scale-110 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/40"><MessageCircle className="h-6 w-6" /></button>
+      <a
+        href={budgetUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(event) => handleExternal(event, budgetUrl)}
+        aria-label="Fale conosco no WhatsApp"
+        title="Fale conosco no WhatsApp"
+        className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 cursor-pointer place-items-center rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-[250ms] ease-in-out hover:scale-105 hover:bg-[#20bd5a] hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-300/60"
+      >
+        <Phone className="h-6 w-6 -rotate-12 fill-current" />
+      </a>
 
       <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white shadow-sm">
         <div className="mx-auto flex h-[74px] sm:h-[78px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
