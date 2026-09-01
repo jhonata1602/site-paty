@@ -146,8 +146,8 @@ function Index() {
       </header>
 
       <main>
-        <section id="inicio" className="relative aspect-[16/9] overflow-hidden bg-zinc-950">
-          <img src={heroImage} alt="Fast Drywall: construir com inteligência" className="absolute inset-0 h-full w-full object-cover" />
+        <section id="inicio" className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-950">
+          <img src={heroImage} alt="Fast Drywall: construir com inteligência" className="absolute inset-0 h-full w-full object-contain object-center" />
           <h1 className="sr-only">Construir com inteligência é construir com a Fast Drywall.</h1>
           <a
             href={budgetUrl}
@@ -155,11 +155,11 @@ function Index() {
             rel="noopener noreferrer"
             onClick={(event) => handleExternal(event, budgetUrl)}
             aria-label="Solicitar orçamento pelo WhatsApp"
-            className="absolute bottom-[9.5%] left-[4.8%] z-10 flex h-[7.6%] w-[20%] cursor-pointer items-center justify-center rounded-full bg-[#d71920] font-black text-white text-[clamp(11px,1.25vw,17px)] shadow-lg transition-all duration-300 ease-in-out hover:scale-[1.03] hover:bg-[#25D366] hover:shadow-2xl hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-400/60"
+            className="absolute bottom-[9.5%] left-[4.8%] z-10 flex h-[7.6%] w-[20%] cursor-pointer items-center justify-center rounded-full bg-[#d71920] font-black text-white text-[clamp(9px,1.25vw,17px)] leading-none shadow-lg transition-all duration-300 ease-in-out hover:scale-[1.03] hover:bg-[#25D366] hover:shadow-2xl hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-400/60"
           >
-            Solicitar orçamento
+            <span className="truncate px-1">Solicitar orçamento</span>
           </a>
-          <a href="#servicos" aria-label="Ver soluções" className="absolute bottom-[9.5%] left-[26%] h-[7.6%] w-[16.5%] rounded-full bg-transparent text-transparent focus:outline-none focus:ring-4 focus:ring-white/70">Ver soluções</a>
+          <a href="#servicos" aria-label="Ver soluções" className="absolute bottom-[9.5%] left-[26%] z-10 flex h-[7.6%] w-[16.5%] cursor-pointer items-center justify-center rounded-full bg-transparent text-transparent focus:outline-none focus:ring-4 focus:ring-white/70">Ver soluções</a>
         </section>
 
         <section id="sobre" className="py-20 lg:py-24"><div className="mx-auto grid max-w-7xl items-stretch gap-12 px-5 lg:grid-cols-2 lg:px-8"><div className="flex w-full items-center justify-center overflow-hidden rounded-3xl bg-white shadow-2xl lg:min-h-[560px]"><img src={storeImg} alt="Fachada da Fast Drywall em Vitória da Conquista" className="block h-auto max-h-[560px] w-full object-contain" /></div><div className="flex h-full flex-col justify-center"><p className="text-xs font-black uppercase tracking-[.25em] text-red-600">Quem somos</p><h2 className="mt-3 text-4xl font-black sm:text-5xl">Sua obra começa com a escolha certa.</h2><p className="mt-6 text-base leading-8 text-zinc-600">A Fast Drywall &amp; Steel Frame VCA é uma loja especializada em materiais e soluções para construção a seco em Vitória da Conquista. Trabalhamos com drywall, steel frame, placas, gesso, forros, perfis e acessórios, com atendimento especializado, variedade de produtos e suporte para sua obra.</p><div className="mt-8 grid gap-4 sm:grid-cols-2">{[{ icon: ShieldCheck, title: "Produtos de qualidade" }, { icon: Package, title: "Estoque completo" }, { icon: Users, title: "Equipe especializada" }, { icon: MessageCircle, title: "Suporte para sua obra" }].map(({ icon: Icon, title }) => <div key={title} className="rounded-2xl border border-zinc-200 bg-white/90 p-5 transition hover:-translate-y-1 hover:shadow-xl"><Icon className="h-6 w-6 text-red-600" /><p className="mt-4 font-black">{title}</p></div>)}</div></div></div></section>
