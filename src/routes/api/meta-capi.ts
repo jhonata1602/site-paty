@@ -10,6 +10,10 @@ type CapiPayload = {
     phone?: string;
     firstName?: string;
   };
+  browserIds?: {
+    fbp?: string;
+    fbc?: string;
+  };
 };
 
 const PIXEL_ID = "1134825301849821";
@@ -92,7 +96,11 @@ export const Route = createFileRoute("/api/meta-capi")({
           return Response.json({ ok: false, error: "Missing eventName or eventId" }, { status: 400 });
         }
 
-        const forwardedFor = request.headers.get("x-forwarded-for") || "";
+        const forwardedFor =
+          request.headers.get("x-forwarded-for") ||
+          request.headers.get("x-real-ip") ||
+          request.headers.get("x-vercel-forwarded-for") ||
+          "";
         const clientIp = forwardedFor.split(",")[0]?.trim() || undefined;
         const userAgent = request.headers.get("user-agent") || undefined;
 
@@ -108,6 +116,8 @@ export const Route = createFileRoute("/api/meta-capi")({
         if (em) userData.em = [em];
         if (ph) userData.ph = [ph];
         if (fn) userData.fn = [fn];
+        if (body.browserIds?.fbp) userData.fbp = body.browserIds.fbp;
+        if (body.browserIds?.fbc) userData.fbc = body.browserIds.fbc;
         if (clientIp) userData.client_ip_address = clientIp;
         if (userAgent) userData.client_user_agent = userAgent;
 
