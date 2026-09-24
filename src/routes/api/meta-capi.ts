@@ -62,6 +62,7 @@ export const Route = createFileRoute("/api/meta-capi")({
         if (userAgent) userData.client_user_agent = userAgent;
 
         const payload = {
+          test_event_code: "TEST89923",
           data: [
             {
               event_name: eventName,
