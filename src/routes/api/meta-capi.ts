@@ -23,6 +23,56 @@ const hash = (value?: string) => {
 export const Route = createFileRoute("/api/meta-capi")({
   server: {
     handlers: {
+      GET: async ({ request }) => {
+        const accessToken = process.env.META_CONVERSIONS_API_TOKEN;
+        const graphVersion = process.env.META_GRAPH_API_VERSION || "v24.0";
+
+        if (!accessToken) {
+          return Response.json(
+            { ok: false, stage: "env", error: "META_CONVERSIONS_API_TOKEN is not configured" },
+            { status: 503 },
+          );
+        }
+
+        const eventId = `diagnostic_${Date.now()}`;
+        const payload = {
+          test_event_code: "TEST89923",
+          data: [
+            {
+              event_name: "PageView",
+              event_time: Math.floor(Date.now() / 1000),
+              event_id: eventId,
+              action_source: "website",
+              event_source_url: "https://www.fastdrywallsteelframevca.com/",
+              user_data: {
+                client_user_agent: request.headers.get("user-agent") || "Vercel CAPI diagnostic",
+              },
+            },
+          ],
+        };
+
+        const response = await fetch(
+          `https://graph.facebook.com/${graphVersion}/${PIXEL_ID}/events?access_token=${encodeURIComponent(accessToken)}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          },
+        );
+
+        const result = await response.json().catch(() => ({}));
+
+        return Response.json(
+          {
+            ok: response.ok,
+            stage: "meta",
+            status: response.status,
+            eventId,
+            meta: result,
+          },
+          { status: response.ok ? 200 : 502 },
+        );
+      },
       POST: async ({ request }) => {
         const accessToken = process.env.META_CONVERSIONS_API_TOKEN;
         const graphVersion = process.env.META_GRAPH_API_VERSION || "v24.0";
