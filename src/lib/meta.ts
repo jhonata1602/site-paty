@@ -10,6 +10,14 @@ export const META_PIXEL_ID = "1134825301849821";
 const makeEventId = () =>
   `evt_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
 
+const readCookie = (name: string) => {
+  if (typeof document === "undefined") return undefined;
+  const item = document.cookie
+    .split("; ")
+    .find((part) => part.startsWith(`${name}=`));
+  return item ? decodeURIComponent(item.slice(name.length + 1)) : undefined;
+};
+
 export async function trackMetaEvent(
   eventName: "PageView" | "Lead" | "Contact",
   userData?: {
@@ -34,6 +42,10 @@ export async function trackMetaEvent(
         eventId,
         eventSourceUrl: window.location.href,
         userData,
+        browserIds: {
+          fbp: readCookie("_fbp"),
+          fbc: readCookie("_fbc"),
+        },
       }),
     }).catch(() => {
       // Tracking must never interrupt the user experience.
