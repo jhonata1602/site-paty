@@ -33,6 +33,7 @@ import av1 from "@/assets/av-1.jpg";
 import av2 from "@/assets/av-2.jpg";
 import av3 from "@/assets/av-3.jpg";
 import fastLogo from "@/assets/fast-logo-original.svg";
+import { trackMetaEvent } from "@/lib/meta";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -135,9 +136,23 @@ function Index() {
   const budgetUrl = wa("Quero solicitar um orçamento para minha obra.");
   const openExternal = (url: string) => { const opened = window.open(url, "_blank", "noopener,noreferrer"); if (!opened) window.location.assign(url); };
   const handleExternal = (event: MouseEvent<HTMLAnchorElement>, url: string) => { event.preventDefault(); openExternal(url); };
+  const handleWhatsApp = (event: MouseEvent<HTMLAnchorElement>, url: string) => {
+    event.preventDefault();
+    void trackMetaEvent("Contact");
+    openExternal(url);
+  };
   const scrollToForm = () => { const target = document.getElementById("formulario"); if (!target) return; const targetTop = target.getBoundingClientRect().top + window.scrollY - 145; window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" }); window.setTimeout(() => document.getElementById("lead-name")?.focus({ preventScroll: true }), 650); };
   const set = (key: keyof typeof form, value: string) => setForm((prev) => ({ ...prev, [key]: value }));
-  const submit = (e: FormEvent) => { e.preventDefault(); if (ready) openExternal(leadUrl); };
+  const submit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!ready) return;
+    void trackMetaEvent("Lead", {
+      email: form.email,
+      phone: form.phone,
+      firstName: form.name.trim().split(/\\s+/)[0],
+    });
+    openExternal(leadUrl);
+  };
   const field = "h-11 w-full rounded-xl border border-white/10 bg-white/[.07] px-4 text-sm text-white placeholder:text-zinc-400 outline-none transition focus:border-red-500 focus:bg-white/[.1]";
 
   return (
@@ -146,7 +161,7 @@ function Index() {
         href={budgetUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={(event) => handleExternal(event, budgetUrl)}
+        onClick={(event) => handleWhatsApp(event, budgetUrl)}
         aria-label="Fale conosco no WhatsApp"
         title="Fale conosco no WhatsApp"
         className="fixed bottom-6 right-6 z-[70] grid h-14 w-14 cursor-pointer place-items-center rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-[250ms] ease-in-out hover:scale-105 hover:bg-[#20bd5a] hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-300/60"
@@ -186,7 +201,7 @@ function Index() {
             href={budgetUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(event) => handleExternal(event, budgetUrl)}
+            onClick={(event) => handleWhatsApp(event, budgetUrl)}
             aria-label="Solicitar orçamento pelo WhatsApp"
             className="absolute bottom-[10.4%] left-[3.5%] z-10 flex h-[8.0%] w-[20.3%] cursor-pointer items-center justify-center gap-2 rounded-full bg-[#d71920] px-2 font-black text-white text-[clamp(9px,1.25vw,17px)] leading-none shadow-lg transition-all duration-300 ease-in-out hover:scale-[1.03] hover:bg-[#25D366] hover:shadow-2xl hover:shadow-emerald-500/50 focus:outline-none focus:ring-4 focus:ring-emerald-400/60"
           >
