@@ -18,6 +18,33 @@ const readCookie = (name: string) => {
   return item ? decodeURIComponent(item.slice(name.length + 1)) : undefined;
 };
 
+const buildFbcFromUrl = () => {
+  if (typeof window === "undefined") return undefined;
+  const fbclid = new URLSearchParams(window.location.search).get("fbclid");
+  if (!fbclid) return undefined;
+
+  const fbc = `fb.1.${Date.now()}.${fbclid}`;
+  document.cookie = `_fbc=${encodeURIComponent(fbc)}; Max-Age=7776000; Path=/; SameSite=Lax`;
+  return fbc;
+};
+
+const getBrowserIds = () => ({
+  fbp: readCookie("_fbp"),
+  fbc: readCookie("_fbc") || buildFbcFromUrl(),
+});
+
+const waitForBrowserIds = async (eventName: "PageView" | "Lead" | "Contact") => {
+  if (eventName !== "PageView") return getBrowserIds();
+
+  for (let attempt = 0; attempt < 15; attempt += 1) {
+    const ids = getBrowserIds();
+    if (ids.fbp) return ids;
+    await new Promise((resolve) => window.setTimeout(resolve, 100));
+  }
+
+  return getBrowserIds();
+};
+
 export async function trackMetaEvent(
   eventName: "PageView" | "Lead" | "Contact",
   userData?: {
@@ -33,21 +60,23 @@ export async function trackMetaEvent(
   }
 
   if (typeof window !== "undefined") {
-    void fetch("/api/meta-capi", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      keepalive: true,
-      body: JSON.stringify({
-        eventName,
-        eventId,
-        eventSourceUrl: window.location.href,
-        userData,
-        browserIds: {
-          fbp: readCookie("_fbp"),
-          fbc: readCookie("_fbc"),
-        },
-      }),
-    }).catch(() => {
+    const eventSourceUrl = window.location.href;
+    void (async () => {
+      const browserIds = await waitForBrowserIds(eventName);
+
+      await fetch("/api/meta-capi", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        keepalive: true,
+        body: JSON.stringify({
+          eventName,
+          eventId,
+          eventSourceUrl,
+          userData,
+          browserIds,
+        }),
+      });
+    })().catch(() => {
       // Tracking must never interrupt the user experience.
     });
   }
